@@ -64,24 +64,61 @@ body {
 
 .hero-title {
     margin-bottom: 3rem;
+    position: relative;
+    padding: 2rem 0;
+}
+
+.hero-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #667eea, transparent);
+    border-radius: 2px;
 }
 
 .jp-text {
     display: block;
-    font-family: 'Noto Serif JP', serif;
-    font-size: 2rem;
-    font-weight: 300;
-    letter-spacing: 0.3em;
-    opacity: 0.9;
+    font-family: 'Yuji Boku', 'Shippori Mincho', 'Noto Serif JP', serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    opacity: 0.95;
     animation: fadeInDown 0.8s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
 }
 
 .main-text {
     display: block;
-    font-size: 4rem;
-    font-weight: 700;
+    font-family: 'Shippori Mincho', 'Noto Serif JP', serif;
+    font-size: 5.5rem;
+    font-weight: 800;
     margin-top: 0.5rem;
     animation: fadeInUp 0.8s ease 0.2s backwards;
+    letter-spacing: 0.05em;
+    background: linear-gradient(180deg, #ffffff 0%, #f0f0f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+}
+
+.main-text::before {
+    content: 'Japonya 2026';
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: blur(8px);
+    opacity: 0.6;
 }
 
 @keyframes fadeInDown {
@@ -1067,8 +1104,12 @@ body {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .jp-text {
+        font-size: 2rem;
+    }
+    
     .main-text {
-        font-size: 2.5rem;
+        font-size: 3rem;
     }
     
     .countdown-unit {
