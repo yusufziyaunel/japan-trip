@@ -1,0 +1,658 @@
+/* ============================================
+   GEZİ DEFTERİ - GALERY STYLES
+   ============================================ */
+
+/* Detay Sayfası Genel */
+.day-detail-page {
+    background: #0a0e27;
+    color: white;
+    min-height: 100vh;
+}
+
+/* Navigation Bar */
+.detail-nav {
+    position: sticky;
+    top: 0;
+    background: rgba(10, 14, 39, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.btn-back, .btn-next {
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-back:hover, .btn-next:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.day-navigation {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Hero Section */
+.day-hero {
+    position: relative;
+    height: 60vh;
+    min-height: 400px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+}
+
+.day-label {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.day-title {
+    font-family: 'Shippori Mincho', 'Noto Serif JP', serif;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 0.5rem 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.day-date {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 2rem;
+}
+
+.day-stats {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.day-stats .stat {
+    padding: 0.8rem 1.5rem;
+    background: rgba(255,255,255,0.15);
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    font-size: 1rem;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Day Summary */
+.day-summary {
+    padding: 4rem 2rem;
+    background: linear-gradient(180deg, rgba(10,14,39,1) 0%, rgba(20,24,49,1) 100%);
+}
+
+.day-summary h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.story-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 3rem;
+    text-align: justify;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.highlight-box {
+    background: rgba(255,255,255,0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.highlight-box:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+}
+
+.highlight-box .icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.highlight-box h4 {
+    color: #667eea;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.highlight-box p {
+    color: rgba(255,255,255,0.8);
+    line-height: 1.6;
+}
+
+/* Timeline Detailed */
+.timeline-detailed {
+    padding: 4rem 2rem;
+    background: rgba(10,14,39,1);
+}
+
+.time-block {
+    margin-bottom: 4rem;
+}
+
+.time-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+}
+
+.time-icon {
+    font-size: 2.5rem;
+}
+
+.activity-detail {
+    background: rgba(255,255,255,0.03);
+    border-left: 3px solid #667eea;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 0 15px 15px 0;
+    transition: all 0.3s ease;
+}
+
+.activity-detail:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+.activity-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.time-badge {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.activity-header h4 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.activity-story {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 2rem;
+}
+
+/* Photo Gallery */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.photo-gallery.grid-2 {
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+.photo-gallery.grid-4 {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.photo-item {
+    position: relative;
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.05);
+}
+
+.photo-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.4);
+    z-index: 10;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    padding: 2rem 1rem 1rem;
+    color: white;
+    font-size: 0.9rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.photo-item:hover .photo-caption {
+    transform: translateY(0);
+}
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.95);
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    animation: zoomIn 0.3s ease;
+    border-radius: 8px;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 2rem;
+    right: 3rem;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    z-index: 10000;
+    transition: all 0.3s ease;
+}
+
+.lightbox-close:hover {
+    color: #667eea;
+    transform: rotate(90deg);
+}
+
+.lightbox-caption {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    background: rgba(0,0,0,0.7);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    max-width: 80%;
+    text-align: center;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    font-size: 3rem;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.lightbox-nav:hover {
+    background: rgba(255,255,255,0.3);
+    color: #667eea;
+}
+
+.lightbox-nav.prev {
+    left: 2rem;
+}
+
+.lightbox-nav.next {
+    right: 2rem;
+}
+
+/* Day Notes */
+.day-notes {
+    padding: 4rem 2rem;
+    background: linear-gradient(180deg, rgba(10,14,39,1) 0%, rgba(30,34,59,1) 100%);
+}
+
+.day-notes h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.note-card {
+    background: rgba(255,255,255,0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    transition: all 0.3s ease;
+}
+
+.note-card:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(102, 126, 234, 0.5);
+    transform: translateY(-3px);
+}
+
+.note-card h4 {
+    color: #667eea;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.note-card p {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+    color: white;
+}
+
+.note-card small {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.85rem;
+}
+
+.personal-note {
+    background: rgba(102, 126, 234, 0.1);
+    border-left: 4px solid #667eea;
+    padding: 2rem;
+    border-radius: 0 15px 15px 0;
+    margin-top: 2rem;
+}
+
+.personal-note h4 {
+    color: #667eea;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.personal-note p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-style: italic;
+    color: rgba(255,255,255,0.9);
+}
+
+/* Next Day Preview */
+.next-day-preview {
+    padding: 4rem 2rem;
+    background: rgba(10,14,39,1);
+}
+
+.next-day-preview h3 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #667eea;
+}
+
+.next-day-card {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.next-day-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+    border-color: rgba(102, 126, 234, 0.5);
+}
+
+.next-day-image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.next-day-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.next-day-card:hover .next-day-image img {
+    transform: scale(1.1);
+}
+
+.next-day-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.next-label {
+    color: #667eea;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.next-day-content h4 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.next-day-content p {
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.btn-next-day {
+    align-self: flex-start;
+    padding: 0.8rem 2rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .day-title {
+        font-size: 2.5rem;
+    }
+    
+    .photo-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .detail-nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .day-title {
+        font-size: 2rem;
+    }
+    
+    .day-stats {
+        gap: 1rem;
+    }
+    
+    .photo-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.5rem;
+    }
+    
+    .photo-gallery.grid-2,
+    .photo-gallery.grid-4 {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+    
+    .next-day-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .next-day-image {
+        height: 200px;
+    }
+    
+    .lightbox-nav {
+        font-size: 2rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .lightbox-nav.prev {
+        left: 1rem;
+    }
+    
+    .lightbox-nav.next {
+        right: 1rem;
+    }
+    
+    .lightbox-close {
+        top: 1rem;
+        right: 1rem;
+        font-size: 2rem;
+    }
+    
+    .time-header {
+        font-size: 1.5rem;
+    }
+    
+    .activity-detail {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .day-title {
+        font-size: 1.5rem;
+    }
+    
+    .highlights-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .notes-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .photo-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .detail-nav,
+    .lightbox,
+    .btn-next-day,
+    .next-day-preview {
+        display: none !important;
+    }
+    
+    .day-detail-page {
+        background: white;
+        color: black;
+    }
+    
+    .activity-detail {
+        border-left-color: #667eea;
+        page-break-inside: avoid;
+    }
+}

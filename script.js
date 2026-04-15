@@ -23,9 +23,7 @@ const customImages = {
     'day1-dinner': 'https://i.imgur.com/qc8wgKP.png',
     'day1-golden-gai': 'https://i.imgur.com/XqKVFKR.png', 
     'day1-don': 'https://i.imgur.com/tdlEHt4.png', 
-    'day1-camera': 'https://i.imgur.com/3Fc2nAU.jpeg',
-    'day1-metropolitan': 'https://i.imgur.com/1gOkJQI.jpeg',
-
+    
     // 2. GÜN: 9 MART - ASAKUSA & UENO & AKIHABARA
     'day2-sensoji': 'https://i.imgur.com/X8I9O7p.png',
     'day2-lunch': 'https://i.imgur.com/J5jCVv2.png',
@@ -42,8 +40,6 @@ const customImages = {
     'day3-museum': 'https://i.imgur.com/3fDxkYD.png',      // Ota Memorial veya Nezu
     'day3-shibuya': 'https://i.imgur.com/3GGee8h.png',     // Shibuya Crossing tepeden
     'day3-mega-don': 'https://i.imgur.com/EFNbGtW.png',    // Mega Don Quijote girişi
-    'day3-cosme': 'https://i.imgur.com/uh8wCCE.png',    // @cosme TOKYO
-    'day3-pancakes': 'https://i.imgur.com/JV1UwmH.jpeg', 
 
     // 4. GÜN: 11 MART - IMPERIAL PALACE & GINZA
     'day4-palace': 'https://i.imgur.com/6Gw1q0Z.png',      // Saray bahçesi ve köprü
@@ -51,7 +47,6 @@ const customImages = {
     'day4-ichigokan': 'https://i.imgur.com/RnGyc6d.jpeg',   // Mitsubishi Ichigokan kırmızı tuğlalar
     'day4-ginza': 'https://i.imgur.com/CokoJNh.png',       // Ginza lüks binalar
     'day4-dinner': 'https://i.imgur.com/6kf6VIO.png',      // Ginza akşam yemeği
-    'day4-teamlab': 'https://i.imgur.com/ibpSdbT.jpeg',     // TeamLab dijital sanat karesi
 
     // 5. GÜN: 12 MART - KYOTO GEÇİŞ
     'day5-shinkansen': 'https://i.imgur.com/NrY0GSy.png',  // Shinkansen dış/iç çekim
@@ -72,7 +67,7 @@ const customImages = {
     'day7-fushimi': 'https://i.imgur.com/nl7TmLW.jpeg',     // Turuncu Torii kapıları
     'day7-kiyomizu': 'https://i.imgur.com/8ajBzCf.png',     // Kiyomizu-dera teras manzarası
     'day7-sannenzaka': 'https://i.imgur.com/qaCfqwk.png',   // Sannenzaka merdivenler
-    'day7-silver': 'https://i.imgur.com/32HTC7G.png',       // Nanzen-ji veya Ginkaku-ji
+    'day7-silver': 'https://i.imgur.com/SgqxyAD.png',       // Nanzen-ji veya Ginkaku-ji
     'day7-dinner': 'https://i.imgur.com/LXaIlLA.png',       // Kyoto son akşam yemeği
 
     // 8. GÜN: 15 MART - NARA & OSAKA
@@ -94,6 +89,7 @@ const customImages = {
     // 10. GÜN: 17 MART - TEAMLAB & ROPPONGI
     'day10-shinkansen': 'https://i.imgur.com/5Ip8RAM.png',  // Osaka -> Tokyo dönüşü
     'day10-hotel': '',       // Shinjuku dönüş oteli
+    'day10-teamlab': 'https://i.imgur.com/ibpSdbT.jpeg',     // TeamLab dijital sanat karesi
     'day10-roppongi': 'https://i.imgur.com/XnF7I4f.png',    // Mori Tower veya Roppongi gece
     'day10-dinner': 'https://i.imgur.com/32A5LcK.png',      // Gonpachi (Kill Bill) restoranı
 
@@ -102,10 +98,9 @@ const customImages = {
     'day11-tower': 'https://i.imgur.com/aA4oAW7.png',       // Kırmızı Tokyo Tower
     'day11-zojoji': 'https://i.imgur.com/RloRDZp.png',      // Tapınak ve arkada kule manzarası
     'day11-shinjuku': 'https://i.imgur.com/lXQ125n.jpeg',    // Shinjuku son gece
-    'day11-dinner': 'https://i.imgur.com/DTOTf0j.png',      // Veda yemeği
+    'day11-dinner': 'blob:https://imgur.com/5a1dd2f4-d67a-4312-b837-9e83148663f2',      // Veda yemeği
 
     // 12. GÜN: 19 MART - SON ALIŞVERİŞ & ODAIBA
-    'day12-fuji':'https://i.imgur.com/64kotq8.jpeg',
     'day12-shopping': 'https://i.imgur.com/xvMGcP3.png',    // Ginza Loft veya Itoya
     'day12-haneda': 'https://i.imgur.com/s0Qlmt1.png',      // Odaiba Gundam veya sahil
 
@@ -207,14 +202,14 @@ const tripDays = [
                 },
                 {
                     time: '16:00',
-                    title: 'Otele Yerleşme / Dinlenme',
+                    title: 'Otele Yerleşme',
                     location: 'Shinjuku Hotel',
                     mapLink: 'https://goo.gl/maps/shinjuku',
                     imageKey: 'day1-hotel',
                     imageType: 'city'
                 },
                 {
-                    time: '17:00',
+                    time: '18:00',
                     title: 'İlk Japon Yemeği',
                     location: 'Omoide Yokocho',
                     mapLink: 'https://maps.app.goo.gl/6y5rtYFmRatECJid8',
@@ -223,24 +218,8 @@ const tripDays = [
                 }
             ],
             evening: [
-                 {
-                    time: '18:00',
-                    title: 'Camera Store Hopping',
-                    location: 'Kabukicho, Shinjuku',
-                    mapLink: 'https://maps.app.goo.gl/UFNUD5pAkC5VKaji8',
-                    imageKey: 'day1-camera',
-                    imageType: 'shopping'
-                },
-            {
-                    time: '20:00',
-                    title: 'Tokyo Metropolitan Government Building',
-                    location: 'South/North Observation Decks 45th Floor',
-                    mapLink: 'https://maps.app.goo.gl/tEhq2mtTRjsry4gz8',
-                    imageKey: 'day1-metropolitan',
-                    imageType: 'default'
-                },
                 {
-                    time: '21:00',
+                    time: '19:00',
                     title: 'The Giant 3D Cat',
                     location: 'Shinjuku',
                     mapLink: 'https://maps.app.goo.gl/tEhq2mtTRjsry4gz8',
@@ -248,7 +227,7 @@ const tripDays = [
                     imageType: 'default'
                 },
                 {
-                    time: '21:20',
+                    time: '20:00',
                     title: 'Godzilla Head',
                     location: 'Shinjuku',
                     mapLink: 'https://maps.app.goo.gl/rpttRAzAwQnZJfBG6',
@@ -256,7 +235,7 @@ const tripDays = [
                     imageType: 'default'
                 },
                 {
-                    time: '21:40',
+                    time: '21:00',
                     title: 'Shinjuku Golden-Gai',
                     location: 'Kabukicho, Shinjuku',
                     mapLink: 'https://maps.app.goo.gl/EMsX4QJqVMcur8bw5',
@@ -274,7 +253,7 @@ const tripDays = [
             ]
         },
         food: [
-            { name: 'Ichiran Ramen', place: 'Shinjuku, Özel kabinler', type: 'Restoran', mapLink: 'https://maps.app.goo.gl/UneGXwvqCiF4k94r8' },
+            { name: 'Ichiran Ramen', place: 'Shinjuku, Özel kabinler', type: 'Restoran', mapLink: 'https://goo.gl/maps/ichiran' },
             { name: 'Omoide Yokocho', place: 'İzakaya sokak barları', type: 'Sokak', mapLink: 'https://maps.app.goo.gl/BmruWEMs64MMWASx5' }
         ]
     },
@@ -364,7 +343,7 @@ const tripDays = [
                 {
                     time: '09:30',
                     title: 'Meiji Jingu & Yoyogi Park',
-                    location: 'Shibuya',
+                    location: 'Harajuku',
                     mapLink: 'https://maps.app.goo.gl/4bgZVkTgfrkFTWJz6',
                     imageKey: 'day3-meiji',
                     imageType: 'temple'
@@ -372,7 +351,7 @@ const tripDays = [
                 {
                     time: '11:30',
                     title: 'Takeshita Street',
-                    location: 'Shibuya',
+                    location: 'Harajuku',
                     mapLink: 'https://maps.app.goo.gl/niMxbWF8yzNJWH9n6',
                     imageKey: 'day3-takeshita',
                     imageType: 'shopping'
@@ -386,22 +365,6 @@ const tripDays = [
                     mapLink: 'https://maps.app.goo.gl/KhmK5rUjHxnxbJGa7',
                     imageKey: 'day3-museum',
                     imageType: 'city'
-                },
-                {
-                    time: '14:00',
-                    title: '＠cosme TOKYO & Shopping',
-                    location: 'Shibuya',
-                    mapLink: 'https://maps.app.goo.gl/BhZR79epw4a1QrCh6',
-                    imageKey: 'day3-cosme',
-                    imageType: 'shopping'
-                },
-                {
-                    time: '15:00',
-                    title: 'Pancakes',
-                    location: 'Shibuya',
-                    mapLink: 'https://maps.app.goo.gl/sJf1rqLJHT7TwxAX9',
-                    imageKey: 'day3-pancakes',
-                    imageType: 'shopping'
                 },
                 {
                     time: '16:00',
@@ -424,8 +387,8 @@ const tripDays = [
             ]
         },
         food: [
-            { name: 'Rainbow Crepe', place: 'Harajuku Takeshita', type: 'Cafe', mapLink: 'https://maps.app.goo.gl/kA1vd3zkoWEYKQfA9' },
-            { name: 'Helal Wagyu', place: 'Center-gai', type: 'Restoran', mapLink: 'https://maps.app.goo.gl/HgrLSzJJM1GmCFKB7' }
+            { name: 'Rainbow Crepe', place: 'Harajuku Takeshita', type: 'Cafe', mapLink: 'https://goo.gl/maps/harajuku' },
+            { name: 'Shibuya Ramen', place: 'Center-gai', type: 'Restoran', mapLink: 'https://goo.gl/maps/shibuya' }
         ]
     },
     {
@@ -474,26 +437,18 @@ const tripDays = [
             ],
             evening: [
                 {
-                    time: '18:00',
-                    title: 'teamLab Borderless',
-                    location: 'Minato City',
-                    mapLink: 'https://maps.app.goo.gl/GwhbjtbTcupdRh2z9',
-                    imageKey: 'day4-teamlab',
-                    imageType: 'city'
-                },
-                {
                     time: '19:00',
-                    title: 'Tonkatsu Hajime Nihonbashi Yemek',
+                    title: 'Akşam Yemeği',
                     location: 'Chuo City',
-                    mapLink: 'https://maps.app.goo.gl/ievGt1MfFzhSDxuT7',
+                    mapLink: 'https://goo.gl/maps/akihabara',
                     imageKey: 'day4-dinner',
                     imageType: 'food'
                 }
             ]
         },
         food: [
-            { name: 'Curry Food', place: 'Japon curry rice', type: 'Restoran', mapLink: 'https://goo.gl/maps/tokyostation' },
-            { name: 'Maid Cafe', place: 'Tema kafe', type: 'Cafe', mapLink: 'https://goo.gl/maps/tokyostation' }
+            { name: 'CoCo Curry', place: 'Japon curry rice', type: 'Restoran', mapLink: 'https://goo.gl/maps/akihabara' },
+            { name: 'Maid Cafe (Opsiyonel)', place: 'Tema kafe', type: 'Cafe', mapLink: 'https://goo.gl/maps/akihabara' }
         ]
     },
     {
@@ -518,7 +473,7 @@ const tripDays = [
                     time: '12:00',
                     title: 'Kyoto Varış',
                     location: 'Kyoto Station',
-                    mapLink: 'https://maps.app.goo.gl/WPPGwTiB6JzDUe9dA',
+                    mapLink: 'https://goo.gl/maps/kyotostation',
                     imageKey: 'day5-kyoto',
                     imageType: 'city'
                 },
@@ -526,7 +481,7 @@ const tripDays = [
                     time: '14:00',
                     title: 'Nishiki Market',
                     location: 'Nakagyo-ku',
-                    mapLink: 'https://maps.app.goo.gl/buk9kkX8GJXwDTs27',
+                    mapLink: 'https://maps.app.goo.gl/uzk1QkbY3fv8oHTE8',
                     imageKey: 'day5-nishiki',
                     imageType: 'shopping'
                 },
@@ -534,7 +489,7 @@ const tripDays = [
                     time: '16:00',
                     title: 'Yasaka Shrine',
                     location: 'Gion',
-                    mapLink: 'https://maps.app.goo.gl/ExMyDS5vNw427w839',
+                    mapLink: 'https://maps.app.goo.gl/tcn7S44CSsq9uQnh6',
                     imageKey: 'day5-gion',
                     imageType: 'temple'
                 }
@@ -592,9 +547,9 @@ const tripDays = [
                 },
                 {
                     time: '15:00',
-                    title: 'Bread Espresso',
+                    title: 'Zen Coffee',
                     location: 'Kyoto',
-                    mapLink: 'https://maps.app.goo.gl/fypb6KbiQhmtMbeU6',
+                    mapLink: 'https://maps.app.goo.gl/BmruWEMs64MMWASx5',
                     imageKey: 'day6-coffee',
                     imageType: 'food'
                 },
@@ -651,19 +606,19 @@ const tripDays = [
                     imageType: 'food'
                 },
                 {
-                    time: '14:00',
-                    title: 'Hario Cafe',
-                    location: 'Gion',
-                    mapLink: 'https://maps.app.goo.gl/tVLUDiTrrQb5Q8W48',
-                    imageKey: 'day5-hario',
-                    imageType: 'temple'
-                },
-                {
-                    time: '15:00',
+                    time: '16:00',
                     title: 'Nanzen-ji',
                     location: 'Nanzen-ji',
                     mapLink: 'https://maps.app.goo.gl/JiTRXJX8ihEbrhM99',
                     imageKey: 'day7-silver',
+                    imageType: 'temple'
+                },
+                {
+                    time: '18:00',
+                    title: 'Hario Cafe',
+                    location: 'Gion',
+                    mapLink: 'https://maps.app.goo.gl/Ktc649MNDkPcf6eT8',
+                    imageKey: 'day5-hario',
                     imageType: 'temple'
                 }
             ],
@@ -696,7 +651,7 @@ const tripDays = [
                     time: '09:00',
                     title: 'Kyoto → Nara Tren',
                     location: 'Kyoto Station',
-                    mapLink: 'https://maps.app.goo.gl/WPPGwTiB6JzDUe9dA',
+                    mapLink: 'https://goo.gl/maps/kyotostation',
                     imageKey: 'day8-train',
                     imageType: 'city'
                 },
@@ -724,6 +679,14 @@ const tripDays = [
                     location: 'Nara Station',
                     mapLink: 'https://goo.gl/maps/narastation',
                     imageKey: 'day8-osaka-train',
+                    imageType: 'city'
+                },
+                {
+                    time: '17:00',
+                    title: 'Osaka Otele Yerleşme',
+                    location: 'Osaka Hotel',
+                    mapLink: 'https://goo.gl/maps/osaka',
+                    imageKey: 'day8-osaka',
                     imageType: 'city'
                 }
             ],
@@ -761,15 +724,7 @@ const tripDays = [
         activities: {
             morning: [
                 {
-                    time: '09:00',
-                    title: 'Kyoto → Osaka Tren',
-                    location: 'Kyoto Station',
-                    mapLink: 'https://maps.app.goo.gl/WPPGwTiB6JzDUe9dA',
-                    imageKey: 'day8-train',
-                    imageType: 'city'
-                },
-                {
-                    time: '10:00',
+                    time: '09:30',
                     title: 'Osaka Castle',
                     location: 'Chuo-ku',
                     mapLink: 'https://maps.app.goo.gl/Lfp6d83v5gVB51Am8',
@@ -806,12 +761,12 @@ const tripDays = [
             evening: [
                 {
                     time: '20:00',
-                    title: 'Osaka → Kyoto Tren',
-                    location: 'Osaka Station',
-                    mapLink: 'https://maps.app.goo.gl/p6vLpzDfhd9gSZFk6',
-                    imageKey: 'day8-osaka-train',
+                    title: 'Umeda Sky Building',
+                    location: 'Umeda',
+                    mapLink: 'https://maps.app.goo.gl/TyB4UX6cCmmmzwzPA',
+                    imageKey: 'day9-umeda',
                     imageType: 'city'
-                },
+                }
             ]
         },
         food: [
@@ -829,8 +784,8 @@ const tripDays = [
             morning: [
                 {
                     time: '11:00',
-                    title: 'Shinkansen Kyoto → Tokyo 🚄',
-                    location: 'Shin-Kyoto → Tokyo Station',
+                    title: 'Shinkansen Osaka → Tokyo 🚄',
+                    location: 'Shin-Osaka → Tokyo Station',
                     mapLink: 'https://www.klook.com/japan-rail/shinkansen/',
                     imageKey: 'day10-shinkansen',
                     imageType: 'city'
@@ -840,9 +795,17 @@ const tripDays = [
                 {
                     time: '14:00',
                     title: 'Otele Yerleşme',
-                    location: 'Ota City Hotel',
+                    location: 'Shinjuku Hotel',
                     mapLink: 'https://goo.gl/maps/shinjuku',
                     imageKey: 'day10-hotel',
+                    imageType: 'city'
+                },
+                {
+                    time: '16:00',
+                    title: 'TeamLab Borderless ✨',
+                    location: 'Azabudai Hills',
+                    mapLink: 'https://maps.app.goo.gl/teamlab-borderless',
+                    imageKey: 'day10-teamlab',
                     imageType: 'city'
                 }
             ],
@@ -851,15 +814,15 @@ const tripDays = [
                     time: '19:00',
                     title: 'Roppongi Hills Mori Tower',
                     location: 'Roppongi - Tokyo panorama',
-                    mapLink: 'https://maps.app.goo.gl/tttbYFByuZRgejXd9',
+                    mapLink: 'https://maps.app.goo.gl/roppongi-hills',
                     imageKey: 'day10-roppongi',
                     imageType: 'city'
                 },
                 {
                     time: '21:00',
-                    title: 'Sushi Akşam Yemeği',
+                    title: 'Akşam Yemeği',
                     location: 'Roppongi / Azabu',
-                    mapLink: 'https://maps.app.goo.gl/j5t1VgV2Pn8GgAB47',
+                    mapLink: 'https://goo.gl/maps/roppongi',
                     imageKey: 'day10-dinner',
                     imageType: 'food'
                 }
@@ -892,7 +855,7 @@ const tripDays = [
                     time: '14:00',
                     title: 'Tokyo Tower',
                     location: 'Minato City - İkonik manzara',
-                    mapLink: 'https://maps.app.goo.gl/bSFEasdT9ZWo1jqAA',
+                    mapLink: 'https://maps.app.goo.gl/tokyotower',
                     imageKey: 'day11-tower',
                     imageType: 'city'
                 },
@@ -900,27 +863,27 @@ const tripDays = [
                     time: '16:30',
                     title: 'Zojo-ji Temple',
                     location: 'Tokyo Tower yanı',
-                    mapLink: 'https://maps.app.goo.gl/q4AmoCXLh23k291c6',
+                    mapLink: 'https://maps.app.goo.gl/zojoji',
                     imageKey: 'day11-zojoji',
                     imageType: 'temple'
-                },
-                {
-                    time: '18:00',
-                    title: 'Odaiba Sahil Gezisi',
-                    location: 'Odaiba Marine Park',
-                    mapLink: 'https://maps.app.goo.gl/gN6meVUvA6RoR8ob7',
-                    imageKey: 'day12-haneda',
-                    imageType: 'city'
                 }
             ],
             evening: [
                 {
+                    time: '18:30',
+                    title: 'Shinjuku Son Gezinti',
+                    location: 'Kabukicho / Omoide Yokocho',
+                    mapLink: 'https://goo.gl/maps/shinjuku',
+                    imageKey: 'day11-shinjuku',
+                    imageType: 'city'
+                },
+                {
                     time: '20:00',
-                    title: 'Son Alışveriş Turu',
-                    location: 'Ginza Loft / Itoya / Akihabara',
-                    mapLink: 'https://maps.app.goo.gl/RWUzqtj1x2ofZCSM7',
-                    imageKey: 'day12-shopping',
-                    imageType: 'shopping'
+                    title: 'Akşam Yemeği',
+                    location: 'Shinjuku',
+                    mapLink: 'https://goo.gl/maps/shinjuku',
+                    imageKey: 'day11-dinner',
+                    imageType: 'food'
                 }
             ]
         },
@@ -936,15 +899,27 @@ const tripDays = [
         city: 'Tokyo',
         cityColor: '#667eea',
         activities: {
+            morning: [
+                {
+                    time: '10:00',
+                    title: 'Son Alışveriş Turu',
+                    location: 'Ginza Loft / Itoya / Akihabara',
+                    mapLink: 'https://goo.gl/maps/ginza',
+                    imageKey: 'day12-shopping',
+                    imageType: 'shopping'
+                }
+            ],
             afternoon: [
                 {
-                    time: 'All Day',
-                    title: 'Mount Fuji Tour',
-                    location: 'Mount Fuji',
-                    mapLink: 'https://maps.app.goo.gl/5GMNpkhpfeePiyP6A',
-                    imageKey: 'day12-fuji',
+                    time: '15:00',
+                    title: 'Odaiba Sahil Gezisi',
+                    location: 'Odaiba Marine Park',
+                    mapLink: 'https://goo.gl/maps/odaiba',
+                    imageKey: 'day12-haneda',
                     imageType: 'city'
                 }
+            ],
+            evening: [
             ]
         },
         food: [
@@ -963,7 +938,7 @@ const tripDays = [
                     time: '07:00',
                     title: 'Havalimanına Hareket',
                     location: 'Haneda',
-                    mapLink: 'https://maps.app.goo.gl/USqmAzz3gvWH4f5G9',
+                    mapLink: 'https://goo.gl/maps/haneda',
                     imageKey: 'day13-depart',
                     imageType: 'city'
                 },
@@ -971,7 +946,7 @@ const tripDays = [
                     time: '10:45',
                     title: 'さようなら日本！✈️',
                     location: 'Haneda Airport',
-                    mapLink: 'https://maps.app.goo.gl/USqmAzz3gvWH4f5G9',
+                    mapLink: 'https://goo.gl/maps/haneda',
                     imageKey: 'day13-goodbye',
                     imageType: 'city'
                 }
@@ -1156,6 +1131,19 @@ function renderDays(filter = 'all') {
             foodHTML += '</div>';
         }
         
+        // Günlük link butonu - sadece day1-day13 için (flight-day hariç)
+        let journalLink = '';
+        if (day.id.startsWith('day') && day.id !== 'flight-day') {
+            const dayNumber = day.id.replace('day', '');
+            journalLink = `
+                <div class="day-journal-link">
+                    <a href="days/day${dayNumber.padStart(2, '0')}.html" class="journal-button">
+                        📖 Günlüğü Oku
+                    </a>
+                </div>
+            `;
+        }
+        
         card.innerHTML = `
             <div class="day-header">
                 <div class="day-title">${day.day}</div>
@@ -1166,6 +1154,7 @@ function renderDays(filter = 'all') {
             </div>
             <div class="timeline-grid">${html}</div>
             ${foodHTML}
+            ${journalLink}
         `;
         
         container.appendChild(card);

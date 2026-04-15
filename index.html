@@ -8,6 +8,201 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Seyyah Günlüğü Butonu - Hero içinde */
+        .journal-cta {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .journal-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .journal-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .journal-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
+        }
+        
+        .journal-btn:hover::before {
+            left: 100%;
+        }
+        
+        .journal-btn .icon {
+            font-size: 1.5rem;
+            animation: float 2s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .plan-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .plan-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+        }
+        
+        /* Seyyah Günlüğü Featured Section */
+        .journal-featured {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 4rem 2rem;
+            margin: 3rem 0;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .journal-featured::before {
+            content: '📖';
+            position: absolute;
+            font-size: 20rem;
+            opacity: 0.1;
+            right: -5rem;
+            top: -5rem;
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .journal-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .journal-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            color: white;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .journal-featured h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Noto Serif JP', serif;
+        }
+        
+        .journal-featured p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .journal-featured .journal-btn {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .journal-featured .journal-btn:hover {
+            background: #f8f9fa;
+            color: #764ba2;
+        }
+        
+        .journal-preview {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .preview-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .preview-card:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+        }
+        
+        .preview-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+            display: block;
+        }
+        
+        .preview-card .label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .journal-featured h2 {
+                font-size: 2rem;
+            }
+            
+            .journal-btn, .plan-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Countdown Hero -->
@@ -47,15 +242,64 @@
                 <span class="info-item">🏙️ Tokyo → Kyoto → Nara → Osaka</span>
                 <span class="info-item">✈️ 14 Gün</span>
             </div>
+            
+            <!-- CTA Buttons -->
+            <div class="journal-cta">
+                <a href="days/day01.html" class="journal-btn">
+                    <span class="icon">📖</span>
+                    <span>Seyyah Günlüğü</span>
+                </a>
+                <a href="#mainContent" class="plan-btn" onclick="document.getElementById('mainContent').scrollIntoView({behavior:'smooth'}); return false;">
+                    <span>📋</span>
+                    <span>Planı İncele</span>
+                </a>
+            </div>
         </div>
         <div class="scroll-hint" onclick="document.getElementById('mainContent').scrollIntoView({behavior:'smooth'})">
-            <span>Planı İncele</span>
+            <span>Aşağı Kaydır</span>
             <div class="arrow-down">↓</div>
         </div>
     </div>
 
     <!-- Main Content -->
     <div class="main-content" id="mainContent">
+        
+        <!-- Seyyah Günlüğü Featured Section -->
+        <section class="journal-featured">
+            <div class="journal-content">
+                <div class="journal-badge">✨ Yeni!</div>
+                <h2>📖 Seyyah Günlüğü</h2>
+                <p>
+                    14 günlük Japonya macerasının her anını, yaşadığım deneyimleri, 
+                    gördüğüm manzaraları ve hissettiğim duyguları günlük formatında 
+                    paylaşıyorum. Her gün ayrı bir hikaye, her sayfa ayrı bir hatıra.
+                </p>
+                
+                <div class="journal-preview">
+                    <div class="preview-card">
+                        <span class="number">13</span>
+                        <span class="label">Gün</span>
+                    </div>
+                    <div class="preview-card">
+                        <span class="number">📸</span>
+                        <span class="label">Fotoğraflar</span>
+                    </div>
+                    <div class="preview-card">
+                        <span class="number">🎭</span>
+                        <span class="label">Hikayeler</span>
+                    </div>
+                    <div class="preview-card">
+                        <span class="number">💡</span>
+                        <span class="label">Fun Facts</span>
+                    </div>
+                </div>
+                
+                <a href="days/day01.html" class="journal-btn" style="margin-top: 2rem;">
+                    <span class="icon">📖</span>
+                    <span>Günlüğü Okumaya Başla</span>
+                </a>
+            </div>
+        </section>
         
         <!-- Quick Navigation -->
         <nav class="quick-nav">
@@ -151,10 +395,10 @@
                         </div>
                     </div>
                     <div class="city-highlights">
-                        <div class="highlight-item">✨ Kinkaku-ji Altın Tapınak</div>
-                        <div class="highlight-item">🎋 Arashiyama Bambu Ormanı</div>
+                        <div class="highlight-item">🏯 Kinkaku-ji (Altın Tapınak)</div>
                         <div class="highlight-item">⛩️ Fushimi Inari 10,000 Torii</div>
-                        <div class="highlight-item">🎎 Gion Geyşa Bölgesi</div>
+                        <div class="highlight-item">🎋 Arashiyama Bambu Ormanı</div>
+                        <div class="highlight-item">🏘️ Gion Geleneksel Sokaklar</div>
                     </div>
                 </div>
 
@@ -163,14 +407,14 @@
                         <div class="city-icon">🏯</div>
                         <div class="city-info">
                             <h3>Osaka</h3>
-                            <p class="city-days">2 Gece</p>
+                            <p class="city-days">Günübirlik</p>
                         </div>
                     </div>
                     <div class="city-highlights">
-                        <div class="highlight-item">🏯 Osaka Castle</div>
-                        <div class="highlight-item">🍜 Dotonbori Sokak Lezzetleri</div>
-                        <div class="highlight-item">🦁 Namba Yasaka Jinja</div>
-                        <div class="highlight-item">🌆 Umeda Sky Building</div>
+                        <div class="highlight-item">🏯 Osaka Kalesi</div>
+                        <div class="highlight-item">🌃 Dotonbori Neon Sokakları</div>
+                        <div class="highlight-item">🍢 Takoyaki & Okonomiyaki</div>
+                        <div class="highlight-item">🎡 Umeda Sky Building</div>
                     </div>
                 </div>
 
@@ -179,63 +423,68 @@
                         <div class="city-icon">🦌</div>
                         <div class="city-info">
                             <h3>Nara</h3>
-                            <p class="city-days">1 Gün</p>
+                            <p class="city-days">Günübirlik</p>
                         </div>
                     </div>
                     <div class="city-highlights">
-                        <div class="highlight-item">🦌 Nara Park Geyikleri</div>
-                        <div class="highlight-item">🏛️ Todai-ji Dev Buda</div>
-                        <div class="highlight-item">⛩️ Kasuga Taisha</div>
-                        <div class="highlight-item">🌳 Doğa & Huzur</div>
+                        <div class="highlight-item">🦌 Kutsal Geyikler</div>
+                        <div class="highlight-item">🏛️ Todai-ji Tapınağı</div>
+                        <div class="highlight-item">🗿 Dev Buda Heykeli</div>
+                        <div class="highlight-item">🌳 Nara Park</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Tips Section -->
-        <section class="tips-section">
-            <h2 class="section-title">💡 Gezi İpuçları</h2>
+        <!-- Travel Tips -->
+        <section class="travel-tips">
+            <h2 class="section-title">💡 Seyahat İpuçları</h2>
             <div class="tips-grid">
                 <div class="tip-card">
-                    <div class="tip-icon">🚄</div>
-                    <h4>JR Pass</h4>
-                    <p>7 günlük JR Pass alın. Shinkansen'de sınırsız kullanım, büyük tasarruf!</p>
+                    <div class="tip-icon">💳</div>
+                    <h3>IC Kart</h3>
+                    <p>Pasmo/Suica kartı edinin. Metro, otobüs, konbini her yerde geçerli.</p>
                 </div>
                 <div class="tip-card">
-                    <div class="tip-icon">💳</div>
-                    <h4>IC Kart</h4>
-                    <p>Suica/Pasmo kartı metro ve market için. Havalimanında alın.</p>
+                    <div class="tip-icon">📱</div>
+                    <h3>eSIM</h3>
+                    <p>Havaalanından eSIM satın alın. Google Maps hayat kurtarıyor!</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">💴</div>
+                    <h3>Nakit Para</h3>
+                    <p>Küçük restoranlar ve tapınaklar nakit kabul eder. 7-Eleven'dan çekin!</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🎫</div>
+                    <h3>Erken Rezervasyon</h3>
+                    <p>teamLab, Shibuya Sky gibi yerlere online rezervasyon şart.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-icon">🥢</div>
+                    <h3>Yemek Kültürü</h3>
+                    <p>Bahşiş yok! Sessizce yiyin. Saygı önemli.</p>
                 </div>
                 <div class="tip-card">
                     <div class="tip-icon">🕐</div>
                     <h4>Erken Başla</h4>
                     <p>Tapınaklar sabah 08:00-09:00 arası en sakin. Fotoğraf için ideal!</p>
                 </div>
-                <div class="tip-card">
-                    <div class="tip-icon">💴</div>
-                    <h4>Nakit Taşı</h4>
-                    <p>Küçük restoranlar ve tapınaklar sadece nakit kabul eder.</p>
-                </div>
             </div>
         </section>
-    </div>
 
-    <!-- Modal -->
-    <div id="categoryModal" class="modal" onclick="closeModal(event)">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <span class="modal-close" onclick="closeModal()">&times;</span>
-            <div id="modalBody"></div>
-        </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>🗾 Japonya 2026 Gezi Planı</p>
+                <p class="footer-date">7-20 Mart 2026 • Tokyo, Kyoto, Osaka, Nara</p>
+                <div class="footer-links">
+                    <a href="days/day01.html">📖 Günlük</a>
+                    <a href="#countdownHero">⬆️ Yukarı</a>
+                </div>
+            </div>
+        </footer>
     </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>🗾 Japonya Gezi Planı 2026</p>
-            <p>Tasarım: Yuzi | Mevy</p>
-            <p>いってらっしゃい！ (İyi yolculuklar!)</p>
-        </div>
-    </footer>
 
     <script src="script.js"></script>
 </body>
