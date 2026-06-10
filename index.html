@@ -8,6 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="documentary.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="enhance.css">
+    <!-- Leaflet (interaktif harita) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         /* Seyyah Günlüğü Butonu - Hero içinde */
         .journal-cta {
@@ -203,6 +208,8 @@
             }
         }
     </style>
+    <!-- Clean theme — EN SON yüklenir, tüm stilleri ezer -->
+    <link rel="stylesheet" href="theme.css">
 </head>
 <body>
     <!-- Countdown Hero -->
@@ -301,6 +308,26 @@
             </div>
         </section>
         
+        <!-- İnteraktif Japonya Rotası (sayfanın üst kısmında) -->
+        <section class="doc-section" id="rota">
+            <h2 class="doc-title">🗾 İnteraktif Japonya Rotası</h2>
+            <p class="doc-subtitle">Pinlere tıklayarak her şehirdeki favori yerlerimi, lezzetleri ve günlüğü keşfet</p>
+            <div id="japanMap"></div>
+        </section>
+
+        <!-- Prominent Gastronomi CTA -->
+        <a href="gastronomi.html" class="gastro-cta reveal" id="gastroCta">
+            <div class="gastro-cta-inner">
+                <div class="gastro-cta-icon">🍜</div>
+                <div class="gastro-cta-text">
+                    <span class="gastro-cta-badge">✨ Lezzet Belgeseli</span>
+                    <h2>Gastronomi Günlüğü</h2>
+                    <p>Manbaken ramen'den Coco Curry'ye, Wagyu'dan matcha lava cake'e — 14 gün boyunca tattığımız her lezzet, mekanı ve puanıyla.</p>
+                </div>
+                <div class="gastro-cta-arrow">→</div>
+            </div>
+        </a>
+
         <!-- Quick Navigation -->
         <nav class="quick-nav">
             <div class="nav-container">
@@ -318,14 +345,14 @@
         </div>
 
         <!-- Highlights Modal Section -->
-        <section class="highlights-section">
+        <section class="highlights-section reveal">
             <h2 class="section-title">🌟 Kaçırılmayacak Deneyimler</h2>
             <div class="highlights-grid">
-                <div class="highlight-card" onclick="openModal('food')">
+                <div class="highlight-card" onclick="window.location.href='gastronomi.html'">
                     <div class="highlight-icon">🍜</div>
                     <h3>Japon Mutfağı</h3>
                     <p>Ramen, sushi, takoyaki ve benzersiz lezzetler</p>
-                    <span class="explore-link">Keşfet →</span>
+                    <span class="explore-link">Gastronomi Günlüğü →</span>
                 </div>
                 <div class="highlight-card" onclick="openModal('temples')">
                     <div class="highlight-icon">⛩️</div>
@@ -367,7 +394,7 @@
         </section>
 
         <!-- City Overview Cards -->
-        <section class="city-overview">
+        <section class="city-overview reveal">
             <h2 class="section-title">Ziyaret Edeceğim Şehirler</h2>
             <div class="city-grid">
                 <div class="city-card tokyo-card">
@@ -436,8 +463,82 @@
             </div>
         </section>
 
+        <!-- Yolculuğun Rakamları (animasyonlu istatistik + grafikler) -->
+        <section class="doc-section reveal" id="rakamlar">
+            <h2 class="doc-title">📊 Yolculuğun Rakamları</h2>
+            <p class="doc-subtitle">13 günlük günlüklerden çıkan gerçek veriler</p>
+
+            <div class="trip-stats-strip">
+                <div class="trip-stat">
+                    <span class="stat-icon">📅</span>
+                    <span class="stat-num" data-target="13">0</span>
+                    <span class="stat-label">Gün</span>
+                </div>
+                <div class="trip-stat">
+                    <span class="stat-icon">🏙️</span>
+                    <span class="stat-num" data-target="4">0</span>
+                    <span class="stat-label">Şehir</span>
+                </div>
+                <div class="trip-stat">
+                    <span class="stat-icon">🚶</span>
+                    <span class="stat-num" data-target="293738">0</span>
+                    <span class="stat-label">Adım</span>
+                </div>
+                <div class="trip-stat">
+                    <span class="stat-icon">🗺️</span>
+                    <span class="stat-num" data-target="206" data-suffix=" km">0</span>
+                    <span class="stat-label">Yürüyüş</span>
+                </div>
+                <div class="trip-stat">
+                    <span class="stat-icon">💴</span>
+                    <span class="stat-num" data-target="466000" data-prefix="¥">0</span>
+                    <span class="stat-label">Harcama</span>
+                </div>
+                <div class="trip-stat">
+                    <span class="stat-icon">🍜</span>
+                    <span class="stat-num" data-target="24">0</span>
+                    <span class="stat-label">Lezzet</span>
+                </div>
+            </div>
+
+            <div class="charts-duo">
+                <div class="chart-card">
+                    <h3>🚶 Günlük Adım Sayısı</h3>
+                    <div class="mini-chart-box"><canvas id="stepsChart"></canvas></div>
+                </div>
+                <div class="chart-card">
+                    <h3>⭐ Günlük Puanlarım (/10)</h3>
+                    <div class="mini-chart-box"><canvas id="ratingChart"></canvas></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Harcama & Bütçe Takibi -->
+        <section class="doc-section reveal" id="butce">
+            <h2 class="doc-title">💴 Japonya'da Param Nereye Gitti?</h2>
+            <p class="doc-subtitle">14 günlük harcamalarımın kategori dağılımı</p>
+            <div class="budget-wrapper">
+                <div class="chart-box">
+                    <canvas id="spendingChart"></canvas>
+                    <div class="chart-center">
+                        <span class="center-label">TOPLAM</span>
+                        <span class="center-total" id="spendingTotal">¥0</span>
+                    </div>
+                </div>
+                <div class="budget-notes">
+                    <h3>Bütçe Notları</h3>
+                    <p>Shinkansen ve IC kart (Pasmo/Suica) ulaşımın aslan payını aldı.
+                       Yemek beklediğimden uygundu; konbini ve ara sokak ramencileri cüzdan dostu.
+                       Alışveriş ise Don Quijote & Akihabara'da kontrolden çıktı! 😄</p>
+                    <div class="budget-legend-item"><span class="dot" style="background:#7c83ff"></span> Ulaşım (IC Kart/Shinkansen)</div>
+                    <div class="budget-legend-item"><span class="dot" style="background:#ff8fab"></span> Yemek</div>
+                    <div class="budget-legend-item"><span class="dot" style="background:#5ce1e6"></span> Alışveriş</div>
+                </div>
+            </div>
+        </section>
+
         <!-- Travel Tips -->
-        <section class="travel-tips">
+        <section class="travel-tips reveal">
             <h2 class="section-title">💡 Seyahat İpuçları</h2>
             <div class="tips-grid">
                 <div class="tip-card">
@@ -487,5 +588,17 @@
     </div>
 
     <script src="script.js"></script>
+
+    <!-- Leaflet + İnteraktif Japonya Rotası -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="japan-map.js"></script>
+
+    <!-- Chart.js + Bütçe & İstatistik Grafikleri -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="budget-chart.js"></script>
+    <script src="stats-charts.js"></script>
+
+    <!-- Motion & storytelling geliştirmeleri -->
+    <script src="enhance.js"></script>
 </body>
 </html>

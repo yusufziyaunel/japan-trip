@@ -298,6 +298,51 @@
     transform: translateY(0);
 }
 
+/* ============================================
+   MASONRY GALERİ (gerçek fotoğraflar için)
+   Kullanım: <div class="photo-gallery masonry">
+   CSS columns ile gerçek masonry - farklı en/boy oranları korunur
+   ============================================ */
+.photo-gallery.masonry {
+    display: block;
+    column-count: 4;
+    column-gap: 1rem;
+}
+
+.photo-gallery.masonry .photo-item {
+    aspect-ratio: auto;              /* gerçek foto oranı korunur */
+    break-inside: avoid;
+    margin-bottom: 1rem;
+    display: inline-block;
+    width: 100%;
+    border-radius: 14px;
+}
+
+.photo-gallery.masonry .photo-item img {
+    height: auto;                    /* dik/yatay fotoğraflar doğal görünür */
+    border-radius: 14px;
+}
+
+/* Yumuşak yüklenme efekti */
+.photo-gallery.masonry .photo-item img {
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.3s ease;
+}
+.photo-gallery.masonry .photo-item img[src]:not([src=""]) {
+    opacity: 1;
+}
+
+@media (max-width: 1024px) {
+    .photo-gallery.masonry { column-count: 3; }
+}
+@media (max-width: 768px) {
+    .photo-gallery.masonry { column-count: 2; column-gap: 0.6rem; }
+    .photo-gallery.masonry .photo-item { margin-bottom: 0.6rem; }
+}
+@media (max-width: 480px) {
+    .photo-gallery.masonry { column-count: 1; }
+}
+
 /* Lightbox */
 .lightbox {
     display: none;

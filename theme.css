@@ -1,0 +1,297 @@
+/* ============================================
+   CLEAN THEME — Net butonlar & solid kart pencereleri
+   TÜM sayfalarda EN SON yüklenir (diğer tüm CSS'leri ezer)
+   Amaç: gradyan/parlama gürültüsünü azalt, kontrast & netlik artır
+   ============================================ */
+
+:root {
+    --c-primary:      #5158c8;   /* net indigo — buton dolgusu (beyaz yazı okunur) */
+    --c-primary-700:  #424ab0;   /* hover */
+    --c-accent:       #667eea;   /* açık indigo — şerit/ikon vurgusu */
+    --c-food:         #d2691e;   /* kiremit — yemek vurgusu */
+    --c-food-700:     #b4571780;
+
+    --surface:    #ffffff;
+    --surface-2:  #f6f7fb;
+    --border:     #e6e7ef;
+    --ink:        #1c2030;
+    --ink-muted:  #5a6072;
+
+    --radius:    14px;
+    --radius-sm: 10px;
+    --shadow:        0 1px 2px rgba(20,24,50,0.05), 0 6px 18px rgba(20,24,50,0.06);
+    --shadow-hover:  0 2px 6px rgba(20,24,50,0.08), 0 16px 34px rgba(20,24,50,0.10);
+}
+
+/* ============================================
+   1) BUTONLAR — tek net dil
+   ============================================ */
+.journal-btn,
+.btn-detail,
+.journal-button,
+.btn-back,
+.btn-next,
+.btn-next-day,
+.map-popup .popup-btn {
+    background: var(--c-primary) !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: var(--radius-sm) !important;
+    box-shadow: 0 2px 6px rgba(81,88,200,0.28) !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+.journal-btn:hover,
+.btn-detail:hover,
+.journal-button:hover,
+.btn-back:hover,
+.btn-next:hover,
+.btn-next-day:hover,
+.map-popup .popup-btn:hover {
+    background: var(--c-primary-700) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(81,88,200,0.40) !important;
+}
+
+/* Buton üstü kayan parıltı animasyonlarını kapat (gürültü) */
+.journal-btn::before,
+.journal-button::before { display: none !important; }
+
+/* Dev "journal-button"u normal, net bir butona indir */
+.journal-button {
+    padding: 1rem 2rem !important;
+    font-size: 1.05rem !important;
+    border-radius: var(--radius-sm) !important;
+    width: auto !important;
+    max-width: none !important;
+    box-shadow: 0 2px 6px rgba(81,88,200,0.28) !important;
+    gap: 0.6rem !important;
+}
+.day-journal-link {
+    border-top: 1px solid var(--border) !important;
+    padding-top: 1.5rem !important;
+    margin-top: 1.5rem !important;
+}
+
+/* İkincil hero butonu (Planı İncele) — net dış çizgi */
+.plan-btn {
+    background: rgba(255,255,255,0.12) !important;
+    border: 1.5px solid rgba(255,255,255,0.7) !important;
+    border-radius: var(--radius-sm) !important;
+    backdrop-filter: none !important;
+}
+.plan-btn:hover { background: rgba(255,255,255,0.22) !important; }
+
+/* Quick-nav butonları — aktif: net indigo */
+.nav-btn {
+    border: 1.5px solid var(--border) !important;
+    border-radius: var(--radius-sm) !important;
+    color: var(--ink) !important;
+}
+.nav-btn:hover { border-color: var(--c-accent) !important; color: var(--c-primary) !important; transform: none !important; }
+.nav-btn.active {
+    background: var(--c-primary) !important;
+    border-color: var(--c-primary) !important;
+    color: #fff !important;
+}
+
+/* Metin-bağlantı butonları — net, sade */
+.explore-link,
+.activity-map-link,
+.modal-item-link,
+.food-link {
+    color: var(--c-primary) !important;
+    font-weight: 600 !important;
+}
+.explore-link:hover,
+.activity-map-link:hover,
+.modal-item-link:hover,
+.food-link:hover { color: var(--c-primary-700) !important; }
+
+/* Gastronomi filtre butonları — aktif: net kiremit */
+.gastro-filters .filter-btn {
+    border-radius: var(--radius-sm) !important;
+    border: 1.5px solid rgba(226,167,48,0.35) !important;
+}
+.gastro-filters .filter-btn:hover,
+.gastro-filters .filter-btn.active {
+    background: var(--c-food) !important;
+    border-color: var(--c-food) !important;
+    color: #fff !important;
+    transform: none !important;
+}
+
+/* ============================================
+   2) KART "PENCERELERİ" — solid, net kenar, tek gölge
+   ============================================ */
+.highlight-card,
+.city-card,
+.tip-card,
+.day-card,
+.category-card {
+    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+    box-shadow: var(--shadow) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease !important;
+}
+.highlight-card:hover,
+.city-card:hover,
+.tip-card:hover,
+.day-card:hover,
+.category-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: var(--shadow-hover) !important;
+    border-color: #d7d9e6 !important;
+}
+
+/* Gün kartı başlığı: gradyan yerine solid şehir rengi */
+.day-header {
+    background: var(--city-color, var(--c-primary)) !important;
+}
+
+/* Kart içi metin kontrastı */
+.highlight-card p, .city-days, .tip-card p, .category-card p { color: var(--ink-muted) !important; }
+.highlight-card h3, .tip-card h4, .city-info h3 { color: var(--ink) !important; }
+
+/* Şehir kartı üst şeridi netleşsin (zaten renkli border-top var) */
+.highlight-item { background: var(--surface-2) !important; border-radius: var(--radius-sm) !important; }
+
+/* Aktivite & yemek mini kartları */
+.activity-item, .food-item {
+    border-radius: var(--radius-sm) !important;
+    box-shadow: none !important;
+    border: 1px solid var(--border) !important;
+}
+.activity-item { border-left: 3px solid var(--city-color, var(--c-accent)) !important; }
+.food-suggestions { background: #fff7ef !important; border: 1px solid #f3e2cf !important; }
+.food-type { background: var(--c-food) !important; }
+
+/* Bölüm başlığı alt çizgisi — sade indigo */
+.section-title::after {
+    background: var(--c-accent) !important;
+    width: 64px !important;
+    height: 3px !important;
+}
+
+/* ============================================
+   3) "Seyyah Günlüğü" öne çıkan banner — sakin, net
+   (gradyan + dönen emoji + parıltı kaldırıldı)
+   ============================================ */
+.journal-featured {
+    background: var(--surface) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius) !important;
+    box-shadow: var(--shadow) !important;
+    overflow: hidden !important;
+}
+.journal-featured::before { display: none !important; }   /* dönen 📖 emoji */
+.journal-featured h2 { color: var(--ink) !important; }
+.journal-featured p  { color: var(--ink-muted) !important; }
+.journal-badge {
+    background: #eef0fd !important;
+    color: var(--c-primary) !important;
+    border: 1px solid #dcdffa !important;
+}
+.preview-card {
+    background: var(--surface-2) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: var(--radius-sm) !important;
+    backdrop-filter: none !important;
+}
+.preview-card .number { color: var(--c-primary) !important; }
+.preview-card .label  { color: var(--ink-muted) !important; }
+.journal-featured .journal-btn {
+    background: var(--c-primary) !important;
+    color: #fff !important;
+}
+
+/* ============================================
+   4) MODAL — net pencere
+   ============================================ */
+.modal-content { border-radius: var(--radius) !important; }
+.modal-item {
+    background: var(--surface-2) !important;
+    border-left: 3px solid var(--c-primary) !important;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0 !important;
+}
+.modal-item:hover { background: #eef0fd !important; transform: translateX(4px) !important; }
+.modal-item h4, .modal-item-location { color: var(--c-primary) !important; }
+
+/* ============================================
+   5) KOYU SAYFALAR (gün detay + gastronomi)
+   Net kenar & solid pill'ler; koyu tema korunur
+   ============================================ */
+.day-detail-page .time-badge {
+    background: var(--c-primary) !important;
+    border-radius: 8px !important;
+}
+.day-detail-page .activity-detail,
+.day-detail-page .note-card,
+.day-detail-page .highlight-box {
+    border-radius: var(--radius) !important;
+    border: 1px solid rgba(255,255,255,0.10) !important;
+}
+.day-detail-page .activity-detail { border-left: 3px solid var(--c-accent) !important; }
+.day-detail-page .next-day-card { border-radius: var(--radius) !important; }
+
+/* doc-section koyu panelleri (harita/bütçe/istatistik) — kenar netleşsin */
+.doc-section { border: 1px solid rgba(255,255,255,0.10) !important; }
+
+/* ============================================
+   7) HERO — sakinleştirilmiş, netleştirilmiş
+   (gürültülü çift gradyan + pulse + gold monospace + blur klon kaldırıldı)
+   ============================================ */
+.countdown-hero {
+    background:
+        linear-gradient(160deg, rgba(28,32,62,0.88) 0%, rgba(43,38,92,0.90) 100%),
+        url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=2000') center/cover no-repeat !important;
+}
+/* Titreşen radial arka plan katmanını durdur */
+.hero-bg { animation: none !important; opacity: 0.5 !important; }
+
+/* Başlık arkasındaki bulanık gradyan klonu kaldır (gürültü) */
+.main-text::before { display: none !important; }
+.main-text {
+    background: none !important;
+    -webkit-text-fill-color: #fff !important;
+    color: #fff !important;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.35) !important;
+}
+
+/* Geri sayım kutuları — net cam yerine sade panel */
+.countdown-unit {
+    background: rgba(255,255,255,0.08) !important;
+    backdrop-filter: blur(3px) !important;
+    border: 1px solid rgba(255,255,255,0.18) !important;
+    border-radius: var(--radius) !important;
+    transition: border-color 0.2s ease, transform 0.2s ease !important;
+}
+.countdown-unit:hover {
+    border-color: rgba(255,255,255,0.5) !important;
+    transform: translateY(-3px) !important;
+}
+/* Rakamlar: net beyaz + site fontu (gold/Courier yerine) */
+.countdown-number {
+    color: #fff !important;
+    font-family: 'Inter', sans-serif !important;
+    font-weight: 700 !important;
+}
+.countdown-sep { opacity: 0.35 !important; }
+
+/* Bilgi pill'leri — net, tutarlı köşe */
+.info-item {
+    background: rgba(255,255,255,0.10) !important;
+    border: 1px solid rgba(255,255,255,0.20) !important;
+    backdrop-filter: none !important;
+}
+
+/* ============================================
+   8) Erişim: belirgin klavye odak halkası
+   ============================================ */
+a:focus-visible, button:focus-visible, .nav-btn:focus-visible {
+    outline: 3px solid var(--c-accent) !important;
+    outline-offset: 2px !important;
+}

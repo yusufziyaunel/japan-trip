@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍜 Gastronomi Günlüğü | Japonya 2026</title>
+    <meta name="description" content="Japonya'da denediğim udon, sushi ve sokak lezzetleri — mekan, puan ve fotoğraflarla kişisel gastronomi günlüğü.">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="gastronomi.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="theme.css">
+</head>
+<body class="gastro-page">
+
+    <nav class="gastro-nav">
+        <a href="index.html" class="btn-back">← Ana Sayfa</a>
+        <a href="days/day01.html" class="btn-back" style="background:linear-gradient(135deg,#667eea,#764ba2)">📖 Seyyah Günlüğü</a>
+    </nav>
+
+    <header class="gastro-hero">
+        <div class="kanji">美味しい</div>
+        <h1>Gastronomi Günlüğü</h1>
+        <p>14 gün boyunca Japonya'nın sokaklarında, ara sokak ramencilerinde ve tezgah başlarında
+           tattığım her lezzet. Mekanı, kişisel puanım ve fotoğraflarıyla — afiyet olsun! 🥢</p>
+    </header>
+
+    <div class="gastro-filters" id="gastroFilters">
+        <button class="filter-btn active" data-filter="all">Tümü</button>
+        <button class="filter-btn" data-filter="ramen">🍜 Ramen & Erişte</button>
+        <button class="filter-btn" data-filter="sushi">🍣 Sushi</button>
+        <button class="filter-btn" data-filter="meat">🍖 Et & Köri</button>
+        <button class="filter-btn" data-filter="street">🍢 Sokak Lezzeti</button>
+        <button class="filter-btn" data-filter="sweet">🍵 Matcha & Tatlı</button>
+        <button class="filter-btn" data-filter="konbini">🏪 Konbini</button>
+    </div>
+
+    <main class="gastro-grid" id="gastroGrid"></main>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+        <button class="lightbox-nav prev" onclick="event.stopPropagation(); navigateLightbox(-1)">‹</button>
+        <button class="lightbox-nav next" onclick="event.stopPropagation(); navigateLightbox(1)">›</button>
+    </div>
+
+    <script src="lightbox.js"></script>
+    <script>
+    // ============================================
+    // LEZZET VERİLERİ — 13 günlük gerçek günlüklerden çıkarıldı
+    // category: ramen | sushi | meat | street | sweet
+    // photos: fotoğraf yolu dizisi (yoksa [] → otomatik 🍽️ placeholder)
+    //         Fotoğrafları "photos/gastronomi/" klasörüne koyup yolları güncelle.
+    // rating: 0-5 (yarım puan destekli). day: hangi günden geldiği
+    // ============================================
+    const dishes = [
+        {
+            name: 'Tonkotsu Ramen', place: 'Manbaken, Shinjuku (1. Gün)',
+            category: 'ramen', rating: 5,
+            desc: 'Japonya\'daki ilk yemeğimiz. Ara sokaktaki minik ramencide, bilmediğimiz tuşlara basarak sipariş ettiğimiz o sıcacık çorba. Soğuk Shinjuku gecesinde içimizi ısıttı.',
+            photos: ['photos/gastronomi/ramen-manbaken.jpg']
+        },
+        {
+            name: 'Kaiten Sushi (Döner Bant)', place: 'Sushiro, Shinjuku (2. Gün)',
+            category: 'sushi', rating: 4.5,
+            desc: 'Tablet üzerinden sipariş verip banttan gelen sushileri oyun gibi izledik; kaç tabak yediğimizi saymayı bıraktık. Tüm bu ziyafet sadece 4.370 ¥ — inanılmaz uygun.',
+            photos: ['photos/gastronomi/sushiro-shinjuku.jpg']
+        },
+        {
+            name: 'Double Cheese Burger', place: 'Shogun Burger, Shinjuku (3. Gün)',
+            category: 'meat', rating: 5,
+            desc: 'Şehirde yediğimiz en iyi burger. Yerel Japon birası ve pembe saçlı garson Akira\'nın enerjisi eşliğinde günün muhteşem finali.',
+            photos: ['photos/gastronomi/shogun-burger.jpg']
+        },
+        {
+            name: 'Rainbow Pancake', place: 'Harajuku (3. Gün)',
+            category: 'sweet', rating: 4,
+            desc: 'Harajuku\'nun renkli sokaklarında bulut gibi, üzerine bol meyve ve krema gelen tatlı bir mola.',
+            photos: ['photos/gastronomi/rainbow-pancake.jpg']
+        },
+        {
+            name: 'Gyoza & Kızarmış Tavuk', place: 'Ginza Tenryu (4. Gün)',
+            category: 'meat', rating: 4,
+            desc: 'Ginza\'da rastgele girdiğimiz bir Çin lokantasında dev gyozalar ve viski-soda ikilisi. 3.780 ¥\'lik bu mola tam ihtiyacımız olan enerjiydi.',
+            photos: ['photos/gastronomi/ginza-gyoza.jpg']
+        },
+        {
+            name: 'Wagyu (Kendin Pişir)', place: 'Gion, Kyoto (5. Gün)',
+            category: 'meat', rating: 5,
+            desc: 'Kyoto\'daki ilk akşam yemeği. Kendin pişir-ye usulü yumuşacık Wagyu etleri. Yan masadaki "Shinkansen kaçıran Amerikalı aile" draması eşliğinde tadı damağımızda kaldı.',
+            photos: ['photos/gastronomi/wagyu-gion.jpg']
+        },
+        {
+            name: 'Okonomiyaki', place: 'Gion, Kyoto (6. Gün)',
+            category: 'street', rating: 4,
+            desc: 'Lahanalı "Japon omleti". Şeflerin tezgah başında hazırlayışını izlemek başlı başına bir şovdu.',
+            photos: ['photos/gastronomi/okonomiyaki-gion.jpg']
+        },
+        {
+            name: 'Matcha Cake', place: 'Arashiyama, Kyoto (6. Gün)',
+            category: 'sweet', rating: 4,
+            desc: 'Hasır çatılı geleneksel bir kafede, yer sofrasında battaniyeler altında yediğimiz matcha cake. Bambu ormanı öncesi üşüyen ellerimizi ısıttı.',
+            photos: ['photos/gastronomi/matcha-cake-arashiyama.jpg']
+        },
+        {
+            name: 'Matcha & Cheesecake', place: 'Hario Cafe, Kyoto (7. Gün)',
+            category: 'sweet', rating: 4.5,
+            desc: 'Bahçesiyle bizi büyüleyen Hario Cafe\'de huzur molası. Şehrin kalabalığından kaçmak için mükemmel bir sığınak.',
+            photos: ['photos/gastronomi/hario-matcha.jpg']
+        },
+        {
+            name: 'Souffle Pancake', place: 'Osaka (8. Gün)',
+            category: 'street', rating: 4.5,
+            desc: 'Osaka\'da uzun bir bekleyişin ardından gelen pofuduk, sallanan Japon pancake\'leri. Garsonla kurduğum kısa Japonca diyalog günün en sempatik anıydı.',
+            photos: ['photos/gastronomi/osaka-pancake.jpg']
+        },
+        {
+            name: 'Coco Curry (Karē)', place: 'Coco Ichibanya, Osaka (9. Gün)',
+            category: 'meat', rating: 5,
+            desc: 'Japon körisiyle tanışma! 0-24 acı skalasında "sadece" 1. seviyeyi seçtik ama yine de fena yaktı. Et soteli sos, çıtır tavuklu pilav — en "bizden" ve doyurucu menü. 4.711 ¥.',
+            photos: ['photos/gastronomi/coco-curry.jpg']
+        },
+        {
+            name: 'Matcha Lava Cake', place: 'Hatoya, Asakusa (10. Gün)',
+            category: 'sweet', rating: 5,
+            desc: 'Uzun bir sıra bekledik ama her saniyesine değdi. Yoğun matcha tadıyla akan lava cake ve buz gibi matcha latte — matcha severlerin mabedi.',
+            photos: ['photos/gastronomi/hatoya-lava-cake.jpg']
+        },
+        {
+            name: 'Diner Burger & Milkshake', place: 'McLean, Tokyo (11. Gün)',
+            category: 'meat', rating: 4,
+            desc: 'Gerçek bir Amerikan Diner deneyimi. Ginger ale milkshake ve burger ikilisiyle akşamın fütüristik turuna enerji depoladık.',
+            photos: ['photos/gastronomi/mclean-burger.jpg']
+        },
+        {
+            name: 'El Yapımı Onigiri', place: 'Ueno Park Karavanı (12. Gün)',
+            category: 'street', rating: 4.5,
+            desc: 'Ulusal Müze çıkışında bir karavandan aldığımız, dumanı üstünde tüten el yapımı onigiriler. Ueno Park\'ın garip festival kokusundan bizi kurtaran lezzet kaçamağı.',
+            photos: ['photos/gastronomi/ueno-onigiri.jpg']
+        },
+
+        // --- KONBİNİ HAZİNELERİ (7-Eleven / Lawson / FamilyMart) ---
+        {
+            name: 'Konbini Onigiri', place: 'Konbini (Tüm gezi boyunca)',
+            category: 'konbini', rating: 5,
+            desc: 'Gezinin sabit lezzeti. Tuna-mayo ve yumurta salatalı üçgen pirinç topları — açılışı bile bir sistem. Hızlı, ucuz ve şaşırtıcı derecede lezzetli.',
+            photos: []
+        },
+        {
+            name: 'Tuna-Mayo & Cheddar Sando', place: 'Konbini (7-Eleven)',
+            category: 'konbini', rating: 4.5,
+            desc: 'Konbini\'nin meşhur kabarık beyaz ekmek sandviçi: ton-mayo, cheddar ve taze marul. Kabuğu kesilmiş, üçgen ve kusursuz. Yolda atıştırmanın en pratik hali.',
+            photos: []
+        },
+        {
+            name: 'Tamago (Yumurta Salatası) Sando', place: 'Konbini (Lawson)',
+            category: 'konbini', rating: 4.5,
+            desc: 'Japonya\'nın efsanevi yumurta salatalı sandviçi. İpeksi, hafif tatlı yumurta salatası ve yumuşacık ekmek — basit ama bağımlılık yapıcı.',
+            photos: []
+        },
+        {
+            name: 'Çilekli Sando (Ichigo Sando)', place: 'Konbini',
+            category: 'sweet', rating: 4.5,
+            desc: 'Taze çilek ve bulut gibi krema arasında yumuşacık ekmek. Tatlı ile sandviçin beklenmedik ama mükemmel buluşması.',
+            photos: []
+        },
+        {
+            name: 'Melon Pan', place: 'Konbini & Fırınlar',
+            category: 'sweet', rating: 4,
+            desc: 'Dışı çıtır kurabiye kabuğu, içi yumuşacık tatlı ekmek. Adı melondan gelse de tadı kendine has — sıcakken bir başka.',
+            photos: []
+        },
+        {
+            name: 'Pizza', place: 'Konbini & Sokak',
+            category: 'street', rating: 3.5,
+            desc: 'Japon usulü, mısır ve mayonez gibi sürprizli soslarla bezenmiş tek kişilik pizza. Beklediğin gibi değil ama merak edip aldığımıza değdi.',
+            photos: []
+        },
+        {
+            name: 'Crème Brûlée Dondurma', place: 'Konbini (dondurucu reyonu)',
+            category: 'sweet', rating: 4.5,
+            desc: 'Konbini dondurucusundan çıkan beklenmedik bir şaheser: üstü gerçekten karamelize, içi kremalı. Japon konbini tatlı oyununun ne kadar ciddi olduğunun kanıtı.',
+            photos: []
+        },
+        {
+            name: 'Strong Zero', place: 'Konbini (içecek reyonu)',
+            category: 'konbini', rating: 4,
+            desc: 'Japonya\'nın efsanevi sert chuhai\'si. Ucuz, buz gibi ve adından da anlaşılacağı üzere... iddialı. Uzun gezi günlerinin sonunda otel odasının vazgeçilmezi. 🍋',
+            photos: []
+        },
+        {
+            name: 'Patates Cipsi (Calbee)', place: 'Konbini',
+            category: 'konbini', rating: 3.5,
+            desc: 'Wasabi\'den deniz yosununa garip ama lezzetli aromalar. Tren yolculuklarının ve gece atıştırmalarının sessiz kahramanı.',
+            photos: []
+        },
+        {
+            name: 'Şişe Yeşil Çay (Ocha)', place: 'Konbini (otomat & raf)',
+            category: 'konbini', rating: 4,
+            desc: 'Şekersiz, buz gibi demlenmiş yeşil çay (Oi Ocha). Her köşede, her otomatta. Japonya\'nın susuzluğu gideren resmî içeceği gibiydi.',
+            photos: []
+        }
+    ];
+
+    // --- Yıldız üretici ---
+    function renderStars(rating) {
+        let html = '';
+        for (let i = 1; i <= 5; i++) {
+            if (rating >= i)            html += '<span class="star-full">★</span>';
+            else if (rating >= i - 0.5) html += '<span class="star-half">★<span>★</span></span>';
+            else                        html += '<span class="star-empty">★</span>';
+        }
+        return html;
+    }
+
+    // --- Kart üretici ---
+    function renderDishes(filter = 'all') {
+        const grid = document.getElementById('gastroGrid');
+        grid.innerHTML = '';
+
+        dishes
+            .filter(d => filter === 'all' || d.category === filter)
+            .forEach(d => {
+                let photosHTML;
+                if (d.photos && d.photos.length) {
+                    const cls = d.photos.length === 1 ? 'single' : '';
+                    photosHTML = `<div class="food-photos ${cls}">` +
+                        d.photos.map(p =>
+                            `<img src="${p}" alt="${d.name}" loading="lazy"
+                                  onclick="openLightbox('${p}')"
+                                  onerror="this.parentElement.classList.add('empty');this.parentElement.innerHTML='🍽️'">`
+                        ).join('') + '</div>';
+                } else {
+                    photosHTML = `<div class="food-photos empty">🍽️</div>`;
+                }
+
+                const card = document.createElement('div');
+                card.className = 'food-card';
+                card.innerHTML = `
+                    ${photosHTML}
+                    <div class="food-card-body">
+                        <div class="food-card-head">
+                            <h3>${d.name}</h3>
+                            <span class="food-type-badge">${labelFor(d.category)}</span>
+                        </div>
+                        <div class="food-place">📍 ${d.place}</div>
+                        <div class="food-rating">
+                            <span class="stars">${renderStars(d.rating)}</span>
+                            <span class="score">${d.rating.toFixed(1)} / 5</span>
+                        </div>
+                        <p class="food-desc">${d.desc}</p>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+        // lightbox.js fotoğraf listesini tazele
+        if (typeof collectPhotos === 'function') collectPhotos();
+    }
+
+    function labelFor(cat) {
+        return { ramen: 'Ramen & Erişte', sushi: 'Sushi', meat: 'Et & Köri',
+                 street: 'Sokak Lezzeti', sweet: 'Matcha & Tatlı', konbini: 'Konbini' }[cat] || cat;
+    }
+
+    // --- Filtre olayları ---
+    document.getElementById('gastroFilters').addEventListener('click', e => {
+        const btn = e.target.closest('.filter-btn');
+        if (!btn) return;
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderDishes(btn.dataset.filter);
+    });
+
+    renderDishes();
+    </script>
+</body>
+</html>

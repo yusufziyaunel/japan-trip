@@ -1,0 +1,238 @@
+/* ============================================
+   GASTRONOMİ GÜNLÜĞÜ
+   Dark mode + iştah açıcı sıcak vurgular
+   ============================================ */
+:root {
+    --terracotta: #d2691e;   /* kiremit */
+    --mustard:    #e1a730;   /* hardal sarısı */
+    --warm-glow:  #ff7e47;   /* sıcak turuncu */
+}
+
+.gastro-page {
+    background: #0a0e27;
+    color: #fff;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Nav */
+.gastro-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(10, 14, 39, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(226, 167, 48, 0.2);
+}
+.gastro-nav .btn-back {
+    padding: 0.7rem 1.4rem;
+    background: linear-gradient(135deg, var(--terracotta), var(--warm-glow));
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+}
+.gastro-nav .btn-back:hover { transform: translateY(-2px); }
+
+/* Hero */
+.gastro-hero {
+    text-align: center;
+    padding: 5rem 2rem 4rem;
+    background:
+        radial-gradient(circle at 30% 30%, rgba(210, 105, 30, 0.25), transparent 60%),
+        radial-gradient(circle at 75% 70%, rgba(225, 167, 48, 0.18), transparent 55%),
+        #0a0e27;
+}
+.gastro-hero .kanji {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 2rem;
+    color: var(--mustard);
+    letter-spacing: 0.3em;
+    opacity: 0.9;
+}
+.gastro-hero h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 3.2rem;
+    margin: 0.5rem 0 1rem;
+    background: linear-gradient(120deg, var(--mustard), var(--warm-glow));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.gastro-hero p {
+    max-width: 640px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.15rem;
+    line-height: 1.7;
+}
+
+/* Filtre çubuğu */
+.gastro-filters {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 2rem;
+}
+.gastro-filters .filter-btn {
+    padding: 0.6rem 1.4rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(226, 167, 48, 0.3);
+    color: rgba(255, 255, 255, 0.85);
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+}
+.gastro-filters .filter-btn:hover,
+.gastro-filters .filter-btn.active {
+    background: linear-gradient(135deg, var(--terracotta), var(--mustard));
+    border-color: transparent;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Kart ızgarası */
+.gastro-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem 5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2rem;
+}
+
+/* Lezzet kartı */
+.food-card {
+    background: linear-gradient(160deg, #141831 0%, #0e1228 100%);
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.food-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(226, 167, 48, 0.5);
+    box-shadow: 0 18px 50px rgba(210, 105, 30, 0.25);
+}
+
+/* Yan yana fotoğraflar */
+.food-photos {
+    display: flex;
+    gap: 3px;
+    height: 200px;
+    background: #0a0e27;
+}
+.food-photos img {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    min-width: 0;
+}
+.food-photos img:hover { opacity: 0.88; }
+.food-photos.single img { flex: 1 1 100%; }
+
+/* Fotoğraf yoksa placeholder */
+.food-photos.empty {
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.25);
+    font-size: 3rem;
+}
+
+.food-card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+
+.food-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.4rem;
+}
+.food-card-head h3 {
+    font-size: 1.4rem;
+    color: #fff;
+}
+.food-type-badge {
+    flex-shrink: 0;
+    padding: 0.25rem 0.7rem;
+    background: rgba(226, 167, 48, 0.15);
+    border: 1px solid rgba(226, 167, 48, 0.4);
+    color: var(--mustard);
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.food-place {
+    color: var(--warm-glow);
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+}
+
+/* Yıldız puanı */
+.food-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.9rem;
+}
+.food-rating .stars { font-size: 1.05rem; letter-spacing: 0.1em; }
+.food-rating .star-full { color: var(--mustard); }
+.food-rating .star-empty { color: rgba(255, 255, 255, 0.18); }
+.food-rating .star-half {
+    position: relative;
+    color: rgba(255, 255, 255, 0.18);   /* boş kısım */
+}
+.food-rating .star-half > span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    overflow: hidden;
+    color: var(--mustard);               /* dolu yarısı */
+}
+.food-rating .score {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 600;
+}
+
+.food-desc {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+/* Lightbox (sayfa içi, lightbox.js ile uyumlu) */
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.95);
+    align-items: center;
+    justify-content: center;
+}
+.lightbox.active { display: flex; }
+.lightbox-content { max-width: 90%; max-height: 90vh; object-fit: contain; border-radius: 8px; }
+.lightbox-close { position: absolute; top: 1.5rem; right: 2.5rem; font-size: 3rem; color: #fff; cursor: pointer; }
+.lightbox-caption { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.7); color:#fff; padding: 0.8rem 1.6rem; border-radius: 8px; }
+.lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.15); border: none; color: #fff; font-size: 2.5rem; padding: 0.6rem 1.2rem; cursor: pointer; border-radius: 8px; }
+.lightbox-nav.prev { left: 2rem; } .lightbox-nav.next { right: 2rem; }
+
+@media (max-width: 768px) {
+    .gastro-hero h1 { font-size: 2.3rem; }
+    .gastro-grid { padding: 1rem 1rem 4rem; gap: 1.5rem; }
+}

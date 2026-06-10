@@ -77,11 +77,15 @@ async function loadAllPhotos(day, containerId, options = {}) {
         if (settings.onError) {
             settings.onError(error);
         } else {
+            // Fotoğraf/JSON henüz yoksa kullanıcıyı korkutmadan zarif bir yer tutucu göster
             container.innerHTML = `
-                <p style="text-align: center; color: rgba(255,100,100,0.8);">
-                    ⚠️ Fotoğraflar yüklenemedi.<br>
-                    <small>${error.message}</small>
-                </p>
+                <div style="grid-column: 1 / -1; column-span: all;
+                            text-align: center; padding: 2.5rem 1rem;
+                            color: rgba(255,255,255,0.45); border: 1px dashed rgba(255,255,255,0.15);
+                            border-radius: 14px;">
+                    <div style="font-size: 2.5rem; opacity: 0.6;">📷</div>
+                    <p style="margin-top: 0.6rem;">Bu günün fotoğrafları yakında eklenecek.</p>
+                </div>
             `;
         }
     }
