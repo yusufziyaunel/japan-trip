@@ -1,0 +1,739 @@
+/* ============================================
+   İLLÜSTRATİF TEMA — "Washi Poster"
+   EN SON yüklenir. Krem kâğıt + indigo mürekkep + canlı pastel,
+   kalın çizgi, sert (offset) gölge, çıkartma (sticker) kartlar.
+   ============================================ */
+
+:root {
+    --paper:   #FBF3E4;
+    --paper-2: #FFF9EE;
+    --ink:     #22264B;
+    --ink-2:   #3A3F6B;
+    --red:     #E8503A;
+    --sun:     #FFC857;
+    --sakura:  #F9B8C8;
+    --matcha:  #8ED1B0;
+    --sky:     #BFE3F2;
+    --lilac:   #CDBFE6;
+    --line: 2.5px solid var(--ink);
+    --soft: 0 8px 22px rgba(34,38,75,.12);
+    --btn: 0 3px 0 var(--ink);
+    --pop:  var(--soft);
+    --pop-s: var(--btn);
+    --r: 20px;
+    --font-head: 'Bricolage Grotesque', 'Inter', sans-serif;
+    --font-body: 'Figtree', 'Inter', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body, body.home {
+    font-family: var(--font-body);
+    color: var(--ink);
+    background-color: var(--paper);
+    background-image: radial-gradient(rgba(34,38,75,.07) 1.2px, transparent 1.2px);
+    background-size: 22px 22px;
+}
+h1, h2, h3, h4, .section-title, .doc-title, .countdown-number, .stat-num, .center-total {
+    font-family: var(--font-head);
+    letter-spacing: -0.01em;
+}
+::selection { background: var(--sun); color: var(--ink); }
+
+/* ---------- İlerleme çubuğu ---------- */
+.scroll-progress { background: var(--red) !important; box-shadow: none !important; height: 5px !important; border-bottom: 2px solid var(--ink); }
+
+/* ============================================
+   HERO
+   ============================================ */
+.home .countdown-hero {
+    background: linear-gradient(#FFC9B3, #FFE0C8 60%, #FFF1DC) !important;
+    color: var(--ink) !important;
+    min-height: 100vh;
+    padding: 5rem 1rem 12rem;
+    justify-content: flex-start;
+}
+.home .countdown-hero::after { display: none !important; }
+.home .countdown-hero.kenburns-on { animation: none !important; }
+.home .hero-bg { display: none; }
+.hero-art { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
+.home .countdown-content { z-index: 5; text-align: center; max-width: 900px; }
+
+.home .hero-title { margin-bottom: 1.6rem; }
+.home .jp-text {
+    display: inline-block; font-family: 'Noto Serif JP', serif; font-weight: 900;
+    color: var(--red) !important; -webkit-text-fill-color: var(--red) !important;
+    background: var(--paper); border: var(--line); border-radius: 999px;
+    padding: .2rem 1.3rem; font-size: clamp(1.1rem, 3vw, 1.6rem) !important;
+    box-shadow: var(--pop-s); letter-spacing: .12em; transform: none;
+    text-shadow: none !important;
+}
+.home .main-text {
+    display: block; margin-top: 1rem; font-family: var(--font-head) !important;
+    font-weight: 800 !important; color: var(--ink) !important; -webkit-text-fill-color: var(--ink) !important;
+    font-size: clamp(3rem, 11vw, 7rem) !important; line-height: .95 !important;
+    text-shadow: 4px 4px 0 var(--sun) !important;
+}
+.home .hero-title::after { display: none !important; }
+
+.home .countdown-label {
+    display: inline-block; background: var(--ink); color: var(--paper) !important;
+    padding: .35rem 1.1rem; border-radius: 999px; font-weight: 700; font-size: .85rem;
+    letter-spacing: .08em; text-transform: uppercase; margin-bottom: 1rem;
+}
+.home .countdown-unit {
+    background: var(--paper-2) !important; border: var(--line) !important; border-radius: 18px !important;
+    box-shadow: var(--pop-s); backdrop-filter: none !important; color: var(--ink) !important;
+}
+.home .countdown-unit:nth-child(1) { background: #FFD9E1 !important; }
+.home .countdown-unit:nth-child(3) { background: #FFEBB5 !important; }
+.home .countdown-unit:nth-child(5) { background: #D4F0E2 !important; }
+.home .countdown-unit:nth-child(7) { background: #D5ECF8 !important; }
+.home .countdown-unit:hover { transform: translateY(-3px) !important; box-shadow: var(--soft); border-color: var(--ink) !important; }
+.home .countdown-number { color: var(--ink) !important; font-family: var(--font-head) !important; font-weight: 800 !important; }
+.home .countdown-text { color: var(--ink-2) !important; font-weight: 700; }
+.home .countdown-sep { color: var(--ink) !important; opacity: .5 !important; }
+
+.home .info-item {
+    background: var(--paper-2) !important; color: var(--ink) !important; border: var(--line) !important;
+    border-radius: 999px !important; font-weight: 600; box-shadow: var(--soft);
+}
+.home .journal-btn, .home .plan-btn {
+    border: var(--line) !important; border-radius: 16px !important; font-weight: 700 !important;
+    box-shadow: var(--pop) !important; backdrop-filter: none !important; font-family: var(--font-head);
+}
+.home .journal-btn { background: var(--red) !important; color: #fff !important; }
+.home .plan-btn { background: var(--paper-2) !important; color: var(--ink) !important; }
+.home .journal-btn:hover, .home .plan-btn:hover {
+    transform: translateY(-3px) !important; box-shadow: var(--soft)!important;
+}
+.home .scroll-hint { color: var(--ink) !important; z-index: 6; bottom: 3.2rem; }
+.home .scroll-hint span { color: var(--ink) !important; font-weight: 700; }
+
+/* Hero hareketleri */
+.h-cloud { animation: hDrift var(--s, 60s) linear infinite; animation-delay: var(--d, 0s); }
+@keyframes hDrift { from { transform: translateX(-60px); } to { transform: translateX(120px); } }
+.petal { transform: translate(var(--x), -20px); animation: petalFall var(--s, 10s) linear infinite; animation-delay: var(--d, 0s); }
+@keyframes petalFall {
+    0%   { transform: translate(var(--x), 380px) rotate(0); opacity: 0; }
+    10%  { opacity: 1; }
+    100% { transform: translate(calc(var(--x) - 160px), 760px) rotate(540deg); opacity: .9; }
+}
+@media (prefers-reduced-motion: reduce) { .h-cloud, .petal { animation: none; } }
+
+/* ============================================
+   ANA İÇERİK
+   ============================================ */
+.home .main-content { position: relative; z-index: 1; }
+
+.section-title, .home .doc-title {
+    font-family: var(--font-head) !important; font-weight: 800 !important; color: var(--ink) !important;
+    font-size: clamp(1.8rem, 5vw, 2.8rem) !important; margin-bottom: 2.6rem;
+}
+.section-title::after {
+    height: 12px !important; width: 120px !important; border-radius: 0 !important;
+    background: none !important; bottom: -22px !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='12' viewBox='0 0 40 12'%3E%3Cpath d='M0 6q10-10 20 0t20 0' fill='none' stroke='%23E8503A' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E") !important;
+    background-repeat: repeat-x !important;
+}
+
+/* --- Seyyah günlüğü banner --- */
+.journal-featured {
+    background: var(--sun) !important; border: var(--line) !important; border-radius: 28px !important;
+    box-shadow: var(--soft)!important; position: relative; overflow: hidden !important;
+}
+.journal-featured::before {
+    display: block !important; content: '' !important; font-size: 0 !important; opacity: 1 !important; animation: none !important;
+    right: -60px; top: -60px; width: 220px; height: 220px; border-radius: 50%;
+    background: var(--red); border: var(--line); box-shadow: none;
+}
+.journal-featured::after {
+    content: ''; position: absolute; left: -40px; bottom: -70px; width: 200px; height: 200px; border-radius: 50%;
+    background: var(--sakura); border: var(--line);
+}
+.journal-content { z-index: 2; }
+.journal-featured h2 { color: var(--ink) !important; font-family: var(--font-head) !important; font-weight: 800; }
+.journal-featured p { color: var(--ink) !important; }
+.journal-badge { background: var(--ink) !important; color: var(--paper) !important; border: none !important; }
+.preview-card {
+    background: var(--paper-2) !important; border: var(--line) !important; border-radius: 16px !important;
+    box-shadow: var(--pop-s); backdrop-filter: none !important;
+}
+.preview-card:nth-child(1) { background: #FFD9E1 !important; }
+.preview-card:nth-child(2) { background: #D5ECF8 !important; }
+.preview-card:nth-child(3) { background: #D4F0E2 !important; }
+.preview-card:nth-child(4) { background: var(--paper-2) !important; }
+.preview-card .number { color: var(--ink) !important; font-family: var(--font-head); }
+.preview-card .label { color: var(--ink-2) !important; font-weight: 600; }
+.journal-featured .journal-btn {
+    background: var(--red) !important; color: #fff !important; border: var(--line) !important; box-shadow: var(--pop) !important;
+}
+
+/* --- Koyu bölüm panelleri (harita, rakamlar, bütçe) --- */
+.doc-section {
+    background: var(--ink) !important; border: var(--line) !important; border-radius: 28px !important;
+    box-shadow: var(--soft)!important; position: relative;
+}
+.doc-section:nth-of-type(even) { box-shadow: var(--soft)!important; }
+.home .doc-section .doc-title { color: var(--paper) !important; }
+.doc-section .doc-subtitle { color: rgba(251,243,228,.75) !important; }
+.jm-stage { border: var(--line) !important; border-color: var(--paper) !important; box-shadow: none !important; border-radius: 22px !important; }
+.jm-panel {
+    background: var(--paper-2) !important; color: var(--ink); border: var(--line) !important;
+    border-top: var(--line) !important; box-shadow: var(--soft);
+}
+.map-popup .popup-title { color: var(--ink) !important; font-family: var(--font-head); }
+.map-popup .popup-title small { background: var(--ink) !important; color: var(--paper) !important; }
+.map-popup .popup-section strong { color: var(--ink-2) !important; }
+.map-popup ul li { color: var(--ink) !important; }
+.map-popup .popup-tag { background: #fff !important; color: var(--ink) !important; border: 2px solid var(--ink) !important; }
+.map-popup .popup-btn {
+    background: var(--red) !important; border: var(--line) !important; border-radius: 14px !important;
+    box-shadow: var(--soft)!important; color: #fff !important;
+}
+.map-popup .popup-btn:hover { box-shadow: var(--soft)!important; }
+
+.spend-kpi { border: 2px solid var(--paper) !important; background: rgba(255,255,255,.06) !important; }
+.spend-kpi.main { background: var(--red) !important; }
+.spend-note { border-left-color: var(--sun) !important; }
+
+.trip-stat { border: 2px solid rgba(251,243,228,.35) !important; border-radius: 18px !important; background: rgba(255,255,255,.06) !important; }
+.chart-card { border: 2px solid rgba(251,243,228,.35) !important; border-radius: 20px !important; }
+
+/* --- Gastronomi CTA --- */
+.gastro-cta { text-decoration: none; }
+.gastro-cta-inner, .gastro-cta .gastro-cta-inner {
+    background: var(--red) !important; border: var(--line) !important; border-radius: 28px !important;
+    box-shadow: var(--soft)!important; color: #fff !important; transition: transform .2s, box-shadow .2s;
+}
+.gastro-cta:hover .gastro-cta-inner { transform: translateY(-3px); box-shadow: var(--soft)!important; }
+.gastro-cta-text h2 { color: #fff !important; font-family: var(--font-head) !important; font-weight: 800; }
+.gastro-cta-text p { color: rgba(255,255,255,.92) !important; }
+.gastro-cta-badge { background: var(--sun) !important; color: var(--ink) !important; border: 2px solid var(--ink) !important; font-weight: 700; }
+.gastro-cta-icon {
+    background: var(--paper) !important; border: var(--line); border-radius: 50% !important;
+    width: 88px; height: 88px; display: flex; align-items: center; justify-content: center; box-shadow: var(--soft);
+}
+
+/* --- Hızlı gezinme (sticky) --- */
+.quick-nav {
+    background: var(--paper) !important; border-bottom: var(--line); box-shadow: none !important;
+    background-image: none;
+}
+.nav-btn {
+    background: var(--paper-2) !important; border: 2px solid var(--ink) !important; color: var(--ink) !important;
+    border-radius: 999px !important; font-weight: 700 !important; font-family: var(--font-head);
+    box-shadow: var(--soft); transition: transform .15s, box-shadow .15s !important;
+}
+.nav-btn:hover { transform: translateY(-3px) !important; box-shadow: var(--soft); color: var(--ink) !important; }
+.nav-btn.active { background: var(--sun) !important; color: var(--ink) !important; border-color: var(--ink) !important; box-shadow: var(--soft); transform: translateY(-3px) !important; }
+
+/* --- Gün kartları --- */
+.day-card {
+    background: var(--paper-2) !important; border: var(--line) !important; border-radius: var(--r) !important;
+    box-shadow: var(--pop) !important; overflow: hidden; color: var(--ink);
+}
+.day-card:hover { transform: translateY(-3px) !important; box-shadow: var(--soft)!important; border-color: var(--ink) !important; }
+.day-header { border-bottom: var(--line); }
+.day-header, .day-header * { color: #fff; }
+.day-header .day-title { font-family: var(--font-head); font-weight: 800; }
+.activity-item, .food-item {
+    background: #fff !important; border: 2px solid var(--ink) !important; border-left: 6px solid var(--city-color, var(--red)) !important;
+    border-radius: 14px !important; color: var(--ink);
+}
+.activity-title, .food-name { color: var(--ink) !important; font-family: var(--font-head); }
+.activity-location, .activity-time, .food-place { color: var(--ink-2) !important; }
+.food-suggestions { background: #FFF0D6 !important; border: 2px dashed var(--ink) !important; }
+.food-type { background: var(--red) !important; border: 2px solid var(--ink); }
+.journal-button, .day-journal-link a {
+    background: var(--red) !important; border: var(--line) !important; border-radius: 14px !important;
+    box-shadow: var(--pop-s) !important; color: #fff !important;
+}
+
+/* --- Öne çıkan deneyimler (highlight) --- */
+.highlight-card, .city-card, .tip-card {
+    background: var(--paper-2) !important; border: var(--line) !important; border-radius: var(--r) !important;
+    box-shadow: var(--pop) !important; color: var(--ink);
+}
+.highlight-card:hover, .city-card:hover, .tip-card:hover {
+    transform: translateY(-3px) !important; box-shadow: var(--soft)!important; border-color: var(--ink) !important;
+}
+.highlight-card:nth-child(5n+1), .tip-card:nth-child(6n+1) { background: #FFD9E1 !important; }
+.highlight-card:nth-child(5n+2), .tip-card:nth-child(6n+2) { background: #FFEBB5 !important; }
+.highlight-card:nth-child(5n+3), .tip-card:nth-child(6n+3) { background: #D4F0E2 !important; }
+.highlight-card:nth-child(5n+4), .tip-card:nth-child(6n+4) { background: #D5ECF8 !important; }
+.highlight-card:nth-child(5n+5), .tip-card:nth-child(6n+5) { background: #E6DDF5 !important; }
+.tip-card:nth-child(6n+6) { background: #FFE0CC !important; }
+.highlight-card h3, .tip-card h3, .tip-card h4, .city-info h3 { color: var(--ink) !important; font-family: var(--font-head); font-weight: 800; }
+.highlight-card p, .tip-card p, .city-days { color: var(--ink-2) !important; }
+.highlight-icon, .tip-icon, .city-icon {
+    background: #fff; border: var(--line); border-radius: 50%; width: 64px; height: 64px;
+    display: flex; align-items: center; justify-content: center; font-size: 1.9rem !important; box-shadow: var(--soft);
+    margin-bottom: 1rem;
+}
+.city-icon { margin-bottom: 0; flex-shrink: 0; }
+.explore-link { color: var(--red) !important; font-weight: 800 !important; }
+.tokyo-card  { background: #E4E6FF !important; }
+.kyoto-card  { background: #FFD9E1 !important; }
+.osaka-card  { background: #D5ECF8 !important; }
+.nara-card   { background: #D4F0E2 !important; }
+.highlight-item { background: rgba(255,255,255,.75) !important; border: 2px solid var(--ink) !important; border-radius: 12px !important; color: var(--ink); }
+
+/* --- Modal --- */
+.modal-content { background: var(--paper-2) !important; border: var(--line) !important; border-radius: 26px !important; box-shadow: var(--soft)!important; color: var(--ink); }
+.modal-item { background: #fff !important; border: 2px solid var(--ink) !important; border-left: 6px solid var(--red) !important; border-radius: 12px !important; }
+.modal-item h4, .modal-item-location { color: var(--ink) !important; }
+
+/* --- Footer --- */
+.footer {
+    background: var(--ink) !important; color: var(--paper); border-top: var(--line);
+    position: relative; margin-top: 5rem; padding-top: 4rem;
+}
+.footer::before {
+    content: ''; position: absolute; left: 0; right: 0; top: -26px; height: 26px;
+    background:
+        radial-gradient(circle at 20px 26px, var(--ink) 0 19px, transparent 20px) 0 0 / 40px 26px repeat-x;
+}
+.footer-links a {
+    color: var(--ink) !important; background: var(--sun); border: 2px solid var(--paper); border-radius: 999px;
+    padding: .35rem 1rem; text-decoration: none; font-weight: 700; margin: 0 .3rem;
+}
+
+/* ============================================
+   GASTRONOMİ SAYFASI (koyu indigo + illüstratif kartlar)
+   ============================================ */
+.gastro-page { font-family: var(--font-body); }
+.gastro-page h1, .gastro-page h2, .gastro-page h3 { font-family: var(--font-head); }
+.gastro-hero { position: relative; }
+.food-card {
+    border: var(--line) !important; border-color: var(--paper) !important; border-radius: var(--r) !important;
+    box-shadow: var(--soft)!important; overflow: hidden;
+}
+.food-card:nth-child(3n+2) { box-shadow: var(--soft)!important; }
+.food-card:nth-child(3n+3) { box-shadow: var(--soft)!important; }
+.food-card:hover { transform: translateY(-3px) !important; }
+.food-type-badge { border: 2px solid currentColor !important; font-weight: 700; }
+.gastro-filters .filter-btn { border-radius: 999px !important; font-weight: 700 !important; border-width: 2px !important; }
+
+/* ============================================
+   GÜN SAYFALARI (koyu indigo; metinlere dokunulmaz)
+   ============================================ */
+.day-detail-page { font-family: var(--font-body); }
+.day-detail-page h1, .day-detail-page h2, .day-detail-page h3, .day-detail-page h4 { font-family: var(--font-head); }
+.day-detail-page .day-hero { position: relative; border-bottom: var(--line); border-color: var(--ink); }
+.day-detail-page .day-hero::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: -1px; height: 34px;
+    background: radial-gradient(circle at 24px 34px, var(--day-bg, #0a0e27) 0 23px, transparent 24px) 0 0 / 48px 34px repeat-x;
+}
+.day-detail-page .activity-detail, .day-detail-page .note-card, .day-detail-page .highlight-box, .day-detail-page .next-day-card {
+    border: 2px solid rgba(251,243,228,.55) !important; border-radius: var(--r) !important; box-shadow: var(--soft);
+}
+.day-detail-page .btn-back, .day-detail-page .btn-next, .detail-nav a {
+    border: 2px solid var(--ink) !important; border-radius: 14px !important; box-shadow: var(--soft)!important;
+}
+.day-detail-page .time-badge { border: 2px solid var(--ink); background: var(--red) !important; }
+
+@media (max-width: 700px) {
+    .home .countdown-hero { padding-top: 3.5rem; }
+    .doc-section, .journal-featured, .gastro-cta-inner { box-shadow: var(--soft)!important; }
+    .doc-section { box-shadow: var(--soft)!important; }
+}
+
+/* İstatistik rakamları taşmasın */
+.trip-stat .stat-num { font-size: clamp(1.2rem, 2.3vw, 1.7rem) !important; white-space: nowrap; line-height: 1.2; }
+.trip-stats-strip { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
+
+/* Gün sayfası kahramanı: illüstratif güneş + tepe silüeti */
+.day-detail-page .day-hero { overflow: hidden; }
+.day-detail-page .day-hero::before {
+    content: ''; position: absolute; right: 8%; top: 12%; width: 150px; height: 150px; border-radius: 50%;
+    background: rgba(255,255,255,.28); box-shadow: 0 0 0 26px rgba(255,255,255,.12), 0 0 0 56px rgba(255,255,255,.07);
+    z-index: 0; pointer-events: none;
+}
+.day-detail-page .day-hero .hero-content { position: relative; z-index: 2; }
+.day-detail-page .day-hero .stat {
+    background: var(--paper-2) !important; color: var(--ink) !important; border: 2px solid var(--ink) !important;
+    border-radius: 999px !important; box-shadow: var(--soft); font-weight: 700;
+}
+.day-detail-page .day-label {
+    background: var(--ink) !important; color: var(--paper) !important; border-radius: 999px !important; font-weight: 700;
+}
+.day-detail-page .day-title { text-shadow: 3px 3px 0 var(--ink) !important; color: #fff !important; font-weight: 800 !important; }
+
+/* Gastronomi: poster kahraman + noktalı zemin */
+.gastro-page {
+    background-color: var(--ink) !important;
+    background-image: radial-gradient(rgba(251,243,228,.08) 1.2px, transparent 1.2px) !important;
+    background-size: 22px 22px !important;
+}
+.gastro-hero {
+    background: var(--sun) !important; color: var(--ink) !important; border: var(--line); border-color: var(--paper);
+    border-radius: 28px !important; box-shadow: var(--soft); margin: 5rem auto 2rem; max-width: 1000px; overflow: hidden;
+}
+.gastro-hero::before { display: none !important; }
+.gastro-hero::after {
+    content: ''; position: absolute; right: -50px; top: -50px; width: 190px; height: 190px; border-radius: 50%;
+    background: var(--red); border: var(--line); border-color: var(--paper); pointer-events: none;
+}
+.gastro-hero h1, .gastro-hero p { color: var(--ink) !important; -webkit-text-fill-color: var(--ink) !important; position: relative; z-index: 1; }
+.gastro-hero h1 { font-weight: 800 !important; text-shadow: 3px 3px 0 var(--paper); }
+.gastro-hero .kanji { color: var(--red) !important; -webkit-text-fill-color: var(--red) !important; position: relative; z-index: 1; }
+.food-card { background: var(--paper-2) !important; color: var(--ink); }
+.food-card h3, .food-card .food-desc { color: var(--ink) !important; }
+.food-card .food-desc { color: var(--ink-2) !important; }
+.food-card .food-place { color: var(--red) !important; font-weight: 700; }
+.food-card .score { color: var(--ink) !important; }
+.food-type-badge { background: var(--sun) !important; color: var(--ink) !important; border-color: var(--ink) !important; }
+
+@media (max-width: 700px) {
+    .hero-art { top: auto; bottom: 0; height: 56%; }
+    .home .countdown-hero { padding-bottom: 6rem; }
+}
+@media (max-width: 700px) {
+    .hero-art { height: 46%; }
+    .home .trip-info { flex-direction: row !important; gap: .5rem !important; }
+    .home .info-item { font-size: .8rem; padding: .35rem .8rem !important; }
+    .home .journal-cta { margin-top: 1.2rem; }
+    .home .countdown-hero { padding-top: 3rem; }
+    .home .scroll-hint { display: none; }
+}
+
+/* ============================================================
+   V2 — DÜZGÜN DÜZEN: aynı genişlik, eşit oranlı kartlar,
+   kayma/dönme yok, tek tip köşe ve çerçeve
+   ============================================================ */
+:root { --w: 1120px; --gap: 1.5rem; --r: 20px; --r-sm: 12px; }
+
+/* Tüm ana bloklar aynı sütunda hizalansın */
+.home .main-content > .journal-featured,
+.home .main-content > .doc-section,
+.home .main-content > .gastro-cta,
+.home .main-content > .days-container,
+.home .main-content > .highlights-section,
+.home .main-content > .city-overview,
+.home .main-content > .travel-tips {
+    width: min(var(--w), calc(100% - 2.5rem)) !important;
+    max-width: none !important;
+    margin-left: auto !important; margin-right: auto !important;
+    padding-left: 0 !important; padding-right: 0 !important;
+}
+.home .main-content > .journal-featured,
+.home .main-content > .doc-section { padding: 3rem 2rem !important; margin-top: 3rem !important; margin-bottom: 3rem !important; }
+.home .main-content > .gastro-cta { display: block; margin-top: 3rem; margin-bottom: 3rem; }
+.home .main-content > .highlights-section,
+.home .main-content > .city-overview,
+.home .main-content > .travel-tips { margin-top: 4.5rem !important; margin-bottom: 4.5rem !important; }
+.home .days-container { margin-top: 2rem !important; margin-bottom: 2rem !important; }
+
+/* Tek tip çerçeve: 2px mürekkep, simetrik yumuşak gölge, köşe 20px */
+.journal-featured, .doc-section, .gastro-cta-inner, .day-card, .highlight-card, .city-card, .tip-card,
+.modal-content, .jm-panel, .jm-stage, .chart-card, .trip-stat, .spend-kpi, .preview-card, .countdown-unit, .food-card {
+    border: 2px solid var(--ink) !important;
+    border-radius: var(--r) !important;
+    box-shadow: var(--soft) !important;
+}
+.doc-section, .journal-featured, .gastro-cta-inner { border-radius: 26px !important; box-shadow: 0 14px 34px rgba(34,38,75,.18) !important; }
+.doc-section .jm-stage, .doc-section .jm-panel, .doc-section .chart-card, .doc-section .trip-stat, .doc-section .spend-kpi {
+    border-color: rgba(251,243,228,.5) !important; box-shadow: none !important;
+}
+.doc-section .jm-panel { border-color: var(--paper) !important; }
+.gastro-page .food-card { border-color: rgba(251,243,228,.5) !important; box-shadow: none !important; }
+
+/* Hover: sadece yukarı kalkma — kayma, dönme, gölge sıçraması yok */
+.highlight-card, .city-card, .tip-card, .day-card, .food-card { transition: transform .2s ease, box-shadow .2s ease !important; }
+.highlight-card:hover, .city-card:hover, .tip-card:hover, .day-card:hover, .food-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 14px 30px rgba(34,38,75,.18) !important;
+}
+.gastro-cta:hover .gastro-cta-inner { transform: translateY(-4px) !important; box-shadow: 0 18px 38px rgba(34,38,75,.24) !important; }
+.countdown-unit:hover { transform: none !important; }
+
+/* Düğmeler: alta tek yönlü basış gölgesi */
+.journal-btn, .plan-btn, .popup-btn, .map-popup .popup-btn, .journal-button, .day-journal-link a,
+.footer-links a, .nav-btn, .info-item, .btn-back, .btn-next, .btn-next-day, .filter-btn {
+    box-shadow: var(--btn) !important;
+    border-width: 2px !important;
+    transition: transform .15s ease, box-shadow .15s ease !important;
+}
+.journal-btn:hover, .plan-btn:hover, .popup-btn:hover, .map-popup .popup-btn:hover, .nav-btn:hover,
+.btn-back:hover, .btn-next:hover, .btn-next-day:hover, .filter-btn:hover {
+    transform: translateY(-2px) !important; box-shadow: 0 5px 0 var(--ink) !important;
+}
+.nav-btn.active, .filter-btn.active { transform: none !important; box-shadow: var(--btn) !important; }
+.nav-btn:active, .journal-btn:active, .plan-btn:active { transform: translateY(2px) !important; box-shadow: 0 1px 0 var(--ink) !important; }
+
+/* ---------- Eşit oranlı ızgaralar ---------- */
+.highlights-grid, .city-grid, .tips-grid { display: grid !important; gap: var(--gap) !important; align-items: stretch; }
+
+/* 7 deneyim kartı: 4 + 3, alttaki sıra ortalı */
+.highlights-grid { grid-template-columns: repeat(8, 1fr) !important; }
+.highlights-grid > .highlight-card { grid-column: span 2; }
+.highlights-grid > .highlight-card:nth-child(5) { grid-column: 2 / span 2; }
+.highlights-grid > .highlight-card:nth-child(6) { grid-column: span 2; }
+.highlights-grid > .highlight-card:nth-child(7) { grid-column: span 2; }
+.highlights-grid > .highlight-card:nth-child(n+5) { }
+
+/* 4 şehir: tek sırada 4 */
+.city-grid { grid-template-columns: repeat(4, 1fr) !important; }
+/* 6 ipucu: 3 x 2 */
+.tips-grid { grid-template-columns: repeat(3, 1fr) !important; }
+
+.highlight-card, .city-card, .tip-card {
+    display: flex !important; flex-direction: column; align-items: flex-start; text-align: left !important;
+    padding: 1.6rem !important; min-height: 100%; height: 100%;
+}
+.highlight-card { align-items: center; text-align: center !important; justify-content: flex-start; }
+.highlight-card .explore-link { margin-top: auto; padding-top: 1rem; }
+.highlight-icon, .tip-icon, .city-icon { width: 58px; height: 58px; font-size: 1.7rem !important; box-shadow: none !important; border-width: 2px; flex: 0 0 auto; margin-bottom: 1rem; }
+.highlight-card h3, .tip-card h3, .tip-card h4 { font-size: 1.15rem !important; margin: 0 0 .5rem !important; }
+.highlight-card p, .tip-card p { font-size: .95rem !important; line-height: 1.5; margin: 0 !important; }
+
+.city-header { display: flex; align-items: center; gap: .9rem; margin-bottom: 1.1rem; width: 100%; }
+.city-header .city-icon { margin-bottom: 0; }
+.city-info h3 { font-size: 1.35rem !important; margin: 0 !important; }
+.city-days { margin: .15rem 0 0 !important; font-size: .9rem; }
+.city-highlights { display: flex; flex-direction: column; gap: .5rem; width: 100%; }
+.highlight-item { padding: .55rem .75rem !important; font-size: .88rem; line-height: 1.3; border-radius: var(--r-sm) !important; border-width: 2px !important; }
+
+/* Gün kartı içi: eşit sütunlar */
+.timeline-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: var(--gap) !important; }
+.time-column { border-radius: var(--r-sm) !important; }
+.activity-item { border-radius: var(--r-sm) !important; }
+.day-card { overflow: hidden; }
+
+/* Harita + bütçe: sabit oranlı düzen */
+#japanMap { grid-template-columns: minmax(0, 1.7fr) minmax(300px, 1fr) !important; gap: var(--gap) !important; align-items: stretch !important; }
+.jm-stage { border-radius: var(--r) !important; }
+.jm-panel { border-radius: var(--r) !important; padding: 1.5rem !important; }
+.trip-stats-strip { grid-template-columns: repeat(6, 1fr) !important; gap: 1rem !important; }
+.trip-stat { padding: 1.1rem .5rem !important; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.charts-duo { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: var(--gap) !important; }
+.chart-card { padding: 1.4rem !important; }
+
+/* Gastronomi: eşit kartlar */
+.gastro-grid { display: grid !important; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important; gap: var(--gap) !important; align-items: stretch; }
+.gastro-grid .food-card { display: flex; flex-direction: column; }
+.food-photos { aspect-ratio: 4 / 3; height: auto !important; }
+.food-photos img { width: 100%; height: 100%; object-fit: cover; }
+.food-card-body { flex: 1; }
+
+/* Gün sayfası: iç kartlar eşit */
+.day-detail-page .highlights-grid, .day-detail-page .notes-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important; gap: var(--gap) !important; }
+.day-detail-page .highlight-box, .day-detail-page .note-card { height: 100%; box-shadow: none !important; }
+
+/* ---------- Duyarlı kırılımlar ---------- */
+@media (max-width: 1100px) {
+    .city-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .trip-stats-strip { grid-template-columns: repeat(3, 1fr) !important; }
+    .highlights-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .highlights-grid > .highlight-card, .highlights-grid > .highlight-card:nth-child(n) { grid-column: auto !important; }
+    .highlights-grid > .highlight-card:last-child { grid-column: 1 / -1 !important; }
+}
+@media (max-width: 900px) {
+    #japanMap { grid-template-columns: 1fr !important; }
+    .tips-grid { grid-template-columns: repeat(2, 1fr) !important; }
+    .charts-duo { grid-template-columns: 1fr !important; }
+    .timeline-grid { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 600px) {
+    .highlights-grid, .city-grid, .tips-grid { grid-template-columns: 1fr !important; }
+    .highlights-grid > .highlight-card:last-child { grid-column: auto !important; }
+    .trip-stats-strip { grid-template-columns: repeat(2, 1fr) !important; }
+    .home .main-content > .journal-featured, .home .main-content > .doc-section { padding: 2rem 1.1rem !important; }
+    .home .main-content > .journal-featured, .home .main-content > .doc-section, .home .main-content > .gastro-cta { width: calc(100% - 1.5rem) !important; }
+    .gastro-grid { grid-template-columns: 1fr !important; }
+}
+
+/* Önizleme kartları: eşit boyut */
+.journal-preview { display: grid !important; grid-template-columns: repeat(4, 1fr); gap: 1rem; max-width: 560px; margin-left: auto; margin-right: auto; }
+.preview-card { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem .5rem !important; min-height: 96px; }
+.preview-card .number { font-size: 1.8rem !important; line-height: 1.2; }
+@media (max-width: 520px) { .journal-preview { grid-template-columns: repeat(2, 1fr); } }
+
+/* Yemek fotoğrafları: hepsi aynı yükseklikte, kırpılarak sığar */
+.food-photos { aspect-ratio: auto !important; height: 230px !important; overflow: hidden; flex: 0 0 auto; }
+.food-photos img { width: 100% !important; height: 100% !important; min-height: 0 !important; max-height: none !important; object-fit: cover; flex: 1 1 0; }
+
+/* Önizleme fotoğrafı yoksa boş kutu yerine zarif zemin */
+.next-day-image { background: linear-gradient(135deg, var(--ink-2), var(--ink)); min-height: 140px; }
+
+/* ============================================================
+   POSTA TEMASI — pul, posta damgası, hava postası şeridi, kartpostal
+   ============================================================ */
+:root {
+    --air: repeating-linear-gradient(135deg, #E8503A 0 14px, #fff 14px 28px, #3558D6 28px 42px, #fff 42px 56px);
+    --perf: 14px;
+}
+
+/* Pul kenarı (delikli): iç alan tam görünür, kenar halkası delikli */
+.stamp-edge, .trip-stat, .stamp, .day-detail-page .day-label {
+    -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        radial-gradient(circle at 50% 50%, transparent 4px, #000 4.6px) -7px -7px / var(--perf) var(--perf) border-box;
+    mask:
+        linear-gradient(#000 0 0) content-box,
+        radial-gradient(circle at 50% 50%, transparent 4px, #000 4.6px) -7px -7px / var(--perf) var(--perf) border-box;
+}
+
+/* --- 1) Harita paneli: kartpostal --- */
+.jm-panel {
+    background:
+        var(--air) top / 100% 10px no-repeat,
+        repeating-linear-gradient(transparent 0 31px, rgba(34,38,75,.07) 31px 32px),
+        var(--paper-2) !important;
+    border: 2px solid var(--paper) !important;
+    padding: 2rem 1.5rem 1.5rem !important;
+}
+.pc-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+.pc-top .popup-title { margin-bottom: 0 !important; flex: 1; min-width: 0; }
+.stamp-wrap { position: relative; flex: 0 0 auto; width: 84px; filter: drop-shadow(0 3px 4px rgba(34,38,75,.25)); transform: rotate(3deg); }
+.stamp {
+    width: 84px; height: 100px; padding: 10px; box-sizing: border-box; position: relative;
+    background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+}
+.stamp::before { content: ''; position: absolute; inset: 7px; border: 2px solid var(--st, var(--red)); }
+.stamp .stamp-ic { font-size: 1.8rem; line-height: 1; position: relative; }
+.stamp .stamp-val { font: 800 .6rem var(--font-head); letter-spacing: .12em; color: var(--st, var(--red)); position: relative; }
+.postmark { position: absolute; left: -64px; bottom: -14px; width: 120px; color: var(--ink); opacity: .6; transform: rotate(-10deg); pointer-events: none; }
+
+/* --- 2) Rakamlar: her kutu bir pul --- */
+.trip-stat {
+    background: #FFE3E8 !important; color: var(--ink) !important; border: none !important; border-radius: 0 !important;
+    box-shadow: none !important; padding: 14px 10px !important; position: relative;
+}
+.trip-stat:nth-child(6n+2) { background: #FFEBB5 !important; }
+.trip-stat:nth-child(6n+3) { background: #D4F0E2 !important; }
+.trip-stat:nth-child(6n+4) { background: #D5ECF8 !important; }
+.trip-stat:nth-child(6n+5) { background: #E6DDF5 !important; }
+.trip-stat:nth-child(6n+6) { background: #FFE0CC !important; }
+.trip-stat::before { content: ''; position: absolute; inset: 7px; border: 1.5px solid rgba(34,38,75,.45); pointer-events: none; }
+.trip-stat .stat-num { color: var(--ink) !important; }
+.trip-stat .stat-label { color: var(--ink-2) !important; font-weight: 700; letter-spacing: .08em; }
+.trip-stat .stat-icon { filter: none; }
+.trip-stats-strip { gap: 1.1rem !important; }
+
+/* --- 3) Günlük bandı: hava postası şeridi --- */
+.journal-featured {
+    background:
+        var(--air) top / 100% 12px no-repeat,
+        var(--air) bottom / 100% 12px no-repeat,
+        var(--sun) !important;
+    padding-top: 4rem !important; padding-bottom: 4rem !important;
+}
+.journal-badge { transform: rotate(-3deg); }
+
+/* --- 4) Gün sayfası: damga + pul etiketi --- */
+.day-detail-page .day-hero::before {
+    background: none !important; box-shadow: none !important; border-radius: 0 !important;
+    width: 230px !important; height: 100px !important; right: 6% !important; top: 14% !important;
+    opacity: .5; transform: rotate(-8deg);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 230 100'%3E%3Cg fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round'%3E%3Ccircle cx='50' cy='50' r='42'/%3E%3Ccircle cx='50' cy='50' r='35' stroke-width='1.5'/%3E%3Cpath d='M100 28q10-8 20 0t20 0t20 0t20 0'/%3E%3Cpath d='M100 50q10-8 20 0t20 0t20 0t20 0'/%3E%3Cpath d='M100 72q10-8 20 0t20 0t20 0t20 0'/%3E%3C/g%3E%3Ctext x='50' y='46' text-anchor='middle' font-family='sans-serif' font-size='14' font-weight='800' fill='%23fff'%3EJAPONYA%3C/text%3E%3Ctext x='50' y='64' text-anchor='middle' font-family='sans-serif' font-size='12' font-weight='700' fill='%23fff'%3E2026%3C/text%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important; background-size: contain !important;
+}
+.day-detail-page .day-label {
+    background: #fff !important; color: var(--red) !important; padding: 12px 22px !important; border-radius: 0 !important;
+    font-family: var(--font-head); font-weight: 800; letter-spacing: .06em; text-transform: uppercase; position: relative;
+}
+.day-detail-page .day-label::before { content: ''; position: absolute; inset: 6px; border: 1.5px solid var(--red); pointer-events: none; }
+
+/* Sonraki gün kartı: kartpostal şeridi */
+.day-detail-page .next-day-card { position: relative; overflow: hidden; }
+.day-detail-page .next-day-card::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 8px; background: var(--air); z-index: 3; }
+
+@media (max-width: 600px) {
+    .pc-top { flex-direction: column-reverse; align-items: flex-end; }
+    .pc-top .popup-title { align-self: flex-start; }
+    .postmark { left: -70px; }
+}
+
+/* ============================================================
+   GÜN SAYFALARI — AÇIK, CANLI TEMA
+   Her gün kendi paletini (--d1, --d2, --acc, --tint) decor.js'ten alır.
+   ============================================================ */
+.day-detail-page {
+    --d1: #FFB36B; --d2: #FF7A59; --acc: #E8503A; --tint: #FFF0DC;
+    --day-bg: var(--paper);
+    background-color: var(--paper) !important;
+    background-image: radial-gradient(rgba(34,38,75,.07) 1.2px, transparent 1.2px) !important;
+    background-size: 22px 22px !important;
+    color: var(--ink) !important;
+}
+
+/* Üst gezinme */
+.day-detail-page .detail-nav { background: rgba(251,243,228,.94) !important; border-bottom: var(--line) !important; }
+.day-detail-page .btn-back, .day-detail-page .btn-next, .day-detail-page .detail-nav a {
+    background: var(--acc) !important; color: #fff !important; border: 2px solid var(--ink) !important;
+}
+
+/* Hero: canlı, güne özel gradyan */
+.day-detail-page .day-hero { background: linear-gradient(135deg, var(--d1) 0%, var(--d2) 100%) !important; border-bottom: none; }
+.day-detail-page .hero-overlay { background: none !important; }
+.day-detail-page .day-hero::after {
+    background: radial-gradient(circle at 24px 34px, var(--paper) 0 23px, transparent 24px) 0 0 / 48px 34px repeat-x !important;
+}
+.day-detail-page .day-title { color: #fff !important; text-shadow: 3px 3px 0 rgba(34,38,75,.85) !important; }
+.day-detail-page .day-date { color: #fff !important; font-weight: 600; text-shadow: 0 2px 0 rgba(34,38,75,.35); }
+.day-detail-page .day-label { color: var(--acc) !important; }
+.day-detail-page .day-label::before { border-color: var(--acc); }
+
+/* Bölümler: açık, dönüşümlü pastel zemin */
+.day-detail-page .day-summary, .day-detail-page .day-notes, .day-detail-page .timeline-detailed, .day-detail-page .next-day-preview {
+    background: transparent !important; position: relative;
+}
+.day-detail-page .timeline-detailed { background: var(--tint) !important; border-top: var(--line); border-bottom: var(--line); }
+.day-detail-page .day-notes { background: transparent !important; }
+.day-detail-page .next-day-preview { background: var(--tint) !important; border-top: var(--line); }
+
+.day-detail-page .day-summary h2, .day-detail-page .day-notes h2, .day-detail-page .next-day-preview h3 {
+    color: var(--ink) !important; font-weight: 800; position: relative;
+}
+.day-detail-page .day-summary h2::after, .day-detail-page .day-notes h2::after {
+    content: ''; display: block; width: 120px; height: 12px; margin: .6rem auto 0;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='12' viewBox='0 0 40 12'%3E%3Cpath d='M0 6q10-10 20 0t20 0' fill='none' stroke='%23E8503A' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;
+}
+
+/* Metin */
+.day-detail-page .story-text, .day-detail-page .activity-story, .day-detail-page .personal-note p { color: #2D3158 !important; }
+.day-detail-page .story-text strong, .day-detail-page .activity-story strong { color: var(--ink) !important; background: linear-gradient(transparent 62%, color-mix(in srgb, var(--d1) 45%, transparent) 62%); }
+.day-detail-page .story-text em {
+    background: #fff !important; color: #2D3158 !important; border: 2px solid var(--ink) !important;
+    border-left: 6px solid var(--acc) !important; border-radius: 12px !important;
+}
+
+/* Kartlar: beyaz, mürekkep çerçeve, pastel dönüşümlü */
+.day-detail-page .highlight-box, .day-detail-page .note-card, .day-detail-page .activity-detail, .day-detail-page .next-day-card {
+    background: #fff !important; color: var(--ink) !important;
+    border: 2px solid var(--ink) !important; border-radius: var(--r) !important; box-shadow: var(--soft) !important;
+}
+.day-detail-page .highlight-box:hover, .day-detail-page .note-card:hover, .day-detail-page .activity-detail:hover, .day-detail-page .next-day-card:hover {
+    transform: translateY(-3px); box-shadow: 0 14px 30px rgba(34,38,75,.18) !important; background: #fff !important;
+}
+.day-detail-page .highlights-grid > .highlight-box:nth-child(4n+1) { background: #FFE3E8 !important; }
+.day-detail-page .highlights-grid > .highlight-box:nth-child(4n+2) { background: #FFF0C2 !important; }
+.day-detail-page .highlights-grid > .highlight-box:nth-child(4n+3) { background: #D8F2E4 !important; }
+.day-detail-page .highlights-grid > .highlight-box:nth-child(4n+4) { background: #D8ECF9 !important; }
+.day-detail-page .highlight-box h4, .day-detail-page .note-card h4, .day-detail-page .personal-note h4, .day-detail-page .next-label { color: var(--ink) !important; font-weight: 800; }
+.day-detail-page .highlight-box p, .day-detail-page .next-day-content p { color: #2D3158 !important; }
+.day-detail-page .highlight-box .icon { background: #fff; border: 2px solid var(--ink); border-radius: 50%; width: 58px; height: 58px; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; }
+.day-detail-page .note-card:nth-child(odd) { background: #FFF6E3 !important; }
+.day-detail-page .note-card p { color: var(--acc) !important; }
+.day-detail-page .note-card small { color: #4A4F7C !important; }
+.day-detail-page .personal-note {
+    background: #fff !important; border: 2px solid var(--ink) !important; border-left: 8px solid var(--acc) !important; border-radius: var(--r) !important;
+}
+.day-detail-page .personal-note h4 { color: var(--acc) !important; }
+
+/* Zaman blokları */
+.day-detail-page .time-header { color: var(--ink) !important; border-bottom: 3px dashed var(--acc) !important; }
+.day-detail-page .activity-detail { border-left: 8px solid var(--acc) !important; border-radius: var(--r) !important; }
+.day-detail-page .activity-header h4 { color: var(--ink) !important; }
+.day-detail-page .time-badge { background: var(--acc) !important; color: #fff !important; border: 2px solid var(--ink) !important; }
+
+/* Sonraki gün */
+.day-detail-page .next-day-card { color: var(--ink) !important; box-shadow: var(--soft) !important; }
+.day-detail-page .next-day-content h4 { color: var(--ink) !important; }
+.day-detail-page .btn-next-day { background: var(--acc) !important; color: #fff !important; border: 2px solid var(--ink) !important; }
+.day-detail-page .next-day-preview h3 { color: var(--ink) !important; }
+
+/* Fotoğraf galerisi */
+.day-detail-page .photo-item { background: #fff !important; border: 2px solid var(--ink); }
+.day-detail-page .photo-gallery p { color: #4A4F7C !important; }

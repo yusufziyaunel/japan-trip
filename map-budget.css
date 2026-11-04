@@ -1,0 +1,163 @@
+/* ============================================
+   İLLÜSTRATİF HARİTA + NET HARCAMA TABLOSU
+   ============================================ */
+
+/* ---------- HARİTA ---------- */
+#japanMap {
+    display: grid;
+    grid-template-columns: minmax(0, 1.75fr) minmax(280px, 1fr);
+    gap: 1.25rem;
+    align-items: start;
+}
+.jm-stage {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+    background: #1b3f6b;
+    line-height: 0;
+    min-height: 300px;
+}
+.jm-stage svg { width: 100%; height: auto; display: block; }
+
+.jm-panel {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-top: 4px solid var(--accent, #7c83ff);
+    border-radius: 20px;
+    padding: 1.4rem 1.4rem 1.2rem;
+    animation: jmFade .35s ease;
+}
+@keyframes jmFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.map-popup .popup-title {
+    font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 1rem;
+    display: flex; align-items: center; gap: .6rem; flex-wrap: wrap;
+}
+.map-popup .popup-emoji {
+    display: inline-flex; width: 2.6rem; height: 2.6rem; align-items: center; justify-content: center;
+    background: var(--accent); border-radius: 14px; font-size: 1.35rem;
+}
+.map-popup .popup-title small {
+    font-size: .78rem; font-weight: 600; color: #fff;
+    background: rgba(255,255,255,0.14); padding: .2rem .65rem; border-radius: 999px;
+}
+.map-popup .popup-section { margin-bottom: 1rem; }
+.map-popup .popup-section strong {
+    display: block; font-size: .8rem; letter-spacing: .04em; text-transform: uppercase;
+    color: rgba(255,255,255,0.6); margin-bottom: .5rem;
+}
+.map-popup ul { list-style: none; padding: 0; margin: 0; }
+.map-popup ul li {
+    font-size: .95rem; color: rgba(255,255,255,0.9);
+    padding: .25rem 0 .25rem 1.2rem; position: relative;
+}
+.map-popup ul li::before {
+    content: ''; position: absolute; left: 0; top: .85em; width: 7px; height: 7px;
+    border-radius: 50%; background: var(--accent);
+}
+.map-popup .popup-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+.map-popup .popup-tag {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.16);
+    padding: .25rem .7rem; border-radius: 999px; font-size: .82rem; color: #fff;
+}
+.map-popup .popup-btn {
+    display: block; text-align: center; margin-top: .8rem; padding: .7rem 1rem;
+    text-decoration: none; font-size: .95rem;
+}
+
+/* SVG öğeleri */
+.sea-name { font: 700 12px 'Inter', sans-serif; letter-spacing: .28em; fill: #fff; opacity: .4; }
+.sea-name.sm { font-size: 10px; opacity: .55; letter-spacing: .2em; }
+.map-poi { font: 600 10px 'Inter', sans-serif; fill: #2d4f7a; }
+.compass { font: 700 10px 'Inter', sans-serif; fill: #fff; }
+.wave { fill: none; stroke: #fff; stroke-opacity: .22; stroke-width: 2; stroke-linecap: round; }
+.cloud { animation: cloudDrift var(--dur, 40s) linear infinite; }
+@keyframes cloudDrift { from { transform: translateX(-30px); } to { transform: translateX(30px); } }
+
+.rail-bed  { fill: none; stroke: #ff5e7e; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.rail-ties { fill: none; stroke: #fff; stroke-width: 5; stroke-dasharray: 2 9; stroke-opacity: .9; }
+
+.city { cursor: pointer; outline: none; }
+.city .leader { stroke: #fff; stroke-width: 1.5; stroke-opacity: .8; }
+.city .dot   { fill: var(--c); stroke: #fff; stroke-width: 3; }
+.city .pulse { fill: var(--c); opacity: .5; transform-box: fill-box; transform-origin: center; animation: pulse 2.2s ease-out infinite; }
+@keyframes pulse { from { transform: scale(1); opacity: .6; } to { transform: scale(3.2); opacity: 0; } }
+.city .chip rect { fill: #fff; filter: drop-shadow(0 4px 8px rgba(5,18,40,.35)); transition: transform .2s; }
+.city .chip-ic { fill: var(--c); }
+.city .chip-emoji { font-size: 15px; }
+.city .chip-name { font: 700 13px 'Inter', sans-serif; fill: #1c2030; }
+.city .chip-sub  { font: 500 10px 'Inter', sans-serif; fill: #5a6072; }
+.city:hover .chip rect, .city:focus-visible .chip rect { stroke: var(--c); stroke-width: 2.5; }
+.city.active .chip rect { fill: var(--c); }
+.city.active .chip-name { fill: #fff; }
+.city.active .chip-sub  { fill: rgba(255,255,255,.85); }
+.city.active .chip-ic   { fill: #fff; }
+
+@media (max-width: 900px) {
+    #japanMap { grid-template-columns: 1fr; }
+}
+
+/* ---------- HARCAMA TABLOSU ---------- */
+.spend { max-width: 900px; margin: 0 auto; }
+
+.spend-summary {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.6rem;
+}
+.spend-kpi {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px; padding: 1rem 1.2rem; text-align: center;
+}
+.spend-kpi .k-label { display: block; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+.spend-kpi .k-value { display: block; font-size: 1.8rem; font-weight: 700; color: #fff; margin-top: .2rem; font-variant-numeric: tabular-nums; }
+.spend-kpi.main { background: linear-gradient(135deg, #5158c8, #7c83ff); border-color: transparent; }
+.spend-kpi.main .k-label { color: rgba(255,255,255,.85); }
+
+.spend-stack {
+    display: flex; height: 22px; border-radius: 999px; overflow: hidden;
+    background: rgba(255,255,255,0.08); margin-bottom: 1.6rem;
+}
+.spend-stack span { height: 100%; width: 0; transition: width 1s cubic-bezier(.2,.8,.2,1); }
+.spend-stack span + span { border-left: 2px solid #0f1330; }
+
+.spend-table { width: 100%; border-collapse: separate; border-spacing: 0; color: #fff; }
+.spend-table th {
+    text-align: left; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase;
+    color: rgba(255,255,255,.55); padding: .5rem 1rem; border-bottom: 1px solid rgba(255,255,255,.18);
+}
+.spend-table th.num, .spend-table td.num { text-align: right; }
+.spend-table td { padding: 1.1rem 1rem; border-bottom: 1px solid rgba(255,255,255,.08); vertical-align: middle; }
+.spend-table tbody tr:last-child td { border-bottom: none; }
+.spend-table tbody tr:hover td { background: rgba(255,255,255,.04); }
+.spend-table tfoot td { border-top: 2px solid rgba(255,255,255,.25); font-weight: 700; font-size: 1.05rem; padding: 1rem; }
+
+.cat { display: flex; align-items: center; gap: .85rem; }
+.cat-ic {
+    width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0; background: var(--cc);
+}
+.cat-name { font-weight: 700; font-size: 1.05rem; }
+.cat-desc { font-size: .82rem; color: rgba(255,255,255,.62); margin-top: .1rem; line-height: 1.4; }
+.amt { font-weight: 700; font-size: 1.1rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pct-cell { min-width: 150px; }
+.pct-row { display: flex; align-items: center; gap: .7rem; }
+.pct-bar { flex: 1; height: 10px; border-radius: 999px; background: rgba(255,255,255,.1); overflow: hidden; }
+.pct-bar i { display: block; height: 100%; width: 0; border-radius: 999px; background: var(--cc); transition: width 1s cubic-bezier(.2,.8,.2,1); }
+.pct-num { font-weight: 700; width: 3.2rem; text-align: right; font-variant-numeric: tabular-nums; }
+
+.spend-note {
+    margin-top: 1.5rem; padding: 1rem 1.2rem; border-radius: 14px;
+    background: rgba(255,255,255,.05); border-left: 4px solid #ff8fab;
+    color: rgba(255,255,255,.8); line-height: 1.7; font-size: .95rem;
+}
+
+@media (max-width: 720px) {
+    .spend-summary { grid-template-columns: 1fr; }
+    .spend-table thead { display: none; }
+    .spend-table, .spend-table tbody, .spend-table tr, .spend-table td, .spend-table tfoot { display: block; width: 100%; }
+    .spend-table tbody tr { padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+    .spend-table td { padding: .35rem 0; border: none !important; text-align: left !important; }
+    .spend-table td.num { display: inline-block; width: auto; margin-right: .8rem; }
+    .spend-table tfoot tr { display: flex; justify-content: space-between; }
+    .spend-table tfoot td { width: auto; }
+}

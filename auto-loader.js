@@ -28,14 +28,18 @@ async function loadAllPhotos(day, containerId, options = {}) {
     };
     
     try {
-        // JSON manifest'i yükle
-        const response = await fetch(`../photos/${day}.json`);
-        
-        if (!response.ok) {
-            throw new Error(`JSON bulunamadı: ${day}.json`);
+        // Önce photos/manifest.js (dosyadan açınca da çalışır), yoksa JSON
+        let data;
+        if (window.PHOTO_MANIFEST && window.PHOTO_MANIFEST[day]) {
+            const list = window.PHOTO_MANIFEST[day];
+            data = { day, count: list.length, photos: list };
+        } else {
+            const response = await fetch(`../photos/${day}.json`);
+            if (!response.ok) {
+                throw new Error(`JSON bulunamadı: ${day}.json`);
+            }
+            data = await response.json();
         }
-        
-        const data = await response.json();
         
         if (!data.photos || data.photos.length === 0) {
             container.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.5);">Henüz fotoğraf eklenmemiş.</p>';
@@ -45,10 +49,10 @@ async function loadAllPhotos(day, containerId, options = {}) {
         // Fotoğrafları render et
         const html = data.photos.map((filename, idx) => {
             const caption = settings.showFilename ? filename : `📸 ${idx + 1}`;
-            const imagePath = `../photos/${day}/${filename}`;
+            const imagePath = `../photos/${day}/${encodeURIComponent(filename)}`;
             
             return `
-                <div class="photo-item" onclick="openLightbox('${day}/${filename}')">
+                <div class="photo-item" onclick="openLightbox('${day}/${encodeURIComponent(filename)}')">
                     <img src="${imagePath}" 
                          alt="${caption}" 
                          loading="lazy"
@@ -59,6 +63,7 @@ async function loadAllPhotos(day, containerId, options = {}) {
         }).join('');
         
         container.innerHTML = html;
+        if (typeof collectPhotos === 'function') collectPhotos();
         
         // Başarı mesajı
         console.log(`✅ ${day}: ${data.photos.length} fotoğraf yüklendi`);

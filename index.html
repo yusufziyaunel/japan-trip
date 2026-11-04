@@ -6,13 +6,12 @@
     <title>🗾 Japonya Gezi Planı 2026 | 7-20 Mart</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700;900&family=Inter:wght@300;400;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="documentary.css">
     <link rel="stylesheet" href="responsive.css">
     <link rel="stylesheet" href="enhance.css">
-    <!-- Leaflet (interaktif harita) -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="map-budget.css">
     <style>
         /* Seyyah Günlüğü Butonu - Hero içinde */
         .journal-cta {
@@ -210,11 +209,76 @@
     </style>
     <!-- Clean theme — EN SON yüklenir, tüm stilleri ezer -->
     <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="illustrated.css">
+    <link rel="stylesheet" href="decor.css">
+    <script src="decor.js" defer></script>
 </head>
-<body>
+<body class="home">
     <!-- Countdown Hero -->
     <div class="countdown-hero" id="countdownHero">
         <div class="hero-bg"></div>
+        <svg class="hero-art" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#FFC9B3"/><stop offset=".55" stop-color="#FFE0C8"/><stop offset="1" stop-color="#FFF1DC"/>
+                </linearGradient>
+            </defs>
+            <rect width="1440" height="800" fill="url(#skyG)"/>
+            <!-- güneş -->
+            <circle cx="1010" cy="430" r="330" fill="#FFB199" opacity=".22"/>
+            <circle cx="1010" cy="430" r="240" fill="#FF9E80" opacity=".28"/>
+            <circle cx="1010" cy="430" r="160" fill="#FF6F4D"/>
+            <!-- bulutlar -->
+            <g fill="#fff" opacity=".9">
+                <g class="h-cloud" style="--s:60s;--d:0s"><path d="M120 190h150a28 28 0 0 0-8-54 38 38 0 0 0-70-10 32 32 0 0 0-72 64z"/></g>
+                <g class="h-cloud" style="--s:80s;--d:-30s"><path d="M1130 120h130a24 24 0 0 0-6-46 32 32 0 0 0-60-8 28 28 0 0 0-64 54z"/></g>
+                <g class="h-cloud" style="--s:70s;--d:-14s"><path d="M520 90h110a20 20 0 0 0-5-38 28 28 0 0 0-52-7 24 24 0 0 0-53 45z"/></g>
+            </g>
+            <!-- kuşlar -->
+            <g fill="none" stroke="#22264B" stroke-width="3" stroke-linecap="round">
+                <path d="M300 250q12-14 24 0q12-14 24 0"/><path d="M360 290q9-10 18 0q9-10 18 0"/><path d="M1260 260q10-12 20 0q10-12 20 0"/>
+            </g>
+            <!-- uzak dağlar -->
+            <path d="M0 600L140 520L260 585L400 490L540 590L650 540L760 610L1440 610V800H0Z" fill="#CDBFE6"/>
+            <!-- Fuji -->
+            <path d="M690 650C790 620 900 430 972 332H1048C1120 430 1230 620 1340 650Z" fill="#6F7FD6"/>
+            <path d="M1048 332C1120 430 1230 620 1340 650H1130Z" fill="#5565BD" opacity=".55"/>
+            <path d="M953 360L972 332H1048L1067 360L1038 384L1010 356L982 386Z" fill="#fff"/>
+            <path d="M690 650C790 620 900 430 972 332H1048C1120 430 1230 620 1340 650" fill="none" stroke="#22264B" stroke-width="4" stroke-linejoin="round"/>
+            <!-- orta tepeler -->
+            <path d="M0 650C160 590 300 600 440 640C600 680 700 610 860 625C1040 642 1200 590 1440 640V800H0Z" fill="#8ED1B0"/>
+            <!-- ön tepeler -->
+            <path d="M0 700C200 650 360 690 560 705C760 720 900 670 1100 690C1260 705 1360 690 1440 680V800H0Z" fill="#4FA77F"/>
+            <!-- torii -->
+            <g stroke="#22264B" stroke-width="4" stroke-linejoin="round">
+                <rect x="190" y="560" width="17" height="150" fill="#E8503A"/>
+                <rect x="268" y="560" width="17" height="150" fill="#E8503A"/>
+                <rect x="190" y="596" width="95" height="11" fill="#E8503A"/>
+                <path d="M160 556Q237 540 314 556L306 576Q237 562 168 576Z" fill="#E8503A"/>
+            </g>
+            <!-- sakura ağacı -->
+            <path d="M1262 740C1266 680 1258 640 1236 590C1222 560 1204 540 1180 520" fill="none" stroke="#22264B" stroke-width="22" stroke-linecap="round"/>
+            <path d="M1262 740C1266 680 1258 640 1236 590C1222 560 1204 540 1180 520" fill="none" stroke="#6B4331" stroke-width="14" stroke-linecap="round"/>
+            <path d="M1240 600C1270 570 1310 560 1340 540" fill="none" stroke="#6B4331" stroke-width="9" stroke-linecap="round"/>
+            <g class="sakura-crown">
+                <circle cx="1170" cy="500" r="62" fill="#F9B8C8"/><circle cx="1240" cy="470" r="70" fill="#F58FAA"/>
+                <circle cx="1320" cy="500" r="64" fill="#F9B8C8"/><circle cx="1345" cy="545" r="46" fill="#FFD4DE"/>
+                <circle cx="1210" cy="540" r="52" fill="#FFD4DE"/><circle cx="1280" cy="530" r="48" fill="#F58FAA"/>
+            </g>
+            <!-- yaprak/taç yaprakları -->
+            <g fill="#F58FAA">
+                <ellipse class="petal" style="--x:1100px;--s:9s;--d:0s"  cx="0" cy="0" rx="7" ry="4"/>
+                <ellipse class="petal" style="--x:1180px;--s:11s;--d:-3s" cx="0" cy="0" rx="6" ry="3.5"/>
+                <ellipse class="petal" style="--x:1260px;--s:8s;--d:-5s"  cx="0" cy="0" rx="7" ry="4"/>
+                <ellipse class="petal" style="--x:1350px;--s:12s;--d:-7s" cx="0" cy="0" rx="6" ry="3.5"/>
+                <ellipse class="petal" style="--x:980px;--s:10s;--d:-2s"  cx="0" cy="0" rx="6" ry="3.5"/>
+                <ellipse class="petal" style="--x:860px;--s:13s;--d:-9s"  cx="0" cy="0" rx="7" ry="4"/>
+                <ellipse class="petal" style="--x:700px;--s:11s;--d:-6s"  cx="0" cy="0" rx="6" ry="3.5"/>
+                <ellipse class="petal" style="--x:520px;--s:14s;--d:-11s" cx="0" cy="0" rx="7" ry="4"/>
+            </g>
+            <!-- sayfaya geçiş: krem dalga -->
+            <path d="M0 760C180 735 340 775 540 765C760 754 900 730 1120 750C1280 764 1380 748 1440 740V800H0Z" fill="#FBF3E4"/>
+        </svg>
         <div class="countdown-content">
             <h1 class="hero-title">
                 <span class="jp-text">日本への旅</span>
@@ -279,7 +343,7 @@
                 <p>
                     14 günlük Japonya macerasının her anını, yaşadığımız deneyimleri, 
                     gördüğümüz manzaraları ve hissettiğimiz duyguları günlük formatında 
-                    paylaşıyoruz. Her gün ayrı bir hikaye, her sayfa ayrı bir hatıra.
+                    paylaşıyoruz. Her gün ayrı bir hikâye, her sayfa ayrı bir hatıra.
                 </p>
                 
                 <div class="journal-preview">
@@ -293,11 +357,11 @@
                     </div>
                     <div class="preview-card">
                         <span class="number">🎭</span>
-                        <span class="label">Hikayeler</span>
+                        <span class="label">Hikâyeler</span>
                     </div>
                     <div class="preview-card">
                         <span class="number">💡</span>
-                        <span class="label">Fun Facts</span>
+                        <span class="label">İlginç Bilgiler</span>
                     </div>
                 </div>
                 
@@ -311,7 +375,7 @@
         <!-- İnteraktif Japonya Rotası (sayfanın üst kısmında) -->
         <section class="doc-section" id="rota">
             <h2 class="doc-title">🗾 İnteraktif Japonya Rotası</h2>
-            <p class="doc-subtitle">Pinlere tıklayarak her şehirdeki favori yerlerimi, lezzetleri ve günlüğü keşfet</p>
+            <p class="doc-subtitle">Şehir etiketlerine tıklayarak favori yerlerimi, lezzetleri ve günlüğü keşfet</p>
             <div id="japanMap"></div>
         </section>
 
@@ -322,7 +386,7 @@
                 <div class="gastro-cta-text">
                     <span class="gastro-cta-badge">✨ Lezzet Belgeseli</span>
                     <h2>Gastronomi Günlüğü</h2>
-                    <p>Manbaken ramen'den Coco Curry'ye, Wagyu'dan matcha lava cake'e — 14 gün boyunca tattığımız her lezzet, mekanı ve puanıyla.</p>
+                    <p>Manbaken ramen'den Coco Curry'ye, Wagyu'dan matcha lava cake'e — 14 gün boyunca tattığımız her lezzet, mekânı ve puanıyla.</p>
                 </div>
                 <div class="gastro-cta-arrow">→</div>
             </div>
@@ -423,7 +487,7 @@
                     </div>
                     <div class="city-highlights">
                         <div class="highlight-item">🏯 Kinkaku-ji (Altın Tapınak)</div>
-                        <div class="highlight-item">⛩️ Fushimi Inari 10,000 Torii</div>
+                        <div class="highlight-item">⛩️ Fushimi Inari 10.000 Torii</div>
                         <div class="highlight-item">🎋 Arashiyama Bambu Ormanı</div>
                         <div class="highlight-item">🏘️ Gion Geleneksel Sokaklar</div>
                     </div>
@@ -516,25 +580,8 @@
         <!-- Harcama & Bütçe Takibi -->
         <section class="doc-section reveal" id="butce">
             <h2 class="doc-title">💴 Japonya'da Param Nereye Gitti?</h2>
-            <p class="doc-subtitle">14 günlük harcamalarımın kategori dağılımı</p>
-            <div class="budget-wrapper">
-                <div class="chart-box">
-                    <canvas id="spendingChart"></canvas>
-                    <div class="chart-center">
-                        <span class="center-label">TOPLAM</span>
-                        <span class="center-total" id="spendingTotal">¥0</span>
-                    </div>
-                </div>
-                <div class="budget-notes">
-                    <h3>Bütçe Notları</h3>
-                    <p>Shinkansen ve IC kart (Pasmo/Suica) ulaşımın aslan payını aldı.
-                       Yemek beklediğimden uygundu; konbini ve ara sokak ramencileri cüzdan dostu.
-                       Alışveriş ise Don Quijote & Akihabara'da kontrolden çıktı! 😄</p>
-                    <div class="budget-legend-item"><span class="dot" style="background:#7c83ff"></span> Ulaşım (IC Kart/Shinkansen)</div>
-                    <div class="budget-legend-item"><span class="dot" style="background:#ff8fab"></span> Yemek</div>
-                    <div class="budget-legend-item"><span class="dot" style="background:#5ce1e6"></span> Alışveriş</div>
-                </div>
-            </div>
+            <p class="doc-subtitle">13 günlük harcamalarımın kategori dağılımı</p>
+            <div class="spend" id="spendingTable"></div>
         </section>
 
         <!-- Travel Tips -->
@@ -549,7 +596,7 @@
                 <div class="tip-card">
                     <div class="tip-icon">📱</div>
                     <h3>eSIM</h3>
-                    <p>Havaalanından eSIM satın alın. Google Maps hayat kurtarıyor!</p>
+                    <p>Havalimanından eSIM satın alın. Google Maps hayat kurtarıyor!</p>
                 </div>
                 <div class="tip-card">
                     <div class="tip-icon">💴</div>
@@ -568,7 +615,7 @@
                 </div>
                 <div class="tip-card">
                     <div class="tip-icon">🕐</div>
-                    <h4>Erken Başla</h4>
+                    <h3>Erken Başla</h3>
                     <p>Tapınaklar sabah 08:00-09:00 arası en sakin. Fotoğraf için ideal!</p>
                 </div>
             </div>
@@ -587,10 +634,15 @@
         </footer>
     </div>
 
+    <script>
+    // Dar ekranda hero illüstrasyonunu Fuji'ye odakla
+    (function(){var a=document.querySelector('.hero-art');if(!a)return;
+      function f(){a.setAttribute('viewBox',innerWidth<700?'620 0 820 800':'0 0 1440 800');}
+      f();addEventListener('resize',f);})();
+    </script>
     <script src="script.js"></script>
 
-    <!-- Leaflet + İnteraktif Japonya Rotası -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- İllüstratif Japonya Rotası -->
     <script src="japan-map.js"></script>
 
     <!-- Chart.js + Bütçe & İstatistik Grafikleri -->

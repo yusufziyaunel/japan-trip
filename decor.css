@@ -1,0 +1,146 @@
+/* ============================================
+   SÜS ÖĞELERİ (decor.js ile birlikte)
+   ============================================ */
+.deco {
+    position: absolute; z-index: 4; display: block; pointer-events: none;
+    transform: rotate(var(--rot, 0deg));
+    filter: drop-shadow(0 4px 5px rgba(34, 38, 75, .22));
+    animation: decoBob 5s ease-in-out infinite;
+}
+.deco svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.deco.swing { transform-origin: 50% 0; animation: decoSwing 3.6s ease-in-out infinite alternate; }
+.deco.swing.d2 { animation-delay: -1.8s; }
+@keyframes decoBob { 0%,100% { transform: translateY(0) rotate(var(--rot,0deg)); } 50% { transform: translateY(-5px) rotate(var(--rot,0deg)); } }
+@keyframes decoSwing { from { transform: rotate(-5deg); } to { transform: rotate(5deg); } }
+
+/* Hero fenerleri (SVG içinde) */
+.h-lantern { transform-box: fill-box; transform-origin: 50% 0; animation: decoSwing 3.8s ease-in-out infinite alternate; animation-delay: var(--d, 0s); }
+
+/* Hanko mührü */
+.hanko {
+    position: absolute; z-index: 5; width: 54px; height: 54px; box-sizing: border-box;
+    display: flex; flex-wrap: wrap; align-content: center; justify-content: center; gap: 0;
+    background: var(--red, #E8503A); color: #fff; border: 2px solid var(--ink, #22264B); border-radius: 10px;
+    outline: 2px solid var(--red, #E8503A); outline-offset: -7px;
+    font-family: 'Noto Serif JP', serif; font-weight: 900; line-height: 1; transform: rotate(-4deg);
+    box-shadow: 0 3px 8px rgba(34, 38, 75, .22); cursor: default;
+}
+.hanko i { font-style: normal; font-size: 1.15rem; width: 100%; text-align: center; line-height: 1.05; }
+.hanko:has(i:only-child) i { font-size: 1.8rem; }
+
+/* Kenar yazıları: geniş ekranda sayfa kenarlarında dikey Japonca */
+.side-jp {
+    position: absolute; top: 14%; z-index: 0; display: none;
+    writing-mode: vertical-rl; text-orientation: upright;
+    font-family: 'Noto Serif JP', serif; font-weight: 900; font-size: 2rem; letter-spacing: .35em;
+    color: var(--red, #E8503A); opacity: .55; pointer-events: none; white-space: nowrap;
+}
+@media (min-width: 1380px) {
+    .side-jp { display: block; }
+    .side-right { right: -66px; }
+    .side-left  { left: -66px; }
+}
+body.gastro-page > .side-jp { position: fixed; right: 18px; top: 30%; color: var(--sun, #FFC857); opacity: .5; }
+
+/* Footer şeridi */
+.footer-deco { display: flex; justify-content: center; gap: 1.1rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
+.footer-deco .fd { width: 46px; height: 46px; display: block; transition: transform .2s; }
+.footer-deco .fd:hover { transform: translateY(-5px) rotate(-6deg); }
+.footer-deco .fd svg { width: 100%; height: 100%; display: block; }
+.footer-jp { font-family: 'Noto Serif JP', serif; font-weight: 700; letter-spacing: .2em; color: var(--sun, #FFC857); margin-top: .6rem; }
+
+/* Gün sayfası: şehir kanjisi filigranı */
+.hero-kanji {
+    position: absolute; left: 4%; top: 50%; transform: translateY(-50%); z-index: 1; pointer-events: none;
+    writing-mode: vertical-rl; text-orientation: upright;
+    font-family: 'Noto Serif JP', serif; font-weight: 900; font-size: clamp(2.6rem, 8vw, 6.5rem); line-height: 1; letter-spacing: .08em;
+    color: #fff; opacity: .22;
+}
+
+/* Küçük ekran: kalabalık yapma */
+@media (max-width: 900px) {
+    .deco.wide { display: none; }
+}
+@media (max-width: 700px) {
+    .hanko { width: 44px; height: 44px; border-radius: 8px; }
+    .hanko i { font-size: .95rem; }
+    .hanko:has(i:only-child) i { font-size: 1.5rem; }
+    .deco { transform: rotate(var(--rot, 0deg)) scale(.78); }
+    .hero-kanji { font-size: 2.6rem; opacity: .16; left: 2%; }
+}
+@media (prefers-reduced-motion: reduce) { .deco, .h-lantern { animation: none; } }
+
+/* ---------- Gün sayfası: kenar süsleri ---------- */
+.edge-deco {
+    position: absolute; z-index: 2; width: 84px; display: none; flex-direction: column; align-items: center; gap: .6rem;
+    pointer-events: none;
+}
+.e-r { right: -118px; } .e-l { left: -118px; }
+.e-ico { width: 64px; height: 64px; display: block; filter: drop-shadow(0 4px 5px rgba(34,38,75,.22)); animation: decoBob 6s ease-in-out infinite; }
+.e-ico svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.e-word {
+    writing-mode: vertical-rl; text-orientation: upright; font-family: 'Noto Serif JP', serif; font-weight: 900;
+    font-size: 1.5rem; letter-spacing: .3em; color: var(--acc, #E8503A); opacity: .85; white-space: nowrap;
+    background: #fff; border: 2px solid var(--ink, #22264B); border-radius: 12px; padding: .7rem .35rem; box-shadow: 0 3px 0 var(--ink, #22264B);
+}
+@media (min-width: 1500px) { .edge-deco { display: flex; } }
+
+.deco-inline { margin-left: auto; width: 42px; height: 42px; flex: 0 0 auto; display: block; }
+.deco-inline svg { width: 100%; height: 100%; display: block; }
+@media (min-width: 1500px) { .deco-inline { display: none; } }
+.day-detail-page .hanko { background: var(--acc, #E8503A); outline-color: var(--acc, #E8503A); }
+
+/* ---------- Ana sayfa: gün kartları ---------- */
+.day-card .day-header { position: relative; overflow: hidden; }
+.day-card .day-header > * { position: relative; z-index: 2; }
+.dc-kanji {
+    position: absolute !important; right: 1.4rem; top: 50%; transform: translateY(-50%); z-index: 1 !important;
+    writing-mode: vertical-rl; text-orientation: upright; font-family: 'Noto Serif JP', serif; font-weight: 900;
+    font-size: clamp(1.8rem, 3.6vw, 2.6rem); line-height: 1; letter-spacing: .04em; color: #fff; opacity: .3; pointer-events: none; white-space: nowrap;
+}
+.dc-icon { position: absolute !important; right: 6.2rem; top: 50%; width: 54px; height: 54px; margin-top: -27px; z-index: 2 !important; transform: rotate(8deg); pointer-events: none; filter: drop-shadow(0 3px 4px rgba(34,38,75,.3)); }
+.dc-icon svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.dc-icon2 { right: auto; left: auto; top: 12px; right: 1rem; width: 26px; height: 26px; margin-top: 0; transform: rotate(-14deg); z-index: 3 !important; }
+.dc-ribbon {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; padding: 1rem 1rem 1.3rem;
+    border-top: 2px dashed var(--city-color, #E8503A); margin: 0 1.4rem;
+}
+.dc-chip {
+    display: inline-flex; align-items: center; gap: .45rem; padding: .3rem .8rem .3rem .4rem; background: #fff;
+    border: 2px solid var(--ink, #22264B); border-radius: 999px; box-shadow: 0 2px 0 var(--ink, #22264B);
+}
+.dc-chip i { width: 26px; height: 26px; display: block; font-style: normal; }
+.dc-chip i svg { width: 100%; height: 100%; display: block; }
+.dc-chip b { font-family: 'Noto Serif JP', serif; font-weight: 900; font-size: .95rem; color: var(--ink, #22264B); letter-spacing: .08em; }
+@media (max-width: 700px) {
+    .dc-icon { right: 4.2rem; width: 40px; height: 40px; margin-top: -20px; }
+    .dc-kanji { right: .8rem; font-size: 1.6rem; }
+    .dc-ribbon { margin: 0 .8rem; gap: .4rem; }
+    .dc-chip b { font-size: .82rem; }
+}
+
+/* ---------- "Yarın Neredeyiz?" kartı ---------- */
+.next-day-card { grid-template-columns: minmax(240px, 38%) 1fr !important; gap: 0 !important; align-items: stretch; }
+.next-day-image { position: relative; min-height: 220px; height: auto !important; border-right: 2px solid var(--ink, #22264B); background: linear-gradient(135deg, var(--d1, #FFB36B), var(--d2, #FF7A59)); overflow: hidden; }
+.next-day-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.next-day-image::after {
+    content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 40%; pointer-events: none;
+    background: linear-gradient(transparent, rgba(34,38,75,.35));
+}
+.next-day-content { padding: 1.8rem 2rem !important; gap: .2rem; }
+.next-day-content .next-label {
+    align-self: flex-start; background: var(--ink, #22264B); color: #fff !important; padding: .25rem .8rem; border-radius: 999px;
+    font-size: .8rem; letter-spacing: .04em; margin-bottom: .6rem !important;
+}
+.next-day-content h4 { font-size: 1.6rem !important; line-height: 1.2; margin-bottom: .6rem !important; }
+.next-day-content p { margin-bottom: 1.1rem !important; }
+.next-day-card:hover .next-day-image img { transform: scale(1.06); }
+.nd-plane::before {
+    content: '✈️'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 4.5rem; z-index: 0;
+    filter: drop-shadow(0 6px 8px rgba(34,38,75,.3));
+}
+.nd-plane::after { display: none; }
+@media (max-width: 700px) {
+    .next-day-card { grid-template-columns: 1fr !important; }
+    .next-day-image { min-height: 190px; border-right: 0; border-bottom: 2px solid var(--ink, #22264B); }
+}

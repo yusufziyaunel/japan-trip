@@ -17,8 +17,12 @@ JavaScript kullanımı:
 """
 
 import os
+import re
 import json
 from pathlib import Path
+
+# Nereden çalıştırılırsa çalıştırılsın proje klasörünü baz al
+os.chdir(Path(__file__).resolve().parent)
 
 def scan_day_photos(day_folder):
     """
@@ -40,7 +44,8 @@ def scan_day_photos(day_folder):
     
     # Tüm fotoğrafları bul
     photos = []
-    for file in sorted(photos_path.iterdir()):
+    natural = lambda p: [int(t) if t.isdigit() else t.lower() for t in re.split(r'(\d+)', p.name)]
+    for file in sorted(photos_path.iterdir(), key=natural):
         if file.is_file() and file.suffix.lower() in extensions:
             photos.append(file.name)
     
@@ -67,6 +72,17 @@ def create_json_manifest(day_id, photos):
     
     return json_path
 
+def write_manifest_js():
+    """Tüm günleri tek bir JS dosyasına yaz (HTML'i çift tıklayıp açınca da çalışsın)."""
+    data = {}
+    for n in range(1, 14):
+        day_id = f'day{n:02d}'
+        data[day_id] = scan_day_photos(day_id)
+    out = Path('photos') / 'manifest.js'
+    out.write_text('// scan_photos.py tarafından otomatik üretildi — elle düzenleme\n'
+                   'window.PHOTO_MANIFEST = ' + json.dumps(data, ensure_ascii=False, indent=1) + ';\n', encoding='utf-8')
+    return out
+
 def scan_all_days():
     """Tüm günleri tara ve JSON oluştur"""
     print('\n' + '='*50)
@@ -89,8 +105,9 @@ def scan_all_days():
         else:
             print(f'⚪ {day_id}: Fotoğraf yok (atlanıyor)')
     
+    write_manifest_js()
     print('\n' + '-'*50)
-    print(f'✅ Toplam: {scanned_days} gün, {total_photos} fotoğraf')
+    print(f'✅ Toplam: {scanned_days} gün, {total_photos} fotoğraf  (photos/manifest.js güncellendi)')
     print('-'*50 + '\n')
     
     if scanned_days > 0:
@@ -105,6 +122,7 @@ def scan_single_day(day_id):
     
     if photos:
         json_path = create_json_manifest(day_id, photos)
+        write_manifest_js()
         print(f'\n✅ {day_id}: {len(photos)} fotoğraf → {json_path}\n')
     else:
         print(f'\n❌ {day_id}: Klasörde fotoğraf bulunamadı\n')

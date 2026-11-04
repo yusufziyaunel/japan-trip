@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🍜 Gastronomi Günlüğü | Japonya 2026</title>
-    <meta name="description" content="Japonya'da denediğim udon, sushi ve sokak lezzetleri — mekan, puan ve fotoğraflarla kişisel gastronomi günlüğü.">
+    <meta name="description" content="Japonya'da denediğim udon, sushi ve sokak lezzetleri — mekân, puan ve fotoğraflarla kişisel gastronomi günlüğü.">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="gastronomi.css">
     <link rel="stylesheet" href="responsive.css">
     <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="illustrated.css">
+    <link rel="stylesheet" href="decor.css">
+    <script src="decor.js" defer></script>
 </head>
 <body class="gastro-page">
 
@@ -21,7 +24,7 @@
         <div class="kanji">美味しい</div>
         <h1>Gastronomi Günlüğü</h1>
         <p>14 gün boyunca Japonya'nın sokaklarında, ara sokak ramencilerinde ve tezgah başlarında
-           tattığım her lezzet. Mekanı, kişisel puanım ve fotoğraflarıyla — afiyet olsun! 🥢</p>
+           tattığım her lezzet. Mekânı, kişisel puanım ve fotoğraflarıyla — afiyet olsun! 🥢</p>
     </header>
 
     <div class="gastro-filters" id="gastroFilters">
@@ -32,6 +35,7 @@
         <button class="filter-btn" data-filter="street">🍢 Sokak Lezzeti</button>
         <button class="filter-btn" data-filter="sweet">🍵 Matcha & Tatlı</button>
         <button class="filter-btn" data-filter="konbini">🏪 Konbini</button>
+        <button class="filter-btn" data-filter="drink">🥤 İçecek</button>
     </div>
 
     <main class="gastro-grid" id="gastroGrid"></main>
@@ -59,85 +63,99 @@
             name: 'Tonkotsu Ramen', place: 'Manbaken, Shinjuku (1. Gün)',
             category: 'ramen', rating: 5,
             desc: 'Japonya\'daki ilk yemeğimiz. Ara sokaktaki minik ramencide, bilmediğimiz tuşlara basarak sipariş ettiğimiz o sıcacık çorba. Soğuk Shinjuku gecesinde içimizi ısıttı.',
-            photos: ['photos/gastronomi/ramen-manbaken.jpg']
+            photos: ['photos/gastronomi/ramen-manbaken.jpg'],
+            ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Tonkotsu_ramen_in_Tokyo.jpg/960px-Tonkotsu_ramen_in_Tokyo.jpg', credit: 'Syced · CC0', page: 'https://commons.wikimedia.org/wiki/File:Tonkotsu_ramen_in_Tokyo.jpg' }
         },
         {
             name: 'Kaiten Sushi (Döner Bant)', place: 'Sushiro, Shinjuku (2. Gün)',
             category: 'sushi', rating: 4.5,
             desc: 'Tablet üzerinden sipariş verip banttan gelen sushileri oyun gibi izledik; kaç tabak yediğimizi saymayı bıraktık. Tüm bu ziyafet sadece 4.370 ¥ — inanılmaz uygun.',
-            photos: ['photos/gastronomi/sushiro-shinjuku.jpg']
+            photos: ['photos/gastronomi/sushiro-shinjuku.jpg'],
+            ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Kaiten_sushi_%282131921293%29.jpg/960px-Kaiten_sushi_%282131921293%29.jpg', credit: 'Benjamin Hollis from Seattle, WA, USA · CC BY 2.0', page: 'https://commons.wikimedia.org/wiki/File:Kaiten_sushi_(2131921293).jpg' }
         },
         {
             name: 'Double Cheese Burger', place: 'Shogun Burger, Shinjuku (3. Gün)',
             category: 'meat', rating: 5,
             desc: 'Şehirde yediğimiz en iyi burger. Yerel Japon birası ve pembe saçlı garson Akira\'nın enerjisi eşliğinde günün muhteşem finali.',
-            photos: ['photos/gastronomi/shogun-burger.jpg']
+            photos: ['photos/gastronomi/shogun-burger.jpg'],
+            ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Cheeseburger_of_McDonald%27s_Japan.jpg/960px-Cheeseburger_of_McDonald%27s_Japan.jpg', credit: '毒島みるく · CC0', page: 'https://commons.wikimedia.org/wiki/File:Cheeseburger_of_McDonald%27s_Japan.jpg' }
         },
         {
             name: 'Rainbow Pancake', place: 'Harajuku (3. Gün)',
             category: 'sweet', rating: 4,
             desc: 'Harajuku\'nun renkli sokaklarında bulut gibi, üzerine bol meyve ve krema gelen tatlı bir mola.',
-            photos: ['photos/gastronomi/rainbow-pancake.jpg']
+            photos: ['photos/gastronomi/rainbow-pancake.jpg'],
+            ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ac/People_waiting_in_line_for_pancakes_%40_Harajuku_%289439698681%29.jpg/960px-People_waiting_in_line_for_pancakes_%40_Harajuku_%289439698681%29.jpg', credit: 'Guilhem Vellut from Annecy, France · CC BY 2.0', page: 'https://commons.wikimedia.org/wiki/File:People_waiting_in_line_for_pancakes_@_Harajuku_(9439698681).jpg' }
         },
         {
             name: 'Gyoza & Kızarmış Tavuk', place: 'Ginza Tenryu (4. Gün)',
             category: 'meat', rating: 4,
             desc: 'Ginza\'da rastgele girdiğimiz bir Çin lokantasında dev gyozalar ve viski-soda ikilisi. 3.780 ¥\'lik bu mola tam ihtiyacımız olan enerjiydi.',
-            photos: ['photos/gastronomi/ginza-gyoza.jpg']
+            photos: ['photos/gastronomi/ginza-gyoza.jpg'],
+            ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Fried_dumplings_%285791222215%29.jpg/960px-Fried_dumplings_%285791222215%29.jpg', credit: 'pelican from Tokyo, Japan · CC BY-SA 2.0', page: 'https://commons.wikimedia.org/wiki/File:Fried_dumplings_(5791222215).jpg' }
         },
         {
             name: 'Wagyu (Kendin Pişir)', place: 'Gion, Kyoto (5. Gün)',
             category: 'meat', rating: 5,
             desc: 'Kyoto\'daki ilk akşam yemeği. Kendin pişir-ye usulü yumuşacık Wagyu etleri. Yan masadaki "Shinkansen kaçıran Amerikalı aile" draması eşliğinde tadı damağımızda kaldı.',
-            photos: ['photos/gastronomi/wagyu-gion.jpg']
+            photos: ['photos/gastronomi/wagyu-gion.jpg'],
+            ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2b/Wagy%C5%AB_on_plate_4.jpg/960px-Wagy%C5%AB_on_plate_4.jpg', credit: 'Shisma · CC BY 4.0', page: 'https://commons.wikimedia.org/wiki/File:Wagyū_on_plate_4.jpg' }
         },
         {
             name: 'Okonomiyaki', place: 'Gion, Kyoto (6. Gün)',
             category: 'street', rating: 4,
             desc: 'Lahanalı "Japon omleti". Şeflerin tezgah başında hazırlayışını izlemek başlı başına bir şovdu.',
-            photos: ['photos/gastronomi/okonomiyaki-gion.jpg']
+            photos: ['photos/gastronomi/okonomiyaki-gion.jpg'],
+            ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Okonomiyaki_001.jpg/960px-Okonomiyaki_001.jpg', credit: 'ume-y · CC BY 2.0', page: 'https://commons.wikimedia.org/wiki/File:Okonomiyaki_001.jpg' }
         },
         {
             name: 'Matcha Cake', place: 'Arashiyama, Kyoto (6. Gün)',
             category: 'sweet', rating: 4,
             desc: 'Hasır çatılı geleneksel bir kafede, yer sofrasında battaniyeler altında yediğimiz matcha cake. Bambu ormanı öncesi üşüyen ellerimizi ısıttı.',
-            photos: ['photos/gastronomi/matcha-cake-arashiyama.jpg']
+            photos: ['photos/gastronomi/matcha-cake-arashiyama.jpg'],
+            ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f6/Matcha_cheese_cake_-_Coffee_at_33_2024-02-23.jpg/960px-Matcha_cheese_cake_-_Coffee_at_33_2024-02-23.jpg', credit: 'Andy Li · CC0', page: 'https://commons.wikimedia.org/wiki/File:Matcha_cheese_cake_-_Coffee_at_33_2024-02-23.jpg' }
         },
         {
             name: 'Matcha & Cheesecake', place: 'Hario Cafe, Kyoto (7. Gün)',
             category: 'sweet', rating: 4.5,
             desc: 'Bahçesiyle bizi büyüleyen Hario Cafe\'de huzur molası. Şehrin kalabalığından kaçmak için mükemmel bir sığınak.',
-            photos: ['photos/gastronomi/hario-matcha.jpg']
+            photos: ['photos/gastronomi/hario-matcha.jpg'],
+            ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/17/Matcha_Cheese_Cake.jpg/960px-Matcha_Cheese_Cake.jpg', credit: 'ぷりぷり娘 · CC BY-SA 4.0', page: 'https://commons.wikimedia.org/wiki/File:Matcha_Cheese_Cake.jpg' }
         },
         {
             name: 'Souffle Pancake', place: 'Osaka (8. Gün)',
             category: 'street', rating: 4.5,
             desc: 'Osaka\'da uzun bir bekleyişin ardından gelen pofuduk, sallanan Japon pancake\'leri. Garsonla kurduğum kısa Japonca diyalog günün en sempatik anıydı.',
-            photos: ['photos/gastronomi/osaka-pancake.jpg']
+            photos: ['photos/gastronomi/osaka-pancake.jpg'],
+            ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/Souffle_Pan_Cake_in_Japan.jpg/960px-Souffle_Pan_Cake_in_Japan.jpg', credit: 't-mizo · CC BY 2.0', page: 'https://commons.wikimedia.org/wiki/File:Souffle_Pan_Cake_in_Japan.jpg' }
         },
         {
             name: 'Coco Curry (Karē)', place: 'Coco Ichibanya, Osaka (9. Gün)',
             category: 'meat', rating: 5,
             desc: 'Japon körisiyle tanışma! 0-24 acı skalasında "sadece" 1. seviyeyi seçtik ama yine de fena yaktı. Et soteli sos, çıtır tavuklu pilav — en "bizden" ve doyurucu menü. 4.711 ¥.',
-            photos: ['photos/gastronomi/coco-curry.jpg']
+            photos: ['photos/gastronomi/coco-curry.jpg'],
+            ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/da/Katsu-curry_003.jpg/960px-Katsu-curry_003.jpg', credit: 'Ocdp · CC0', page: 'https://commons.wikimedia.org/wiki/File:Katsu-curry_003.jpg' }
         },
         {
             name: 'Matcha Lava Cake', place: 'Hatoya, Asakusa (10. Gün)',
             category: 'sweet', rating: 5,
             desc: 'Uzun bir sıra bekledik ama her saniyesine değdi. Yoğun matcha tadıyla akan lava cake ve buz gibi matcha latte — matcha severlerin mabedi.',
-            photos: ['photos/gastronomi/hatoya-lava-cake.jpg']
+            photos: ['photos/gastronomi/hatoya-lava-cake.jpg'],
+            ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Fondant_au_Chocolat_1.jpg/960px-Fondant_au_Chocolat_1.jpg', credit: 'Rogi.Official · CC BY-SA 4.0', page: 'https://commons.wikimedia.org/wiki/File:Fondant_au_Chocolat_1.jpg' }
         },
         {
             name: 'Diner Burger & Milkshake', place: 'McLean, Tokyo (11. Gün)',
             category: 'meat', rating: 4,
             desc: 'Gerçek bir Amerikan Diner deneyimi. Ginger ale milkshake ve burger ikilisiyle akşamın fütüristik turuna enerji depoladık.',
-            photos: ['photos/gastronomi/mclean-burger.jpg']
+            photos: ['photos/gastronomi/mclean-burger.jpg'],
+            ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/Homemade_hamburger_with_french_fries_in_Argentina.jpg/960px-Homemade_hamburger_with_french_fries_in_Argentina.jpg', credit: 'Horacio Cambeiro · CC BY-SA 3.0', page: 'https://commons.wikimedia.org/wiki/File:Homemade_hamburger_with_french_fries_in_Argentina.jpg' }
         },
         {
             name: 'El Yapımı Onigiri', place: 'Ueno Park Karavanı (12. Gün)',
             category: 'street', rating: 4.5,
             desc: 'Ulusal Müze çıkışında bir karavandan aldığımız, dumanı üstünde tüten el yapımı onigiriler. Ueno Park\'ın garip festival kokusundan bizi kurtaran lezzet kaçamağı.',
-            photos: ['photos/gastronomi/ueno-onigiri.jpg']
+            photos: ['photos/gastronomi/ueno-onigiri.jpg'],
+            ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Onigiri_shop_by_WordRidden_near_Akihabara_station%2C_Tokyo.jpg/960px-Onigiri_shop_by_WordRidden_near_Akihabara_station%2C_Tokyo.jpg', credit: 'WordRidden · CC BY 2.0', page: 'https://commons.wikimedia.org/wiki/File:Onigiri_shop_by_WordRidden_near_Akihabara_station,_Tokyo.jpg' }
         },
 
         // --- KONBİNİ HAZİNELERİ (7-Eleven / Lawson / FamilyMart) ---
@@ -145,61 +163,98 @@
             name: 'Konbini Onigiri', place: 'Konbini (Tüm gezi boyunca)',
             category: 'konbini', rating: 5,
             desc: 'Gezinin sabit lezzeti. Tuna-mayo ve yumurta salatalı üçgen pirinç topları — açılışı bile bir sistem. Hızlı, ucuz ve şaşırtıcı derecede lezzetli.',
-            photos: []
+            photos: [],
+            ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Onigiri_and_Melonpan.jpg/960px-Onigiri_and_Melonpan.jpg', credit: 'Immanuelle · CC BY-SA 4.0', page: 'https://commons.wikimedia.org/wiki/File:Onigiri_and_Melonpan.jpg' }
         },
         {
-            name: 'Tuna-Mayo & Cheddar Sando', place: 'Konbini (7-Eleven)',
+            name: 'Tuna & Salatalık Sando', place: 'Konbini (7-Eleven)',
             category: 'konbini', rating: 4.5,
-            desc: 'Konbini\'nin meşhur kabarık beyaz ekmek sandviçi: ton-mayo, cheddar ve taze marul. Kabuğu kesilmiş, üçgen ve kusursuz. Yolda atıştırmanın en pratik hali.',
-            photos: []
+            desc: 'Konbini\'nin kabarık ekmekli sandviçi: ton balığı, salatalık, marul ve mayonez. Yanına aloe yoğurt içeceği aldık, Tokyo Tower\'ın önünde yola devam ettik.',
+            photos: ['photos/gastronomi/tuna-sando.jpg'], pos: '50% 100%'
         },
         {
             name: 'Tamago (Yumurta Salatası) Sando', place: 'Konbini (Lawson)',
             category: 'konbini', rating: 4.5,
             desc: 'Japonya\'nın efsanevi yumurta salatalı sandviçi. İpeksi, hafif tatlı yumurta salatası ve yumuşacık ekmek — basit ama bağımlılık yapıcı.',
-            photos: []
+            photos: [],
+            ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Japanese_egg_sandwich_in_a_sandwich_case.jpg/960px-Japanese_egg_sandwich_in_a_sandwich_case.jpg', credit: 'Quercus acuta · CC BY-SA 4.0', page: 'https://commons.wikimedia.org/wiki/File:Japanese_egg_sandwich_in_a_sandwich_case.jpg' }
         },
         {
             name: 'Çilekli Sando (Ichigo Sando)', place: 'Konbini',
             category: 'sweet', rating: 4.5,
             desc: 'Taze çilek ve bulut gibi krema arasında yumuşacık ekmek. Tatlı ile sandviçin beklenmedik ama mükemmel buluşması.',
-            photos: []
+            photos: [],
+            ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Fruit_sandwich_in_Da-cafe%2C_Tokyo_2022-06-29_as%281%29.jpg/960px-Fruit_sandwich_in_Da-cafe%2C_Tokyo_2022-06-29_as%281%29.jpg', credit: 'Araisyohei · CC BY 4.0', page: 'https://commons.wikimedia.org/wiki/File:Fruit_sandwich_in_Da-cafe,_Tokyo_2022-06-29_as(1).jpg' }
         },
         {
             name: 'Melon Pan', place: 'Konbini & Fırınlar',
             category: 'sweet', rating: 4,
             desc: 'Dışı çıtır kurabiye kabuğu, içi yumuşacık tatlı ekmek. Adı melondan gelse de tadı kendine has — sıcakken bir başka.',
-            photos: []
+            photos: [],
+            ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Melonpan_on_the_plastic_bag.jpg/960px-Melonpan_on_the_plastic_bag.jpg', credit: 'Kyu3a · CC BY-SA 4.0', page: 'https://commons.wikimedia.org/wiki/File:Melonpan_on_the_plastic_bag.jpg' }
         },
         {
-            name: 'Pizza', place: 'Konbini & Sokak',
-            category: 'street', rating: 3.5,
-            desc: 'Japon usulü, mısır ve mayonez gibi sürprizli soslarla bezenmiş tek kişilik pizza. Beklediğin gibi değil ama merak edip aldığımıza değdi.',
-            photos: []
+            name: 'Pizza Margherita', place: 'Japonya\'da bir pizzacı',
+            category: 'street', rating: 4,
+            desc: 'Kabarık, hafif yanık kenarlı ince hamur; mozzarella ve taze fesleğenle klasik Margherita. Yanına şarap ve pembe bir içecek eşlik etti.',
+            photos: ['photos/gastronomi/pizza-margherita.jpg'], pos: '50% 78%'
         },
         {
             name: 'Crème Brûlée Dondurma', place: 'Konbini (dondurucu reyonu)',
             category: 'sweet', rating: 4.5,
             desc: 'Konbini dondurucusundan çıkan beklenmedik bir şaheser: üstü gerçekten karamelize, içi kremalı. Japon konbini tatlı oyununun ne kadar ciddi olduğunun kanıtı.',
-            photos: []
+            photos: [],
+            ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/%E9%BB%92%E3%81%84%E7%B2%92%E3%81%AF_%E8%8B%BA%E3%81%AE%E7%A8%AE%E3%81%A7%E3%81%99%E3%80%82_%282171035379%29.jpg/960px-%E9%BB%92%E3%81%84%E7%B2%92%E3%81%AF_%E8%8B%BA%E3%81%AE%E7%A8%AE%E3%81%A7%E3%81%99%E3%80%82_%282171035379%29.jpg', credit: 'Hajime NAKANO from Tokyo, Japan · CC BY 2.0', page: 'https://commons.wikimedia.org/wiki/File:黒い粒は_苺の種です。_(2171035379).jpg' }
         },
         {
             name: 'Strong Zero', place: 'Konbini (içecek reyonu)',
-            category: 'konbini', rating: 4,
+            category: 'drink', rating: 4,
             desc: 'Japonya\'nın efsanevi sert chuhai\'si. Ucuz, buz gibi ve adından da anlaşılacağı üzere... iddialı. Uzun gezi günlerinin sonunda otel odasının vazgeçilmezi. 🍋',
-            photos: []
+            photos: [],
+            ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Strong_Zero_4967.jpg/960px-Strong_Zero_4967.jpg', credit: 'Akonnchiroll · CC BY-SA 4.0', page: 'https://commons.wikimedia.org/wiki/File:Strong_Zero_4967.jpg' }
         },
         {
             name: 'Patates Cipsi (Calbee)', place: 'Konbini',
             category: 'konbini', rating: 3.5,
             desc: 'Wasabi\'den deniz yosununa garip ama lezzetli aromalar. Tren yolculuklarının ve gece atıştırmalarının sessiz kahramanı.',
-            photos: []
+            photos: [],
+            ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/20261012_002915_Calbee_Potatoes.jpg/960px-20261012_002915_Calbee_Potatoes.jpg', credit: 'Saimmx · CC0', page: 'https://commons.wikimedia.org/wiki/File:20261012_002915_Calbee_Potatoes.jpg' }
         },
         {
             name: 'Şişe Yeşil Çay (Ocha)', place: 'Konbini (otomat & raf)',
-            category: 'konbini', rating: 4,
+            category: 'drink', rating: 4,
             desc: 'Şekersiz, buz gibi demlenmiş yeşil çay (Oi Ocha). Her köşede, her otomatta. Japonya\'nın susuzluğu gideren resmî içeceği gibiydi.',
-            photos: []
+            photos: ['photos/gastronomi/ocha-otomat.jpg']
+        }
+        ,{
+            name: 'Sando Reyonu (7-Eleven)', place: 'Konbini (7-Eleven)',
+            category: 'konbini', rating: 4.5,
+            desc: 'Raflar dolu dolu: tamago, ichigo, BLT, chicken katsu, jambon... Hangisini alacağına karar vermek başlı başına bir macera; hepsi taze, hepsi üçgen ve kusursuz.',
+            photos: ['photos/gastronomi/sando-7eleven.jpg'], pos: '50% 42%'
+        },
+        {
+            name: 'Avokadolu Sando', place: 'Yolda atıştırma',
+            category: 'street', rating: 4,
+            desc: 'Kâğıda sarılı, sıcacık ekmek arasında avokadolu dolgu. Yolda yürürken ısırmalık, en pratik öğün.',
+            photos: ['photos/gastronomi/avokado-sando.jpg'], pos: '50% 45%'
+        },
+        {
+            name: 'Krep', place: 'Tokyo Tower yanı',
+            category: 'street', rating: 4.5,
+            desc: 'Kırmızı-beyaz kâğıt konilerde, kremalı ve meyveli sokak krep\'i. Tokyo Tower\'ın dibinde, soğuk havada iki elimizde sıcacık bir tatlı.',
+            photos: ['photos/gastronomi/krep-tokyo-tower.jpg'], pos: '50% 85%'
+        },
+        {
+            name: 'Highball', place: 'Ginza Tenryu (4. Gün)',
+            category: 'drink', rating: 4.5,
+            desc: 'Viski, soda ve bir dilim limon: Japonya\'nın en sevilen akşam içeceği. Gyoza ve kızarmış tavukla mükemmel eşleşiyor.',
+            photos: [], ref: { url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/HiBall-1.jpg/960px-HiBall-1.jpg', credit: 'Ttsuchitori · CC BY-SA 3.0', page: 'https://commons.wikimedia.org/wiki/File:HiBall-1.jpg' }
+        },
+        {
+            name: 'C Vitamini & Enerji İçecekleri', place: 'Konbini (içecek reyonu)',
+            category: 'drink', rating: 4,
+            desc: 'Yürüyüş günlerinin kurtarıcısı: limonlu, C vitaminli ve yorgunluk azaltan şişe içecekler (Kiret Lemon). Her konbininde bir sürü çeşidi var.',
+            photos: ['photos/gastronomi/c-vitamini.jpg'], pos: '62% 36%'
         }
     ];
 
@@ -223,17 +278,24 @@
             .filter(d => filter === 'all' || d.category === filter)
             .forEach(d => {
                 let photosHTML;
-                if (d.photos && d.photos.length) {
-                    const cls = d.photos.length === 1 ? 'single' : '';
+                const local = d.photos && d.photos.length ? d.photos : [];
+                if (local.length) {
+                    const cls = local.length === 1 ? 'single' : '';
                     photosHTML = `<div class="food-photos ${cls}">` +
-                        d.photos.map(p =>
-                            `<img src="${p}" alt="${d.name}" loading="lazy"
-                                  onclick="openLightbox('${p}')"
-                                  onerror="this.parentElement.classList.add('empty');this.parentElement.innerHTML='🍽️'">`
+                        local.map(p =>
+                            `<img src="${p}" alt="${d.name}" loading="lazy" style="object-position:${d.pos || 'center'}"
+                                  onclick="openLightbox(this.getAttribute('src'))"
+                                  onerror="useSample(this, ${d.ref ? 'true' : 'false'})">`
                         ).join('') + '</div>';
+                } else if (d.ref) {
+                    photosHTML = `<div class="food-photos single"><img src="${d.ref.url}" alt="${d.name}" loading="lazy" data-sample="1"
+                                  onclick="openLightbox(this.getAttribute('src'))"
+                                  onerror="useSample(this, false)"><a class="sample-credit" href="${d.ref.page}" target="_blank" rel="noopener">Örnek görsel · ${d.ref.credit}</a></div>`;
                 } else {
                     photosHTML = `<div class="food-photos empty">🍽️</div>`;
                 }
+                if (d.ref) { sampleRefs[d.name] = d.ref; }
+                if (d.ref) photosHTML = photosHTML.replace('<div class="food-photos', '<div data-dish="' + d.name.replace(/"/g, '&quot;') + '" class="food-photos');
 
                 const card = document.createElement('div');
                 card.className = 'food-card';
@@ -259,9 +321,27 @@
         if (typeof collectPhotos === 'function') collectPhotos();
     }
 
+    // Kendi fotoğrafın yoksa Wikimedia Commons'taki serbest lisanslı örnek görsel gösterilir.
+    // Kendi fotoğrafını photos/gastronomi/ içine koyunca otomatik olarak o görünür.
+    const sampleRefs = {};
+    function useSample(img, hasRef) {
+        const box = img.parentElement;
+        const ref = sampleRefs[box.dataset.dish];
+        if (!hasRef || !ref || img.dataset.sample) { box.classList.add('empty'); box.innerHTML = '🍽️'; return; }
+        img.dataset.sample = '1';
+        img.src = ref.url;
+        img.onclick = () => openLightbox(ref.url);
+        if (!box.querySelector('.sample-credit')) {
+            const a = document.createElement('a');
+            a.className = 'sample-credit'; a.href = ref.page; a.target = '_blank'; a.rel = 'noopener';
+            a.textContent = 'Örnek görsel · ' + ref.credit;
+            box.appendChild(a);
+        }
+    }
+
     function labelFor(cat) {
         return { ramen: 'Ramen & Erişte', sushi: 'Sushi', meat: 'Et & Köri',
-                 street: 'Sokak Lezzeti', sweet: 'Matcha & Tatlı', konbini: 'Konbini' }[cat] || cat;
+                 street: 'Sokak Lezzeti', sweet: 'Matcha & Tatlı', konbini: 'Konbini', drink: 'İçecek & Vitamin' }[cat] || cat;
     }
 
     // --- Filtre olayları ---

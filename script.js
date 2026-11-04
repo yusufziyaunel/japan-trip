@@ -155,7 +155,7 @@ const tripDays = [
     {
         id: 'flight-day',
         day: '✈️ Uçuş',
-        date: '7 Mart Cuma',
+        date: '7 Mart Cumartesi',
         city: 'İstanbul',
         cityColor: '#e74c3c',
         activities: {
@@ -187,7 +187,7 @@ const tripDays = [
 {
         id: 'day1',
         day: '1. Gün',
-        date: '8 Mart Cumartesi',
+        date: '8 Mart Pazar',
         city: 'Tokyo',
         cityColor: '#667eea',
         activities: {
@@ -260,7 +260,7 @@ const tripDays = [
     {
         id: 'day2',
         day: '2. Gün',
-        date: '9 Mart Pazar',
+        date: '9 Mart Pazartesi',
         city: 'Tokyo',
         cityColor: '#667eea',
         activities: {
@@ -335,7 +335,7 @@ const tripDays = [
     {
         id: 'day3',
         day: '3. Gün',
-        date: '10 Mart Pazartesi',
+        date: '10 Mart Salı',
         city: 'Tokyo',
         cityColor: '#667eea',
         activities: {
@@ -394,7 +394,7 @@ const tripDays = [
     {
         id: 'day4',
         day: '4. Gün',
-        date: '11 Mart Salı',
+        date: '11 Mart Çarşamba',
         city: 'Tokyo',
         cityColor: '#667eea',
         activities: {
@@ -454,7 +454,7 @@ const tripDays = [
     {
         id: 'day5',
         day: '5. Gün',
-        date: '12 Mart Çarşamba',
+        date: '12 Mart Perşembe',
         city: 'Kyoto',
         cityColor: '#fa709a',
         activities: {
@@ -514,7 +514,7 @@ const tripDays = [
     {
         id: 'day6',
         day: '6. Gün',
-        date: '13 Mart Perşembe',
+        date: '13 Mart Cuma',
         city: 'Kyoto',
         cityColor: '#fa709a',
         activities: {
@@ -574,7 +574,7 @@ const tripDays = [
     {
         id: 'day7',
         day: '7. Gün',
-        date: '14 Mart Cuma',
+        date: '14 Mart Cumartesi',
         city: 'Kyoto',
         cityColor: '#fa709a',
         activities: {
@@ -642,7 +642,7 @@ const tripDays = [
     {
         id: 'day8',
         day: '8. Gün',
-        date: '15 Mart Cumartesi',
+        date: '15 Mart Pazar',
         city: 'Nara',
         cityColor: '#38b000',
         activities: {
@@ -718,7 +718,7 @@ const tripDays = [
     {
         id: 'day9',
         day: '9. Gün',
-        date: '16 Mart Pazar',
+        date: '16 Mart Pazartesi',
         city: 'Osaka',
         cityColor: '#4facfe',
         activities: {
@@ -777,7 +777,7 @@ const tripDays = [
     {
         id: 'day10',
         day: '10. Gün',
-        date: '17 Mart Pazartesi',
+        date: '17 Mart Salı',
         city: 'Tokyo',
         cityColor: '#667eea',
         activities: {
@@ -836,7 +836,7 @@ const tripDays = [
     {
         id: 'day11',
         day: '11. Gün',
-        date: '18 Mart Salı',
+        date: '18 Mart Çarşamba',
         city: 'Tokyo',
         cityColor: '#667eea',
         activities: {
@@ -984,7 +984,7 @@ const categories = {
             { name: 'Meiji Jingu (Tokyo)', location: 'Harajuku', desc: 'Dev orman içinde Shinto tapınağı. Geleneksel düğünler.', mapLink: 'https://goo.gl/maps/meijijingu' },
             { name: 'Zojo-ji (Tokyo)', location: 'Tokyo Tower yanı', desc: 'Tokyo Tower ile muhteşem manzara! Budist tapınak kompleksi.', mapLink: 'https://maps.app.goo.gl/zojoji' },
             { name: 'Kinkaku-ji (Kyoto)', location: 'Kita-ku', desc: 'ALTIN kaplama Zen tapınağı. Sabah 08:30 erken gidin!', mapLink: 'https://maps.app.goo.gl/BmruWEMs64MMWASx5' },
-            { name: 'Fushimi Inari (Kyoto)', location: 'Fushimi-ku', desc: '10,000+ kırmızı torii. 2-3 saat tırmanış. Sabah 07:30!', mapLink: 'https://maps.app.goo.gl/BmruWEMs64MMWASx5' },
+            { name: 'Fushimi Inari (Kyoto)', location: 'Fushimi-ku', desc: '10.000+ kırmızı torii. 2-3 saat tırmanış. Sabah 07:30!', mapLink: 'https://maps.app.goo.gl/BmruWEMs64MMWASx5' },
             { name: 'Kiyomizu-dera (Kyoto)', location: 'Higashiyama', desc: 'Ahşap teraslı tapınak. Muhteşem Kyoto manzarası.', mapLink: 'https://goo.gl/maps/kiyomizudera' }
         ]
     },
@@ -1103,7 +1103,7 @@ function renderDays(filter = 'all') {
                 const imageUrl = getImageUrl(act.imageKey, act.imageType);
                 html += `
                     <div class="activity-item">
-                        <img src="${imageUrl}" alt="${act.title}" class="activity-image" loading="lazy">
+                        <img src="${imageUrl}" alt="${act.title}" class="activity-image" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'">
                         <div class="activity-time">${act.time}</div>
                         <div class="activity-title">${act.title}</div>
                         <div class="activity-location">📍 ${act.location}</div>

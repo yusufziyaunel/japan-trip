@@ -1,36 +1,32 @@
-# 📷 Fotoğraflar
+# 📷 Fotoğraf ekleme
 
-Bu klasör sitenin tüm fotoğraflarını barındırır.
+1. Her günün fotoğraflarını ilgili klasöre at: `photos/day01/`, `photos/day02/` … `photos/day13/`
+   Dosya adlarını değiştirmene gerek yok (`IMG_1234.jpg`, `DSC_5678.png`… hepsi olur).
+   Formatlar: `.jpg .jpeg .png .webp .gif .bmp`
+   Fotoğraflar dosya adı sırasına göre dizilir; telefon fotoğrafları zaten tarih sırasındadır.
 
-## Gün galerileri (otomatik)
+2. Terminalde proje klasöründe şunu çalıştır (her klasör için bir `dayXX.json` listesi üretir):
 
-1. Her günün fotoğraflarını ilgili klasöre at: `day01/`, `day02/` … `day13/`
-   (Dosya adı önemli değil: `IMG_1234.jpg`, `DSC_5678.jpg`, `tapinak.png` → hepsi olur.)
-   Desteklenen formatlar: `.jpg .jpeg .png .webp .gif .bmp`
-
-2. Proje kök dizininde tarayıcıyı çalıştır:
    ```
-   python scan_photos.py
+   python3 scan_photos.py
    ```
-   Bu, her klasör için `day01.json`, `day02.json` … manifest dosyalarını üretir.
-   Sayfalar bu JSON'u okuyup fotoğrafları otomatik masonry galeriye dizer.
+
+   Sadece bir günü güncellemek için: `python3 scan_photos.py day05`
 
 3. GitHub'a yükle:
+
    ```
    git add photos/
    git commit -m "Fotoğraflar eklendi"
    git push
    ```
 
-## Gastronomi fotoğrafları (elle)
+Her gün sayfasındaki galeri bu listeyi okuyup fotoğrafları kendiliğinden dizer; sayfaları düzenlemen gerekmez.
 
-Yemek fotoğraflarını `gastronomi/` klasörüne koy, ardından
-`gastronomi.html` içindeki `dishes` dizisinde her yemeğin `photos: [...]`
-satırını gerçek dosya adıyla güncelle. Örn:
+**İpucu:** Telefon fotoğrafları 3–6 MB olur, site yavaşlar. Yüklemeden önce küçültmek için
+(Mac, Terminal) `sips -Z 1800 photos/day01/*.jpg` komutu uzun kenarı 1800 piksele indirir.
 
-```js
-photos: ['photos/gastronomi/manbaken-ramen.jpg']
-```
+## Gastronomi fotoğrafları
 
-> Not: `.gitkeep` dosyaları klasörlerin git'te boşken de kalması içindir;
-> fotoğraf ekleyince onları silebilirsin (zorunlu değil).
+Yemek fotoğraflarını `photos/gastronomi/` klasörüne koy ve `gastronomi.html` içindeki
+`photos: [...]` satırına dosya adını yaz: `photos: ['photos/gastronomi/manbaken-ramen.jpg']`
