@@ -144,3 +144,252 @@ body.gastro-page > .side-jp { position: fixed; right: 18px; top: 30%; color: var
     .next-day-card { grid-template-columns: 1fr !important; }
     .next-day-image { min-height: 190px; border-right: 0; border-bottom: 2px solid var(--ink, #22264B); }
 }
+
+/* ---------- Gün sahneleri (hero animasyonu) ---------- */
+.hero-scene { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.day-detail-page .day-hero .hero-content { z-index: 3; }
+.sc-city { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: clamp(110px, 19vw, 190px); overflow: visible; }
+.hero-kanji { white-space: nowrap; }
+.day-hero.has-scene .hero-kanji { top: 34%; }
+/* Sahneli günlerde bilgi kutuları sahnenin üstünde kalsın: başlık alanına sahne yüksekliği kadar alt boşluk */
+.day-detail-page .day-hero.has-scene { padding-bottom: calc(clamp(110px, 19vw, 190px) - 14px) !important; }
+
+/* --- Ortak: pencereler, neon tabelalar --- */
+.sc-win { opacity: 0; animation: scWin .7s ease-out var(--d, 4s) forwards; }
+@keyframes scWin { from { opacity: 0; } to { opacity: .95; } }
+.sc-neon { animation: scNeon .9s steps(2) var(--d, 2s) both; }
+@keyframes scNeon { 0% { opacity: .35; } 50% { opacity: 1; } 75% { opacity: .5; } 100% { opacity: 1; } }
+
+/* --- Ortak: karakterler --- */
+.sc-walkers { animation: scWalk var(--wd, 4.6s) cubic-bezier(.3,.6,.4,1) var(--wdl, .9s) both; }
+@keyframes scWalk { from { transform: translateX(var(--wfrom, -520px)); } to { transform: translateX(var(--wto, 0px)); } }
+.sc-person { animation: scStep .46s ease-in-out var(--wdl, .9s) var(--steps, 10); }
+@keyframes scStep { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3.5px); } }
+.sc-still { animation: scBreath 2.6s ease-in-out infinite; }
+@keyframes scBreath { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-1.5px); } }
+.sc-leg { transform-box: fill-box; transform-origin: 50% 8%; }
+.sc-leg.la { animation: scLegA .46s ease-in-out var(--wdl, .9s) var(--steps, 10); }
+.sc-leg.lb { animation: scLegB .46s ease-in-out var(--wdl, .9s) var(--steps, 10); }
+@keyframes scLegA { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(26deg); } 75% { transform: rotate(-26deg); } }
+@keyframes scLegB { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-26deg); } 75% { transform: rotate(26deg); } }
+.sc-case { animation: scCase .46s ease-in-out var(--wdl, .9s) var(--steps, 10); transform-box: fill-box; transform-origin: 80% 100%; }
+@keyframes scCase { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-3deg); } }
+/* pozlar: yürüyüşten sonra kol kalkar */
+.sc-pose { transform-box: fill-box; transform-origin: 0% 100%; }
+.sc-pose.late { animation: scRaise .55s cubic-bezier(.3,1.5,.5,1) var(--raise, 5.6s) both; }
+@keyframes scRaise { from { transform: rotate(130deg); opacity: 0; } 20% { opacity: 1; } to { transform: rotate(0); opacity: 1; } }
+.sc-down { animation: scHide .01s linear var(--raise, 5.6s) forwards; }
+@keyframes scHide { to { opacity: 0; } }
+.sc-flash { opacity: 0; animation: scFlash 2.6s ease-out var(--flash, 6.3s) infinite; }
+@keyframes scFlash { 0% { opacity: 0; transform: scale(.4); } 6% { opacity: 1; transform: scale(1.6); } 20%, 100% { opacity: 0; transform: scale(1); } }
+.sc-flash { transform-box: fill-box; transform-origin: center; }
+.sc-fan { transform-box: fill-box; transform-origin: 0% 100%; animation: scFan .55s ease-in-out infinite alternate; }
+.sc-fan.b { transform-origin: 100% 100%; animation-delay: -.27s; }
+@keyframes scFan { from { transform: rotate(-22deg); } to { transform: rotate(18deg); } }
+.sc-heart { opacity: 0; transform-box: fill-box; transform-origin: center; animation: scHeart 1.8s ease-out 5.5s forwards; }
+@keyframes scHeart { 0% { opacity: 0; transform: translateY(8px) scale(.4); } 30% { opacity: 1; transform: translateY(-4px) scale(1.15); } 100% { opacity: 1; transform: translateY(-14px) scale(1); } }
+
+/* --- Gün 1: Shinjuku gün batımı, Godzilla --- */
+.scene-d1 .sc-sun { animation: scSun 6s cubic-bezier(.45,.05,.55,.95) forwards; }
+@keyframes scSun { from { transform: translateY(-14px); } to { transform: translateY(172px); } }
+.scene-d1 .sc-walkers { --raise: 5.6s; }
+.scene-d1 g:has(> .sc-walkers) .sc-pose.late { animation-delay: 5.6s; }
+.sc-god-in { animation: scPeek .9s cubic-bezier(.3,1.5,.5,1) 4.6s both; }
+@keyframes scPeek { from { transform: translateY(54px); } to { transform: translateY(0); } }
+.sc-eye { transform-box: fill-box; transform-origin: center; animation: scBlink 3.2s ease-in-out 6s infinite; }
+@keyframes scBlink { 0%, 90%, 100% { transform: scaleY(1); } 94% { transform: scaleY(.1); } }
+.sc-roar { opacity: 0; transform-box: fill-box; transform-origin: 100% 100%; animation: scRoar 2.4s ease-out 6.5s forwards; }
+@keyframes scRoar { 0% { opacity: 0; transform: scale(.3); } 15% { opacity: 1; transform: scale(1.1); } 25%, 80% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1); } }
+.sc-mouth { transform-box: fill-box; transform-origin: 50% 0; animation: scMouth .5s ease-in-out 6.5s 3 alternate; }
+@keyframes scMouth { to { transform: scaleY(2.2); } }
+.sc-plane { position: absolute; top: 14%; left: -90px; width: 58px; height: 58px; animation: scPlane 4.4s cubic-bezier(.4,.1,.5,1) .3s forwards; }
+.sc-plane i { display: block; width: 100%; height: 100%; transform: rotate(38deg); filter: drop-shadow(0 4px 4px rgba(34,38,75,.28)); animation: scBob 1.1s ease-in-out infinite; }
+.sc-plane i svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.sc-plane::before { content: ''; position: absolute; right: 52px; top: 52%; width: 130px; border-top: 4px dotted rgba(255,255,255,.9); }
+@keyframes scPlane { 0% { left: -90px; opacity: 1; } 85% { opacity: 1; } 100% { left: calc(100% + 30px); opacity: 0; } }
+@keyframes scBob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -7px; } }
+
+/* --- Gün 2: Asakusa sabahı, tütsü --- */
+.sc-rise { animation: scRise 5.5s cubic-bezier(.2,.7,.3,1) both; }
+@keyframes scRise { from { transform: translateY(150px); } to { transform: translateY(0); } }
+.sc-lantern { transform-box: fill-box; transform-origin: 50% 0; animation: scSwing 2.8s ease-in-out infinite alternate; }
+@keyframes scSwing { from { transform: rotate(-4deg); } to { transform: rotate(4deg); } }
+.sc-petal { transform-box: fill-box; animation: scPetal 6s linear var(--d, 0s) infinite; }
+@keyframes scPetal { 0% { transform: translate(0, 0) rotate(0); opacity: 0; } 10% { opacity: 1; } 100% { transform: translate(var(--x, 200px), 110px) rotate(540deg); opacity: 0; } }
+.sc-smoke { opacity: 0; animation: scSmoke 4.5s ease-out var(--d, 0s) infinite; }
+@keyframes scSmoke { 0% { opacity: 0; transform: translateY(6px) scaleY(.6); } 25% { opacity: .85; } 100% { opacity: 0; transform: translateY(-46px) scaleY(1.1); } }
+.sc-smoke { transform-box: fill-box; transform-origin: 50% 100%; }
+
+/* --- Gün 3: yağmurlu Shibuya Scramble --- */
+.sc-drop { animation: scDrop 1.1s linear var(--d, 0s) infinite; }
+@keyframes scDrop { from { transform: translate(0, 0); } to { transform: translate(-30px, 250px); } }
+.sc-ripple { transform-box: fill-box; transform-origin: center; opacity: 0; animation: scRipple 1.6s ease-out var(--d, 0s) infinite; }
+@keyframes scRipple { 0% { transform: scale(.3); opacity: .9; } 100% { transform: scale(1.8); opacity: 0; } }
+.sc-screen { fill: #FF8FD0; animation: scScreen 3s steps(1) infinite; }
+.sc-screen.s2 { animation-delay: -1s; } .sc-screen.s3 { animation-delay: -2s; }
+@keyframes scScreen { 0% { fill: #FF8FD0; } 33% { fill: #5CE1E6; } 66% { fill: #FFC857; } }
+.sc-clouds { animation: scClouds 14s ease-in-out infinite alternate; }
+@keyframes scClouds { from { transform: translateX(-20px); } to { transform: translateX(20px); } }
+.sc-red { animation: scOff .01s linear 1.6s forwards; }
+.sc-green { opacity: .18; animation: scOn .01s linear 1.6s forwards; }
+@keyframes scOff { to { opacity: .18; } } @keyframes scOn { to { opacity: 1; } }
+.sc-ped { animation: scPed 4.2s cubic-bezier(.4,.2,.5,1) var(--d, 1.8s) both; }
+@keyframes scPed { from { transform: translateX(0); } to { transform: translateX(var(--dx, 120px)); } }
+
+/* --- Gün 4: Saray, Ginza, teamLab --- */
+.sc-swan { animation: scSwan 16s ease-in-out infinite alternate; }
+@keyframes scSwan { from { transform: translateX(20px); } to { transform: translateX(300px); } }
+.sc-hand-h, .sc-hand-m { transform-box: view-box; transform-origin: 610px 64px; }
+.sc-hand-m { animation: scSpin 6s linear infinite; }
+.sc-hand-h { animation: scSpin 72s linear infinite; }
+@keyframes scSpin { to { transform: rotate(360deg); } }
+.sc-lamp { fill: #F3D9A0; animation: scLampOn .6s ease-out var(--d, 2s) forwards, scLampHue 6s linear calc(var(--d, 2s) + .6s) infinite; }
+@keyframes scLampOn { 0% { fill: #F3D9A0; } 40% { fill: #fff; } 100% { fill: #FF8FD0; } }
+@keyframes scLampHue { 0% { fill: #FF8FD0; } 25% { fill: #5CE1E6; } 50% { fill: #FFE07A; } 75% { fill: #B388FF; } 100% { fill: #FF8FD0; } }
+.scene-d4 .sc-pose { animation: scRaise .6s cubic-bezier(.3,1.5,.5,1) 1.2s both; }
+.scene-d4 .sc-flash { --flash: 2.4s; }
+
+
+/* --- Gün 5: Shinkansen + Yasaka Tapınağı --- */
+.sc-train { animation: scTrain 2.8s cubic-bezier(.5,0,.6,1) .4s both; }
+@keyframes scTrain { from { transform: translateX(0); } to { transform: translateX(-1900px); } }
+.sc-glow { opacity: .35; animation: scGlow .8s ease-out var(--d, 2s) forwards; }
+@keyframes scGlow { to { opacity: 1; filter: drop-shadow(0 0 4px #FFE07A); } }
+.sc-bell { transform-box: fill-box; transform-origin: 50% 0; animation: scRing .35s ease-in-out 1.6s 6 alternate; }
+@keyframes scRing { from { transform: rotate(-5deg); } to { transform: rotate(5deg); } }
+.scene-d5 .sc-pose { animation: scRaise .5s cubic-bezier(.3,1.5,.5,1) .8s both; }
+.sc-clap { transform-box: fill-box; transform-origin: 0% 100%; animation: scClap 1.6s ease-in-out 3.6s infinite; }
+.sc-clap.b { transform-origin: 100% 100%; animation-name: scClapB; }
+@keyframes scClap { 0%, 30%, 100% { transform: rotate(0); } 8%, 22% { transform: rotate(-16deg); } }
+@keyframes scClapB { 0%, 30%, 100% { transform: rotate(0); } 8%, 22% { transform: rotate(16deg); } }
+.sc-spark { opacity: 0; animation: scSpark 1.6s ease-out 3.6s infinite; }
+@keyframes scSpark { 0%, 12%, 26%, 100% { opacity: 0; } 15%, 29% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .sc-train { display: none; } .sc-glow { opacity: 1; } }
+
+/* --- Ortak yeni hareketler --- */
+.sc-still.sc-bowing { transform-box: fill-box; transform-origin: 50% 100%; animation: scBow 1.6s ease-in-out var(--bow, 4.3s) both; }
+@keyframes scBow { 0%, 100% { transform: rotate(0); } 25%, 65% { transform: rotate(var(--bowdir, 16deg)); } }
+.sc-still.sc-jump { animation: scJump .9s cubic-bezier(.3,1.6,.5,1) var(--jump, 2.7s) both; }
+@keyframes scJump { 0% { transform: translate(0, 0); } 35% { transform: translate(-4px, -16px); } 100% { transform: translate(-10px, 0); } }
+.sc-still.sc-laugh { animation: scLaugh .22s ease-in-out 3s 10 alternate; }
+@keyframes scLaugh { from { transform: translateY(0) rotate(-2deg); } to { transform: translateY(-2px) rotate(2deg); } }
+.sc-pop { opacity: 0; animation: scPop .35s cubic-bezier(.3,1.6,.5,1) var(--raise, 5s) both; transform-box: fill-box; transform-origin: 50% 100%; }
+@keyframes scPop { from { opacity: 0; transform: scale(.4); } to { opacity: 1; transform: scale(1); } }
+.sc-wave { transform-box: fill-box; transform-origin: 0% 100%; animation: scWaveArm .5s ease-in-out 4s 12 alternate both; }
+@keyframes scWaveArm { from { transform: rotate(-14deg); } to { transform: rotate(14deg); } }
+.sc-ex, .sc-haha, .sc-bye { opacity: 0; }
+
+/* --- Gün 6: Randen + eğilme + turna --- */
+.sc-tram { animation: scTram 8s cubic-bezier(.45,0,.4,1) .3s both; }
+@keyframes scTram { 0% { transform: translateX(-480px); } 40% { transform: translateX(0); } 72% { transform: translateX(0); } 100% { transform: translateX(1150px); } }
+.sc-cond { transform-box: fill-box; transform-origin: 50% 100%; animation: scCond 1.2s ease-in-out 3.6s both; }
+@keyframes scCond { 0%, 100% { transform: translateY(0); } 40%, 70% { transform: translateY(4px); } }
+.sc-glove { animation: scGlove .35s ease-in-out 3.5s 6 alternate; }
+@keyframes scGlove { from { transform: translateY(0); } to { transform: translateY(-4px); } }
+.scene-d6 .sc-bowing { --bow: 4.6s; }
+.sc-rays { animation: scRays 4s ease-in-out infinite alternate; }
+@keyframes scRays { from { opacity: .1; } to { opacity: .24; } }
+.sc-crane { opacity: 0; animation: scCrane 4s ease-in-out 6.2s forwards; }
+@keyframes scCrane { 0% { opacity: 0; transform: translate(0, 0); } 10% { opacity: 1; } 100% { opacity: 1; transform: translate(240px, -110px); } }
+.sc-crane-flap { transform-box: fill-box; transform-origin: center; animation: scFlap .3s ease-in-out infinite alternate; }
+@keyframes scFlap { from { transform: scaleY(1); } to { transform: scaleY(.55); } }
+
+/* --- Gün 7: koiler --- */
+.sc-koi { animation: scKoi var(--dur, 8s) linear var(--d, 0s) infinite; }
+@keyframes scKoi { from { transform: translateX(-80px); } to { transform: translateX(420px); } }
+.sc-koijump { opacity: 0; animation: scKoiJump 4.4s ease-out var(--d, 2s) infinite; }
+@keyframes scKoiJump { 0% { opacity: 0; transform: translate(0, 0) rotate(0); } 8% { opacity: 1; } 22% { transform: translate(14px, -26px) rotate(-30deg); } 36% { opacity: 1; transform: translate(28px, 0) rotate(40deg); } 40%, 100% { opacity: 0; transform: translate(28px, 6px); } }
+.sc-splash { opacity: 0; animation: scSplash 4.4s ease-out var(--d, 2.6s) infinite; }
+@keyframes scSplash { 0%, 30% { opacity: 0; } 34% { opacity: 1; } 46%, 100% { opacity: 0; } }
+.scene-d7 .sc-pose { animation: scRaise .55s cubic-bezier(.3,1.5,.5,1) 1s both; }
+
+/* --- Gün 8: geyikler --- */
+.sc-bowhead, .sc-nudgehead, .sc-graze { transform-box: fill-box; transform-origin: 0% 100%; }
+.sc-bowhead { animation: scDeerBow 2.4s ease-in-out .8s both; }
+@keyframes scDeerBow { 0%, 100% { transform: rotate(0); } 18%, 32% { transform: rotate(34deg); } 46% { transform: rotate(0); } 62%, 76% { transform: rotate(34deg); } }
+.sc-lunge { animation: scLunge .6s cubic-bezier(.3,1.5,.5,1) 3.6s both; }
+@keyframes scLunge { 0% { transform: translateX(0); } 60% { transform: translateX(22px); } 100% { transform: translateX(14px); } }
+.sc-senbei { animation: scHide .01s linear 3.9s forwards; }
+.sc-nudge { animation: scNudge 1.2s ease-in-out 4.6s both; }
+@keyframes scNudge { 0% { transform: translateX(30px); } 40% { transform: translateX(0); } 55% { transform: translateX(-12px); } 100% { transform: translateX(-4px); } }
+.sc-nudgehead { animation: scDeerBow2 1.2s ease-in-out 4.6s both; }
+@keyframes scDeerBow2 { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(28deg); } }
+.sc-bump { animation: scBump .5s cubic-bezier(.3,1.6,.5,1) 5.2s both; }
+@keyframes scBump { 0% { transform: translate(0, 0); } 40% { transform: translate(-10px, -8px); } 100% { transform: translate(-12px, 0); } }
+.scene-d8 .sc-pop { --raise: 5.5s; }
+.scene-d8 .sc-down { animation-delay: 5.5s; }
+.scene-d8 .sc-ex { animation: scPopIn 1.6s ease-out 5.2s forwards; }
+.scene-d8 .sc-pose { animation: scRaise .55s cubic-bezier(.3,1.5,.5,1) .5s both; }
+.sc-graze { animation: scGraze 3s ease-in-out infinite alternate; }
+@keyframes scGraze { from { transform: rotate(0); } to { transform: rotate(40deg); } }
+@keyframes scPopIn { 0% { opacity: 0; transform: translateY(6px) scale(.5); } 20%, 75% { opacity: 1; transform: translateY(0) scale(1); } 100% { opacity: 0; } }
+.sc-ex, .sc-haha, .sc-bye { transform-box: fill-box; transform-origin: 50% 100%; }
+
+/* --- Gün 9: acı köri --- */
+.sc-eat { transform-box: fill-box; transform-origin: 0% 100%; animation: scEat .5s ease-in-out .8s 3 alternate; }
+@keyframes scEat { from { transform: rotate(18deg); } to { transform: rotate(-6deg); } }
+.sc-flush { opacity: 0; animation: scFlush .8s ease-out 2.2s forwards; }
+@keyframes scFlush { to { opacity: 1; } }
+.sc-fire { opacity: 0; transform-box: fill-box; transform-origin: 0% 50%; animation: scFire .7s ease-out 2.6s 6; }
+@keyframes scFire { 0% { opacity: 0; transform: scale(.3); } 30% { opacity: 1; transform: scale(1.2); } 100% { opacity: 0; transform: translateX(10px) scale(1.4); } }
+.sc-sweat { opacity: 0; animation: scSweat 1s ease-in 2.6s 4; }
+@keyframes scSweat { 0% { opacity: 0; transform: translateY(0); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(8px); } }
+.scene-d9 .sc-pose.late { --raise: 3.4s; animation-delay: 3.4s; }
+.scene-d9 .sc-down { animation-delay: 3.4s; }
+
+/* --- Gün 10: Shinkansen içi --- */
+.sc-land { animation: scLand 2.2s linear infinite; }
+@keyframes scLand { from { transform: translateX(0); } to { transform: translateX(-1200px); } }
+.sc-clouds2 { animation: scClouds2 12s linear infinite; }
+@keyframes scClouds2 { from { transform: translateX(0); } to { transform: translateX(-300px); } }
+.sc-fujimove { animation: scFujiIn 6s cubic-bezier(.2,.7,.3,1) .2s both; }
+@keyframes scFujiIn { from { transform: translateX(1100px); } to { transform: translateX(0); } }
+.scene-d10 .sc-pose.late { animation-delay: 4.4s; }
+.scene-d10 .sc-down { animation-delay: 4.4s; }
+.scene-d10 .sc-flash { --flash: 5s; }
+
+/* --- Gün 11: Hokusai Müzesi --- */
+.sc-hokhead { transform-box: fill-box; transform-origin: 50% 100%; animation: scHokHead 1.2s ease-in-out 2.3s both; }
+@keyframes scHokHead { 0% { transform: rotate(0); } 40%, 100% { transform: rotate(-24deg) translateX(-2px); } }
+.sc-brush { transform-box: fill-box; transform-origin: 0% 50%; animation: scBrush .3s ease-in-out 2.4s 6 alternate; }
+@keyframes scBrush { from { transform: rotate(0); } to { transform: rotate(-16deg); } }
+.scene-d11 .sc-jump { --jump: 2.7s; }
+.scene-d11 .sc-ex { animation: scPopIn 1.8s ease-out 2.7s forwards; }
+.scene-d11 .sc-haha { animation: scPopIn 2s ease-out 3.1s forwards; }
+.sc-wavecurl { animation: scCurl 2.4s ease-in-out infinite alternate; }
+@keyframes scCurl { from { transform: translateX(-4px); } to { transform: translateX(6px); } }
+
+/* --- Gün 12: Shibuya Sky --- */
+.sc-night { opacity: 0; animation: scNight 6s ease-in-out .5s forwards; }
+@keyframes scNight { to { opacity: 1; } }
+.sc-stars { opacity: 0; animation: scFlush 2s ease-out 4.5s forwards; }
+.scene-sun12 { animation: scSun12 5.5s ease-in .3s forwards; }
+@keyframes scSun12 { to { transform: translateY(70px); } }
+.scene-d12 .sc-pose { animation: scRaise .55s cubic-bezier(.3,1.5,.5,1) 3.6s both; }
+.scene-d12 .sc-flash { --flash: 4.8s; }
+.sc-pola { opacity: 0; animation: scPola 3s ease-out 5.1s forwards; }
+@keyframes scPola { 0% { opacity: 0; transform: translate(0, 30px) scale(.3); } 20% { opacity: 1; transform: translate(0, 0) scale(1); } 100% { opacity: 1; transform: translate(40px, -20px) rotate(10deg); } }
+
+/* --- Gün 13: havalimanı --- */
+.sc-takeoff { animation: scTakeoff 6s cubic-bezier(.55,0,.6,1) 1.5s both; }
+@keyframes scTakeoff { 0% { transform: translate(0, 0) scale(1); } 55% { transform: translate(-700px, 0); } 100% { transform: translate(-1300px, -120px) scale(.6); } }
+.sc-blink { animation: scBlink2 1s steps(1) infinite; }
+@keyframes scBlink2 { 50% { opacity: .3; } }
+.sc-topbox { transform-box: fill-box; transform-origin: 100% 100%; animation: scTopbox 1.6s ease-in-out 3.9s both; }
+@keyframes scTopbox { 0% { transform: rotate(0); } 20% { transform: rotate(8deg); } 40% { transform: rotate(-6deg); } 60% { transform: rotate(4deg); } 100% { transform: rotate(0); } }
+.scene-d13 .sc-bye { animation: scPopIn 3s ease-out 4.6s forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+    .sc-night { opacity: 1; } .sc-stars, .sc-flush, .sc-pola, .sc-pop { opacity: 1; }
+    .sc-tram, .sc-takeoff, .sc-crane, .sc-koijump, .sc-fire, .sc-sweat, .sc-ex, .sc-haha, .sc-bye { display: none; }
+    .sc-senbei { opacity: 0; }
+}
+
+@media (max-width: 700px) { .sc-plane { width: 44px; height: 44px; } .sc-plane::before { right: 40px; width: 90px; } }
+@media (prefers-reduced-motion: reduce) {
+    .hero-scene *, .sc-plane i { animation: none !important; }
+    .scene-d1 .sc-sun { transform: translateY(172px); }
+    .sc-win, .sc-heart, .sc-green, .sc-lamp { opacity: 1; }
+    .sc-down { opacity: 0; }
+    .sc-flash, .sc-roar, .sc-smoke, .sc-rain, .sc-plane { display: none; }
+}
